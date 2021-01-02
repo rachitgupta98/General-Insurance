@@ -1,0 +1,17 @@
+<div>
+    <div style="height: 50px;background-color: tomato;">
+        <img src='0.jpg'/>
+        General Vehicle Insurance
+        <div style="float: right;background-color: turquoise;padding: 4px;margin: 4px;position:relative;display: inline-block;">
+            <p class="links"(click)="displayLinks()">
+                Login
+            </p>
+            <div *ngIf="link">
+                <a class="links" href="#">User</a><br>
+                <a class="links" href="#">Admin</a><br>
+                <a class="links" href="#">Register</a><br>
+              </div>
+        </div>
+    </div>
+    
+</div>

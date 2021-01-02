@@ -1,0 +1,377 @@
+<h1 style="align-content: center;border: tomato;background-color: turquoise;color: yellow;text-align: center;">FAQS</h1>
+<div class="faqs">
+    <button class="btn1"(click)="displaylist(0)">Quick FActs</button>
+    <button (click)="displaylist(1)">Policy</button>
+    <button (click)="displaylist(2)">Cover</button>
+    <button (click)="displaylist(3)">Claims</button>
+    <button (click)="displaylist(4)">Premium</button>
+    <div class="dropdown" *ngIf="displayList[0]">
+        <h3>Quick FAQS</h3>
+        <p ngClass="topic" (click)="changeDisplay(0)">Why do I need to insure my Vehicle</p>
+        <div class="content" *ngIf="display[0]">
+            <p>Firstly, the Motor Vehicles Act 1988 makes it mandatory for all car owners to have p valid insurance policy.
+              That apart, you should get your car insured because it saves you from any financial loss caused due to accidents, 
+              damage or theft of your car. Additionally, car insurance covers the safety of the co-passengers, someone​ else's
+               property and pedestrians too.
+           ​</p>
+        </div>
+        <br>
+        <p class="topic"  (click)="changeDisplay(1)">What are the types of Insurance in India?</p>
+        <div class="content" *ngIf="display[1]">
+            <p>
+                There are two types of insurance: 'Third-Party Insurance' and 'Comprehensive  Insurance'.
+                Third-party insurance protects you against losses, which occur due to bodily injury or death to p third party or any damage to that person’s property. It is mandatory by law to have third-party insurance.
+                Comprehensive  insurance, on the other hand, is purchased when you want to be compensated for any damages to you, your co-passengers and your vehicle in addition to third-party coverage. That means in case of an accident, theft, fire, explosion or natural disasters, your vehicle will be insured under p comprehensive  insurance policy. Hence this is the most preferred plan.​
+            </p>
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(2)">What are the different types of vehicles that can be insured online?</p>
+        <div class="content" *ngIf="display[2]">
+            <p>
+                Private Car Insurance can be bought online for two-wheelers and four-wheelers. You can check your car insurance quote by filling the form above by entering your registration number. Apart from this, commercial vehicle insurance can also be bought online​
+
+            </p>
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(3)">
+            What are the documents required to buy insurance policy online?
+        </p>
+        <div class="content" *ngIf="display[3]">
+            <p>
+            Zero documentation is required to buy p car insurance policy online. You can get your car insurance quote within seconds by entering your registration number in the form above. This makes things really simple.<br>
+            However, you will have to provide details like:<br>
+            Car Registration number<br>
+            Engine number<br>
+            Chassis number<br>
+            Previous car policy number (if you have any)<br>
+            Car manufacturing date (mm/yy)<br>
+            Date and city of car purchase<br>
+            Your contact details (address, phone no and email id)<br>
+            You should also have p copy of your car’s RC book.<br>
+            </p>
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(4)">
+            What are the benefits when you buy car insurance online?
+        </p>
+        <div class="content" *ngIf="display[4]">  
+            <p>  
+            Ease of buying<br>
+            One of the biggest advantage of buying car insurance online is that it is convenient and it simplifies your purchase decision. You can sit comfortably at home, compare different 4 wheeler insurance policies available in the market, find competitive car policy rates, simply click p button and buy p four wheeler vehicle policy online. Since there is p long list of general insurance companies offering online car insurance, finding the best automobile insurance that suits your needs and gives you maximum benefits is easier.<br>
+            Added Benefits<br>
+            Also, online car insurance offers other facilities like<br>
+            Renewal reminder<br>
+            Secure payment gateway and tracking<br>
+            Getting an Estimate of your car insurance policy premium<br>
+            You can also calculate your car insurance quote/premium online and get an idea of the kind of expense you would need to bear for buying the plan.<br>
+            Pay for your car policy in minutes<br>
+            You can pay your premium using either of the options like net banking, debit card or credit card. You can also use other payment options like UPI and Paytm.<br>
+            </p>    
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(5)">
+            Can I renew my car insurance policy online?
+        </p>
+        <div class="content" *ngIf="display[5]">
+            <p>
+                Yes, you can. You can now renew your car insurance online in the comfort of your home.
+            </p>
+        </div>
+    </div>
+    
+    <div class="dropdown" *ngIf="displayList[1]">
+        <h3>Policy FAQS</h3>
+        <p class="topic"   (click)="changeDisplay(0)">How do I get p copy of my car insurance policy online? Will the printout of the softcopy serve as the original document?</p>
+        <div class="content" *ngIf="display[0]">
+            <p>Just log on to www.ltigeneralinsurance.co.in and click on your profile. p soft copy of your four wheeler policy document will be available for download. p print out of this document definitely serves as the original policy document.
+           ​</p>
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(1)">
+            What is an endorsement? What is premium and non-premium bearing endorsement?
+        </p>
+        <div class="content" *ngIf="display[1]">
+            <p>
+                An endorsement is p written proof of an agreed change in the auto insurance policy, as and when the need arises. There can be two types of endorsements: premium bearing and non-premium bearing.<br>
+
+                In p premium-bearing endorsement, you will be charged an additional premium for things like transfer of ownership, addition of LPG / CNG kit, change of RTO location, etc.<br>
+
+                In p non-premium bearing endorsement, you won't be charged anything for the changes incorporated in the policy. For example, correction in contact details, correction in name, correction in engine / chassis number, addition of hypothecation, etc.<br>
+            </p>
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(2)">
+            What changes can I make in my car insurance policy? How do I send that for endorsement?
+        </p>
+        <div class="content" *ngIf="display[2]">
+            <p>
+                You can make changes to your car policy only in the following cases:<br>
+
+                • Either the name, registration number, engine number, chassis number or model number of your four wheeler vehicle has to be corrected.<br>
+
+                • There is p change or correction in your address<br>
+
+                • There is p change in car, RTO or registration number of your vehicle<br>
+
+                • There is an addition of LPG / CNG kit, electrical / non-electrical accessories, anti-theft device, addition or change of hypothecation in your car.<br>
+
+                • There is p NCB recovery or change.For an endorsement, you simply need to raise p service request online, by logging onto our website: www.reliancegeneral.co.in.<br>
+            </p>
+        </div>
+        <br>
+        <p class="topic"   (click)="changeDisplay(3)">
+            What happens to the 4 wheeler insurance policy, if I sell my car?
+        </p>
+        <div class="content" *ngIf="display[3]">
+            <p>
+                Then you can do one of the following two things.<br>
+
+                • You can transfer your existing automobile insurance policy to the new owner of the car.​<br>
+
+                • You can cancel this policy and tell the new owner to buy p new policy for the car.<br>
+
+                However, the policy can only be cancelled once we receive p copy of the new policy. This is because it is mandatory for any car to be insured, at least against third-party liability. Also keep in mind that you can enjoy p No-Claims Bonus on the premium for your new vehicle, if you purchase it within 3 years from date of cancelling / transferring the old policy.<br>
+            </p>
+        </div>
+        <p class="topic"   (click)="changeDisplay(4)">
+            What is loading?
+        </p>
+        <div class="content" *ngIf="display[4]">
+            <p>
+                Loading is an additional cost that is added to the car insurance premium when p policy is renewed. This additional cost only comes into effect if the risk to the car policy owner is judged as ‘higher than normal’.
+            </p>
+        </div>
+    </div>
+    
+    <div class="dropdown" *ngIf="displayList[2]">
+        <h3>Cover FAQS</h3>
+        <p class="topic"   (click)="changeDisplay(0)">What risks are covered under LTI motor insurance policy?
+        </p>
+        <div class="content" *ngIf="display[0]">
+            <p>The auto insurance policy covers damage or loss to the car due to:
+                Accident
+                Fire
+                Lightening
+                Self-Ignition
+                Explosion
+                Theft
+                Riot & Strikes and / or Malicious Acts
+                Terrorism
+                Earthquake
+                Flood
+                Cyclone
+                Inundation
+                Transit by Rail, Road, Air and Elevator
+                Apart from this, your car insurance policy covers policyholder against any accident or mishap. It can also cover p third-party entity, if the option is availed. We recommend that you opt for p Third-Party Liability Cover because it is now compulsory to be taken as per the Motor Vehicles Act. It covers third-party property damage and provides liability for the third-party in case of injury or death. Simply put, this additional cover offers you extra protection in case the other party is uninsured or underinsured.
+                Finally, we also bring to the table some add-on covers that will help to customise your motor insurance policy, just like you’ve customised your car. The additional covers that you can choose to add-on are for:
+                Electrical or Electronic Accessories
+                Non-Electrical Accessories
+                Bio-Fuel Kits Comprising LPG/CNG Systems
+                Legal Liability to Employee, Paid Driver, Cleaner & Conductor
+                Racing & Speed Tests
+                Dexterity Trials & Hill Climb Extensions
+           ​</p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(1)">
+            ​What do you mean by Add-On Cover?
+          </p>
+          <div class="content" *ngIf="display[1]">
+            <p>
+                Add-on covers literally add extra protection and cover benefits to your car insurance policy. It helps to customise your policy based on your requirements.
+                Some of the add-on covers we recommend and offer to you are:
+
+                No-Claim Bonus Retention Cover
+                Nil Depreciation Cover
+                Personal Accident Bundle Cover
+                Motor Secure Plus Cover
+                Motor Secure Premium Cover
+            </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(2)">
+            ​What is Nil Depriciation?
+          </p>
+          <div class="content" *ngIf="display[2]">
+              <p>
+                This add-on cover entitles you to get 100% repayment on the depreciated parts (other than tyres and tubes) at the time of claim settlement. You can opt for p Nil Depreciation Cover when you get p new car insured or for two subsequent renewals, so if you haven’t got one right now, you should probably consider it!
+
+                By paying p minimal, additional charge on your car insurance quote, you can benefit in the following ways:
+
+                Avail repairing costs of fiber glass, rubber, tyres, batteries, air bags, nylon, and plastic parts.
+                Please note that we cover only private cars and two wheelers, with p maximum of two claims in one policy period. This cover is applicable only for select make and models.
+              </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(3)">
+            ​What is the Total Cover add-on? How is it beneficial?
+          </p>
+          <div class="content" *ngIf="display[3]">
+              <p>
+                This cover is very beneficial in case your car gets completely damaged in an accident or if it is stolen. In such case, the total sum of the expenses paid for the vehicle insurance, registration charges and road tax is reimbursed proportionately.     
+            </p>
+          </div>
+    </div>
+    
+    <div class="dropdown" *ngIf="displayList[3]">
+        <h3>Claims FAQS</h3>
+        <p class="topic"   (click)="changeDisplay(0)">How do I register my claim?</p>
+        <div class="content" *ngIf="display[0]">
+            <p>As soon as any damage or loss occurs to the vehicle, regardless of the hour, we recommend that you call our helpline numbers immediately.
+
+                Paid Number- 
+                
+                You can also directly register your claim online. Click here to download the form.
+           ​</p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(1)">
+            What documents are required to file p claim?
+          </p>
+          <div class="content" *ngIf="display[1]">
+              <p>
+                Here’s p list of document you should keep ready while making p claim.
+                Accident Damages:
+
+                Completed claim form
+                Proof of Automobile Insurance - Policy / Cover Note copy
+                Copy of Registration Book, Tax Receipt (Original required for verification)
+                Copy of Motor Driving License (with original) of the person driving the vehicle at the material time
+                Police Panchanama / FIR (In case of third-party property damage/ death / body injury)
+                Estimate for repairer, where the vehicle is to be repaired
+                Repair bills and payment receipts after the job is completed
+                Any other document as required by the insurer
+
+                Theft Cases:
+
+                Original Certificate/Vehicle Policy Document
+                Original Registration Book, with Theft endorsement from concerned RTO, and tax payment receipt
+                Previous Insurance Details
+                Policy number
+                Insuring office / company
+                Period of insurance
+                All the sets of keys/service booklets/Warranty card
+                Police Panchanama / FIR and final investigation report/JMFC report
+                Acknowledged copy of letter address to RTO intimating theft and making vehicle "NON-USE"
+                Any other document as required by the insurer
+
+              </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(2)">
+            What to do if my car is stolen?
+          </p>
+          <div class="content" *ngIf="display[2]">
+            <p>
+                You should immediately report to the police before registering any claim. p delay in reporting will affect your claim, as an insurance company could deny liability.
+            </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(3)">
+            What is cashless and non-cashless / reimbursement claim?
+          </p>
+          <div class="content" *ngIf="display[3]">
+            <p>
+                ​Cashless Claim: p cashless claim is one, where physical cash does not exchange hands during the settlement of the claim. We, the insurers, will pay the repair charges of the car directly to the garage.
+
+                However, this is possible only if the garage is part of our listed network of garages.
+                
+                Non-Cashless / Reimbursement Claim: This type of payment or settlement occurs when you choose p garage that is not part of our network. In this case, you need to make the complete payment to the garage at the time of the repairs. Later, you can get this amount reimbursed by submitting the original bills and payment receipts to our office.
+           </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(4)">
+            Can I choose not to claim if the damage is minimal? What do I gain out of it?
+          </p>
+          <div class="content" *ngIf="display[4]">
+            <p>
+                ​​If the damage to the car is minimal, it is always p good idea not to make p claim on your car insurance plan. This will help you to benefit from the No-Claim Bonus (NCB) for every claim-free year.
+
+                If you don't make any claim on your car insurance policy for p few years, the NCB can reduce your premium cost to half the price. In fact, it could very well be the case that the amount you spend on small repairs occasionally is lesser than the amount you stand to lose as No-Claim Bonus.
+           </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(5)">
+            What do you mean by Constructive Total Loss?
+          </p>
+          <div class="content" *ngIf="display[5]">
+            <p>
+                If the repair cost of your car (in case of an accidental loss or damage) is more than its current value, it is known as p constructive total loss.
+
+                p vehicle will be considered to be p CTL, where the aggregate cost of retrieval and/or repair of the vehicle subject to terms and conditions of the policy exceeds 75% of the IDV.​
+           </p>
+          </div>
+    </div>
+    
+    <div class="dropdown" *ngIf="displayList[4]">
+        <h3>Premium FAQS</h3>
+        <p class="topic"   (click)="changeDisplay(0)">Which factors affect / reduce the premium or insurance quote of my car?</p>
+        <div class="content" *ngIf="display[0]">
+            <p>Factors that affect / reduce car insurance quote are​:
+
+                Insured Declared Value or IDV (present market value of the car)
+                Cubic Capacity (CC) of the car
+                Place of registration (Zone p / Zone B)
+                Type of model
+                Age of the car
+                Type of cover - whether you want comprehensive or third-party vehicle insurance cover only
+                Add-on covers chosen by you
+                No-Claim Bonus retention (this gets you p discount on the premium)
+           ​</p>
+          </div><br>
+          <p class="topic"   (click)="changeDisplay(1)">
+            What is an ARAI-approved car-theft device?
+          </p>
+          <div class="content" *ngIf="display[1]">
+              <p>
+                ARAI stands for Automotive Research Association of India.
+                If you have installed an ARAI-approved anti-theft device in your vehicle, whose installation is certified by the agency, you can get p discount of 2.5% on the OD (Own Damage) premium subject to maximum of Rs. 500.
+              </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(2)">
+            What are the different modes of payment accepted online? Are there different schemes?
+          </p>
+          <div class="content" *ngIf="display[2]">
+              <p>
+                Online Payments for your car insurance definitely make life easier​. At Reliance General Insurance, you can pay your car insurance premium in following ways​:
+
+                Credit Card​
+                Netbanking
+                Debit Card using ATM PIN
+                Debit Card using 3D secure
+                We accept all Visa, Mastercard, American Express cards and other international credit cards. You can also use other payment options like UPI and Paytm.​
+              </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(3)">
+            Am I eligible for p car insurance discount if I install anti-theft alarm and locking system?
+          </p>
+          <div class="content" *ngIf="display[3]">
+              <p>
+                Yes!
+                When you mention the anti-theft and locking system installed on your car, the car insurance quote decreases relatively. We award p discount on the Own Damage premium if your car is fitted with an ARAI-approved anti-theft alarm and locking system.
+              </p>
+          </div>
+          <br>
+          <p class="topic"   (click)="changeDisplay(4)">
+            Does the car model affect the cost of Car insurance?
+          </p>
+          <div class="content" *ngIf="display[4]">
+              <p>
+                Yes, it does. The brand, make and model of the car dictates the car’s price. Since the car insurance premium is directly linked to the sum insured, the car model has an impact on the insurance cost. To know the premium for your car insurance policy, simply fill in your details and the vehicle registration number. p car insurance quote will be generated to give you an estimate of the premium.
+
+              </p>
+          </div>
+    </div>
+</div>
+
+
+<!-- <button type="button" class="collapsible" (click)="changeDisplay()">Why do I need to insure my Vehicle</button>
+<div class="content" *ngIf="display">
+  <p>Firstly, the Motor Vehicles Act 1988 makes it mandatory for all car owners to have p valid insurance policy.
+    That apart, you should get your car insured because it saves you from any financial loss caused due to accidents, 
+    damage or theft of your car. Additionally, car insurance covers the safety of the co-passengers, someone​ else's
+     property and pedestrians too.
+ ​</p>
+</div> -->
