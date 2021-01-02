@@ -1,0 +1,70 @@
+@media (min-width:320px)  and (max-width: 480px)  { 
+    .surveyContainer{
+        width: 100%;
+        font-family: 'Open Sans', sans-serif;
+
+    }
+ }
+@media (min-width:481px)  and (max-width: 640px){ 
+    .surveyContainer{
+        width: 100%;
+        padding:"10px";
+        font-family: 'Open Sans', sans-serif;
+    }
+ }
+@media (min-width:641px) and (max-width: 960px) { 
+    .surveyContainer{
+        margin-top: 13%;
+        width: 100%;
+        padding:"10px";
+        font-family: 'Open Sans', sans-serif;
+
+    }
+ }
+@media (min-width:961px)  and (max-width: 1024px){ 
+    .surveyContainer{
+        width: 70%;
+        margin:auto;
+        font-family: 'Open Sans', sans-serif;
+    }
+ }
+@media (min-width:1025px) {
+    .surveyContainer{
+        width: 40%;
+        margin:auto;
+        font-family: 'Open Sans', sans-serif;
+    }
+    // .ui.dropdown .menu > .item {
+    //     width: 150px !important;
+    // }
+    
+    
+ }
+ .example-full-width {
+    width: 100%;
+  }
+
+  .header{
+    font-family: 'Open Sans', sans-serif;
+    text-align: center; 
+    padding: 10px; 
+    color: white;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .mat-option {
+    
+    z-index:1000;
+  }
+
+  md-tooltip.info ._md-content{
+    white-space: normal !important;      
+    max-width:200px;
+    max-height: 150px;
+   line-height: 20px;
+  height:auto;
+  font-size:12px;
+
+}
