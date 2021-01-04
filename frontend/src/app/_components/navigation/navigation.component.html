@@ -1,4 +1,4 @@
-<div style="height: 100%;"> 
+<div> 
   <mat-sidenav-container class="sidenav-container" style="color: #18478b; min-height:auto;">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [ngClass]="{'hidden': !(isHandset$ | async)}"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'push' : 'side'"
@@ -7,11 +7,11 @@
       <mat-nav-list>
         <a href="#" mat-list-item>
           <mat-icon>directions_car</mat-icon>
-          Car
+          Buy
         </a>
         <a href="#" mat-list-item>
-          <mat-icon>motorcycle</mat-icon>
-          Bike
+          <mat-icon>autorenew</mat-icon>
+          Renew
         </a>
         <a href="#" mat-button>
           <i class="fa fa-calculator" aria-hidden="true" style="color: #18478b;"></i>
@@ -53,11 +53,11 @@
         <div fxHide fxShow.gt-sm>
           <a href="#" mat-button>
             <mat-icon> directions_car</mat-icon>
-            Car
+            Buy
           </a>
           <a href="#" mat-button>
-            <mat-icon>motorcycle</mat-icon>
-            Bike
+            <mat-icon>autorenew</mat-icon>
+            Renew
           </a>
           <a href="#" mat-button>
             <i class="fa fa-calculator" aria-hidden="true"></i>
@@ -86,9 +86,7 @@
           </mat-menu>
 
         </div>
-      </mat-toolbar>
-      <ng-content></ng-content>
-      
+      </mat-toolbar>      
     </mat-sidenav-content>
     
   </mat-sidenav-container>

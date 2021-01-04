@@ -1,7 +1,6 @@
 .sidenav-container {
-  height:100%;
+  height: 100%;
   color: #18478b;
- 
 }
 
 .sidenav {
@@ -17,21 +16,21 @@
   top: 0;
   z-index: 1;
 }
-.hidden  { 
-  display : none;
+.hidden {
+  display: none;
 }
 
-.spacer{
+.spacer {
   flex: 1 1 auto;
 }
 
-mat-toolbar a{
-  display: inline-block;
-  margin: 0 10px;
-  color:#18478b;
-  text-decoration: none;
-}
-mat-icon{
+// mat-toolbar a{
+//   display: inline-block;
+//   margin: 0 10px;
+//   color:#18478b;
+//   text-decoration: none;
+// }
+mat-icon {
   color: #18478b;
 }
 .mat-menu-item .mat-icon {
