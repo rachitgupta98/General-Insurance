@@ -1,17 +1,15 @@
-<form #myForm="ngForm" (ngSubmit)="doRegister(myForm)">
-    <div class="surveyContainer" style="
+<form #myForm="ngForm" (ngSubmit)="doRegister(myForm)" >
+    <div  class="surveyContainer" style="
     padding: '50px';
-    min-height: '100vh';
-    margin-top: 150px;
     margin-bottom: 25px;
-    background-color: 'white';
+    background-color: #ebecf0;
     box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
       0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
       0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
       0 100px 80px rgba(0, 0, 0, 0.12);
   ">
         <mat-card style="padding: 10px">
-            <div style="height: 50px; text-align: center; background-color: #70c8be">
+            <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
                 <h3 class="header">User Registration</h3>
             </div>
             <br />
@@ -35,17 +33,17 @@
             <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
                 <input required type="password" matInput name="userPassword" required #userPassword="ngModel" required
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" [(ngModel)]=user.userPassword 
-                    (ngModelChange)="onKey($event)"/>
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" [(ngModel)]=user.userPassword
+                    (ngModelChange)="onKey($event)" />
                 <mat-icon matSuffix> vpn_key</mat-icon>
                 <div *ngIf="userPassword.invalid && userPassword.touched " style="color:red;text-align: justify;">
                     <mat-hint>
-                    <ol>
-                        <li [style.color]="islength ? 'green':'red'">password must be minimum of 8 characters</li>
-                        <li [style.color]="isCapital ? 'green':'red'">one Capital letter</li>
-                        <li [style.color]="isSpecial ? 'green':'red'">one Special character</li>
-                    </ol>
-                </mat-hint>
+                        <ol>
+                            <li [style.color]="islength ? 'green':'red'">password must be minimum of 8 characters</li>
+                            <li [style.color]="isCapital ? 'green':'red'">one Capital letter</li>
+                            <li [style.color]="isSpecial ? 'green':'red'">one Special character</li>
+                        </ol>
+                    </mat-hint>
                 </div>
             </mat-form-field>
             <mat-form-field class="example-full-width">
@@ -84,6 +82,11 @@
                 <mat-icon matSuffix>home</mat-icon>
             </mat-form-field>
             <mat-form-field class="example-full-width">
+                <mat-label>PinCode</mat-label>
+                <input required matInput id="pinCode" name="pinCode" #pinCode="ngModel" [(ngModel)]=user.pinCode />
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
                 <mat-label>City</mat-label>
                 <input required type="text" matInput id="userCity" name="userCity" #userCity="ngModel"
                     [(ngModel)]=user.userCity />
@@ -95,18 +98,14 @@
                     [(ngModel)]=user.userState />
 
             </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <mat-label>PinCode</mat-label>
-                <input required matInput id="pinCode" name="pinCode" #pinCode="ngModel" [(ngModel)]=user.pinCode />
-
-            </mat-form-field>
-
+            <br>
+            <button type="submit" class="submitButton" mat-raised-button>
+                Register
+            </button>
         </mat-card>
     </div>
-    <br />
-    <div style="text-align: center">
-        <button type="submit" style="color: #242582; margin-bottom: 50px; width: 40%" mat-raised-button>
-            Register
-        </button>
+    <div style="text-align: center; ;">
+        
     </div>
+
 </form>

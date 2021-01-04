@@ -11,7 +11,11 @@ import {
   MatRadioModule,
   MatSelectModule,
   MatTooltipModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatSidenavModule,
+  MatMenuModule,
+  MatListModule,
+  MatGridListModule
 } from '@angular/material'
 
 
@@ -27,8 +31,11 @@ const materialUi = [
   MatRadioModule,
   MatSelectModule,
   MatTooltipModule,
-  MatToolbarModule
-
+  MatToolbarModule,
+  MatSidenavModule,
+  MatMenuModule,
+  MatListModule,
+  MatGridListModule
 
 ];
 @NgModule({

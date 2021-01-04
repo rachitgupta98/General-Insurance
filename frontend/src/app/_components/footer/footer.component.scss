@@ -1,0 +1,49 @@
+div {
+  display: block;
+}
+.content > mat-card {
+  width: 100%;
+}
+
+.container {
+  height:auto;
+  background-color: #18478b;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 50px;
+  margin-top: 100px;
+   
+  
+  width: 100%;
+  
+}
+.links {
+  // margin-top: 100px;
+  
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 15px;
+  padding-left: 15px;
+  text-align: center !important;
+}
+
+.borderBottom {
+  //   margin-top: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 2px dotted #cecece;
+  padding-bottom: 1rem;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+a {
+  color: white;
+  text-decoration: none;
+  border-right: 1px solid #dee2e6 !important;
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}

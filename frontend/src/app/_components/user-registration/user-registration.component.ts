@@ -1,6 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import User from '../_models/sample/user';
+import User from 'src/app/_models/sample/user';
+
 
 @Component({
   selector: 'user-registration',
@@ -65,21 +66,3 @@ export class UserRegistrationComponent implements OnInit {
   }
 
 }
-// var i=0;
-//     while(i<e.length)
-//     {
-//       var character=e.charAt(i);
-//       if (!isNaN(character * 1)){
-//         this.isCapital=false;
-//     }else{
-//         if (character == character.toUpperCase()) {
-//             this.isCapital=true;
-//         }
-//         else{
-//           this.isCapital=false;
-//         }
-//     }
-
-//     i++;
-
-//     }
