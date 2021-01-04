@@ -1,0 +1,50 @@
+$ruler: 16px;
+$color-red: #ae1100;
+$color-bg: #ebecf0;
+label {
+  color: #3b61b8;
+  font-size: small;
+  padding: 8px;
+}
+label,
+input {
+  display: block;
+}
+input {
+  max-width: 400px;
+  border: 0;
+  outline: 0;
+  border-radius: $ruler * 20;
+  padding: 15px;
+  background-color: $color-bg;
+  text-shadow: 1px 1px 0 #fff;
+  margin-right: $ruler/2;
+  box-shadow: inset 3px 3px 6px #a9adbb, inset -3px -3px 6px #fff;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  overflow: visible;
+  font-size: 16px;
+  font-weight: 600;
+  color: #071e54;
+  opacity: 0.8;
+  &:focus {
+    box-shadow: inset 1px 1px 2px #a9adbb, inset -1px -1px 2px #fff;
+  }
+}
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: #071e54;
+  opacity: 0.3;
+  font-size: 13px;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #071e54;
+  opacity: 0.3;
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #071e54;
+  opacity: 0.3;
+}

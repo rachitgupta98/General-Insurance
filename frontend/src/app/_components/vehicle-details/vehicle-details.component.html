@@ -1,0 +1,9 @@
+
+<mat-card class="main">
+    <div class="header">
+        <h3>Your Vehicle Details</h3>
+    </div>
+    <mat-grid-list cols="2" rowHeight="120px">
+        <mat-grid-tile *ngFor="let field of vehicleDetailsTitle"><app-input-field [inputTitle]="field"></app-input-field></mat-grid-tile>
+    </mat-grid-list>    
+</mat-card>
