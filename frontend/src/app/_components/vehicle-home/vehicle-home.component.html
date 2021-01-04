@@ -1,0 +1,16 @@
+<mat-card class="main">
+
+  <mat-card-header>
+    <mat-card-actions>
+      <button [ngClass]="{'active':activeBtn1}" class="header-btn" (click)="changeVehicle('4 wheeler')">4 Wheeler</button>
+      <button [ngClass]="{'active':activeBtn2}" class="header-btn" (click)="changeVehicle('2 wheeler')">2 Wheeler</button>
+    </mat-card-actions>
+  </mat-card-header>
+<mat-card-content class="container"> 
+    <p class="segment">Your {{typeOfVehicle}} registration number</p>   
+    <label>        
+      <input type="text" placeholder="MH01AB1234" required oninvalid="this.setCustomValidity('Please enter your vehicle registration number')" oninput="this.setCustomValidity('')"/>
+    </label>
+    <button class="btn" type="submit">Get Quotes</button>    
+</mat-card-content>
+</mat-card>

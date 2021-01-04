@@ -1,0 +1,26 @@
+$ruler: 16px;
+$color-red: #ae1100;
+$color-bg: #ebecf0;
+$color-shadow: #babecc;
+$color-white: #fff;
+
+.main {
+  max-width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ebecf0;
+  box-shadow: 3px 5px 6px #ccc;
+  align-items: center;
+}
+.header {
+  background: transparent
+    linear-gradient(276deg, rgba(13, 53, 148, 0.898039), #35d3e1) 0 0 no-repeat
+    padding-box;
+  color: #fff;
+  border-radius: 50px;
+  box-shadow: 3px 3px 3px #cecece, -3px -3px 3px #fff;
+}
+h3 {
+  text-align: center;
+}

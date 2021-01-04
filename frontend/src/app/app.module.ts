@@ -1,39 +1,37 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { SampleComponent } from './_components/sample/sample.component';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 import { UserRegistrationComponent } from './_components/user-registration/user-registration.component';
 import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './_modules/material/material.module';
+import { AppComponent } from "./app.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MaterialModule } from "./_modules/material/material.module";
+import { VehicleHomeComponent } from "./_components/vehicle-home/vehicle-home.component";
+import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
+import { InputFieldComponent } from "./_components/input-field/input-field.component";
+import { VehicleDetailsService } from "./_services/vehicle-details/vehicle-details.service";
+import { LoginComponent } from "./_components/login/login.component";
+import { ReactiveFormsModule } from "@angular/forms";
+import { AboutUsComponent } from "./_components/about-us/about-us.component";
 
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FooterComponent } from './_components/footer/footer.component';
 import { HomeComponent } from './_components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
-
-
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { NavigationComponent } from './_components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SampleComponent,
     UserRegistrationComponent,
     FooterComponent,
     HomeComponent,
-    
     NavigationComponent,
-    
-    
+    VehicleHomeComponent,
+    VehicleDetailsComponent,
+    InputFieldComponent,
+    LoginComponent,
+    AboutUsComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,15 +41,9 @@ import { NavigationComponent } from './_components/navigation/navigation.compone
     FlexLayoutModule,
     HttpClientModule,
     AppRoutingModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
-    
+    ReactiveFormsModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [VehicleDetailsService],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
