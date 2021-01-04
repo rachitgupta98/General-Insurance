@@ -1,0 +1,111 @@
+<form #myForm="ngForm" (ngSubmit)="doRegister(myForm)" >
+    <div  class="surveyContainer" style="
+    padding: '50px';
+    margin-bottom: 25px;
+    background-color: #ebecf0;
+    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+      0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
+      0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+      0 100px 80px rgba(0, 0, 0, 0.12);
+  ">
+        <mat-card style="padding: 10px">
+            <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
+                <h3 class="header">User Registration</h3>
+            </div>
+            <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Name</mat-label>
+                <input required matInput placeholder="Jhon" value="" #userName="ngModel" id="userName" name="userName"
+                    [(ngModel)]=user.userName />
+                <mat-icon matSuffix> person_pin</mat-icon>
+                <div *ngIf="userName.errors?.required && userName.touched "> Name can't be empty</div>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Email</mat-label>
+                <input required type="email" matInput placeholder="jhon@xyz.com" id="userEmail" name="userEmail"
+                    required #userEmail="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    [(ngModel)]=user.userEmail />
+                <mat-icon matSuffix>email</mat-icon>
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Password</mat-label>
+                <input required type="password" matInput name="userPassword" required #userPassword="ngModel" required
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" [(ngModel)]=user.userPassword
+                    (ngModelChange)="onKey($event)" />
+                <mat-icon matSuffix> vpn_key</mat-icon>
+                <div *ngIf="userPassword.invalid && userPassword.touched " style="color:red;text-align: justify;">
+                    <mat-hint>
+                        <ol>
+                            <li [style.color]="islength ? 'green':'red'">password must be minimum of 8 characters</li>
+                            <li [style.color]="isCapital ? 'green':'red'">one Capital letter</li>
+                            <li [style.color]="isSpecial ? 'green':'red'">one Special character</li>
+                        </ol>
+                    </mat-hint>
+                </div>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Gender</mat-label>
+                <mat-select required id="userGender" name="userGender" #userGender="ngModel"
+                    [(ngModel)]="user.userGender">
+                    <mat-option value="Male">Male</mat-option>
+                    <mat-option value="Female">Female</mat-option>
+                    <mat-option value="Others">Others</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Date of Birth</mat-label>
+                <input required matInput [matDatepicker]="myDatePicker" placeholder="mm/dd/yyyy" id="dateOfbirth"
+                    name="dateOfbirth" #dateOfbirth="ngModel" [(ngModel)]=user.userDob />
+                <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #myDatePicker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Mobile</mat-label>
+                <input required type="tel" matInput placeholder="" id="userPhone" name="userPhone" #userPhone="ngModel"
+                    required pattern="^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$" [(ngModel)]=user.userPhone />
+                <mat-icon matSuffix>phone</mat-icon>
+                <div *ngIf="userPhone.invalid && userPhone.touched" style="text-align:initial; color: red;">
+                    Not a valid Mobile Number
+
+                </div>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Address</mat-label>
+                <input required type="text" matInput id="userAddress" name="userAddress" #userAddress="ngModel"
+                    [(ngModel)]=user.userAddress />
+                <mat-icon matSuffix>home</mat-icon>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>PinCode</mat-label>
+                <input required matInput id="pinCode" name="pinCode" #pinCode="ngModel" [(ngModel)]=user.pinCode />
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>City</mat-label>
+                <input required type="text" matInput id="userCity" name="userCity" #userCity="ngModel"
+                    [(ngModel)]=user.userCity />
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>State</mat-label>
+                <input required type="text" matInput id="userState" name="userState" #userState="ngModel"
+                    [(ngModel)]=user.userState />
+
+            </mat-form-field>
+            <br>
+            <button type="submit" class="submitButton" mat-raised-button>
+                Register
+            </button>
+        </mat-card>
+    </div>
+    <div style="text-align: center; ;">
+        
+    </div>
+
+</form>
