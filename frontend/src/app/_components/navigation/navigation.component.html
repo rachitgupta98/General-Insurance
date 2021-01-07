@@ -77,10 +77,10 @@
 
           <mat-menu #menu="matMenu">
 
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="['/login']">
               <mat-icon>lock</mat-icon>Admin
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item [routerLink]="['/login']">
               <mat-icon>person_pin</mat-icon>User
             </button>
           </mat-menu>
