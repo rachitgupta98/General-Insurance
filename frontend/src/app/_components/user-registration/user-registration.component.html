@@ -1,14 +1,5 @@
-<form #myForm="ngForm" (ngSubmit)="doRegister(myForm)" >
-    <div  class="surveyContainer" style="
-    padding: '50px';
-    margin-bottom: 25px;
-    background-color: #ebecf0;
-    box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-      0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06),
-      0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
-      0 100px 80px rgba(0, 0, 0, 0.12);
-  ">
-        <mat-card style="padding: 10px">
+<form #myForm="ngForm" (ngSubmit)="doRegister(myForm)" class="surveyContainer">
+        <mat-card style="padding: 10px" class="mainContainer">
             <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
                 <h3 class="header">User Registration</h3>
             </div>
@@ -46,7 +37,7 @@
                     </mat-hint>
                 </div>
             </mat-form-field>
-            <mat-form-field class="example-full-width">
+            <!-- <mat-form-field class="example-full-width">
                 <mat-label>Gender</mat-label>
                 <mat-select required id="userGender" name="userGender" #userGender="ngModel"
                     [(ngModel)]="user.userGender">
@@ -54,15 +45,7 @@
                     <mat-option value="Female">Female</mat-option>
                     <mat-option value="Others">Others</mat-option>
                 </mat-select>
-            </mat-form-field>
-
-            <mat-form-field class="example-full-width">
-                <mat-label>Date of Birth</mat-label>
-                <input required matInput [matDatepicker]="myDatePicker" placeholder="mm/dd/yyyy" id="dateOfbirth"
-                    name="dateOfbirth" #dateOfbirth="ngModel" [(ngModel)]=user.userDob />
-                <mat-datepicker-toggle [for]="myDatePicker" matSuffix></mat-datepicker-toggle>
-                <mat-datepicker #myDatePicker></mat-datepicker>
-            </mat-form-field>
+            </mat-form-field> -->
 
             <mat-form-field class="example-full-width">
                 <mat-label>Mobile</mat-label>
@@ -103,7 +86,7 @@
                 Register
             </button>
         </mat-card>
-    </div>
+
     <div style="text-align: center; ;">
         
     </div>

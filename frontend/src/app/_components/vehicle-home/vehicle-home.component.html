@@ -1,9 +1,9 @@
-<div class="head">
+<form class="head" #vehicleForm="ngForm" (ngSubmit)="goForRegistration()">
 <mat-card class="main">
   <mat-card-header>
     <mat-card-actions>
-      <button [ngClass]="{'active':activeBtn1}" class="header-btn" (click)="changeVehicle('4 wheeler')"><mat-icon> directions_car</mat-icon>4 Wheeler</button>
-      <button [ngClass]="{'active':activeBtn2}" class="header-btn" (click)="changeVehicle('2 wheeler')"><mat-icon>motorcycle</mat-icon>2 Wheeler</button>
+      <button type="button" [ngClass]="{'active':activeBtn1}" class="header-btn" (click)="changeVehicle('4 wheeler')"><mat-icon> directions_car</mat-icon>4 Wheeler</button>
+      <button type="button" [ngClass]="{'active':activeBtn2}" class="header-btn" (click)="changeVehicle('2 wheeler')"><mat-icon>motorcycle</mat-icon>2 Wheeler</button>
     
     </mat-card-actions>
   </mat-card-header>
@@ -15,4 +15,4 @@
     <button class="btn" type="submit">Get Quotes</button>    
 </mat-card-content>
 </mat-card>
-</div>
+</form>

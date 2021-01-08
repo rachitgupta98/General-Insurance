@@ -27,10 +27,10 @@
           <a matline>Login</a>
         </mat-list-item>
         <mat-menu #menu="matMenu" style="color: #18478b;">
-          <button mat-menu-item>
+          <button mat-menu-item [routerLink]="['/admin_login']">
             <mat-icon>lock</mat-icon>Admin
           </button>
-          <button mat-menu-item>
+          <button mat-menu-item [routerLink]="['/user_login']">
             <mat-icon>person_pin</mat-icon>User
           </button>
 
@@ -77,10 +77,10 @@
 
           <mat-menu #menu="matMenu">
 
-            <button mat-menu-item [routerLink]="['/login']">
+            <button mat-menu-item [routerLink]="['/admin_login']">
               <mat-icon>lock</mat-icon>Admin
             </button>
-            <button mat-menu-item [routerLink]="['/login']">
+            <button mat-menu-item [routerLink]="['/user_login']">
               <mat-icon>person_pin</mat-icon>User
             </button>
           </mat-menu>

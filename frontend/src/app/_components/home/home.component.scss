@@ -1,0 +1,9 @@
+.home-content {
+  margin-top: 100px;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  overflow: auto;
+}
+.home-content > * {
+  flex: 1 1 50%;
+}

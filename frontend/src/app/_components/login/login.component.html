@@ -21,10 +21,9 @@
  
      <div class="form-element">
        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid">Login</button><br><br>
-       <button mat-raised-button color="primary">Forgot password</button>
+       <button mat-stroked-button color="primary">Forgot password</button>
+       <button mat-stroked-button color="primary" [routerLink]="['/user_registration']">Sign up</button>
      </div>
-     
-    
     
    </form>
  </div>

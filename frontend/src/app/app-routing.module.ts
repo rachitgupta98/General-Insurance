@@ -1,3 +1,4 @@
+import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
 import { LoginComponent } from "./_components/login/login.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -7,10 +8,12 @@ import { HomeComponent } from "./_components/home/home.component";
 import { VehicleHomeComponent } from "./_components/vehicle-home/vehicle-home.component";
 
 const routes: Routes = [
-  { path: "userRegistration", component: UserRegistrationComponent },
-  { path: "home", component: VehicleHomeComponent },
-  { path: "login", component: LoginComponent },
-  //{ path: "**", redirectTo: "home" },
+  { path: "user_registration", component: UserRegistrationComponent },
+  { path: "home", component: HomeComponent },
+  { path: "user_login", component: LoginComponent },
+  { path: "admin_login", component: LoginComponent },
+  { path: "vehicleRegistration", component: VehicleDetailsComponent },
+  { path: "**", redirectTo: "home" },
 ];
 
 @NgModule({

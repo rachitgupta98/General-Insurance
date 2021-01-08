@@ -1,13 +1,9 @@
-<div fxLayout="column" fxFlexFill>
-    <app-navigation></app-navigation>
-    <div fxFlex>
-        <home></home>
-        
-    </div>
-    <app-footer fxFlexOffset="auto"></app-footer>
+<app-navigation>
+    
+</app-navigation>
+
+<div>
+    <router-outlet></router-outlet>
 </div>
 
-<app-vehicle-home></app-vehicle-home>
-        <!-- <app-vehicle-details></app-vehicle-details> -->
-        <app-about-us></app-about-us>
-        <app-login></app-login>
+<app-footer></app-footer>
