@@ -1,9 +1,61 @@
-
+<form (ngSubmit)="handleOnSubmit()">
 <mat-card class="main">
     <div class="header">
         <h3>Your Vehicle Details</h3>
     </div>
     <mat-grid-list cols="2" rowHeight="120px">
-        <mat-grid-tile *ngFor="let field of vehicleDetailsTitle"><app-input-field [inputType]="'text'" [inputTitle]="field"></app-input-field></mat-grid-tile>
-    </mat-grid-list>    
+        <!-- <mat-grid-tile *ngFor="let field of vdData | keyvalue"><app-input-field [inputType]="'text'" [inputTitle]="field.key" [inputValue]="field.value"> </app-input-field></mat-grid-tile>
+     -->
+     <mat-grid-tile>
+     <div class="block">
+     <label>Chassis No</label>     
+     <input type="text" name="chesisNo" [(ngModel)]=vehicleInfoModel.chasisNo required/>
+    </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <div class="block">
+            <label>Engine No</label>     
+            <input name="engineNo" [(ngModel)]=vehicleInfoModel.engineNo required/>
+           </div>
+    </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Maker / Model</label>     
+            <input name="makerModel" [(ngModel)]=vehicleInfoModel.makerModel required/>
+           </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Owner Name</label>     
+            <input name="ownerName" [(ngModel)]=vehicleInfoModel.ownerName required/>
+           </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Registration Date</label>     
+            <input name="registrationDate" [(ngModel)]=vehicleInfoModel.registrationDate required/>
+           </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Registration No</label>     
+            <input name="registrationNo" [(ngModel)]=vehicleInfoModel.registrationNo required/>
+           </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Vehicle Class</label>     
+            <input name="vehicleClass" [(ngModel)]=vehicleInfoModel.vehicleClass required/>
+           </div>       
+        </mat-grid-tile>
+    <mat-grid-tile><button class="btn">Get Prices</button></mat-grid-tile>
+    </mat-grid-list>  
+    
 </mat-card>
+</form>
