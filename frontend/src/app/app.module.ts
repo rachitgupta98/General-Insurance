@@ -19,6 +19,7 @@ import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
+import { PremiumCalculatorComponent } from './_components/premium-calculator/premium-calculator.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { NavigationComponent } from "./_components/navigation/navigation.compone
     InputFieldComponent,
     LoginComponent,
     AboutUsComponent,
+    PremiumCalculatorComponent,
   ],
   imports: [
     BrowserModule,

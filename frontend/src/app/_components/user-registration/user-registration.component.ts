@@ -1,6 +1,7 @@
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import User from 'src/app/_models/sample/user';
+import { Router } from '@angular/router'
 import { UserService } from 'src/app/_services/user.service';
 
 
@@ -85,12 +86,17 @@ export class UserRegistrationComponent implements OnInit {
       
 
     }
+    if(caps>1)
+    {
+      this.isCapital=true;
+    }
+
 
     this.isSpecial = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g.test(e);
   }
   
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit() {
     
@@ -100,13 +106,21 @@ export class UserRegistrationComponent implements OnInit {
 
   doRegister(f: NgForm) {
     if (f.valid) {
-      alert("detailsEntered");
+      alert("Registration Successfull");
+
       
       console.log(this.user);
       this.userService.registration(this.user).subscribe(response=>{
         console.log(response);
+        if(response.status==200)
+        {
+          this.router.navigate(['/home']);
+
+        }
+
 
       });
+      
     } 
     else {
       alert("enter all details");
