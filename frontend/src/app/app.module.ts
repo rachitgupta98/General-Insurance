@@ -13,12 +13,14 @@ import { LoginComponent } from "./_components/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AboutUsComponent } from "./_components/about-us/about-us.component";
 
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule} from "@angular/flex-layout";
 import { FooterComponent } from "./_components/footer/footer.component";
 import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
+import { from } from "rxjs";
+import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { NavigationComponent } from "./_components/navigation/navigation.compone
     InputFieldComponent,
     LoginComponent,
     AboutUsComponent,
+    ForgotpasswordComponent,
   ],
   imports: [
     BrowserModule,
