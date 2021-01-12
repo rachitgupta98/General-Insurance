@@ -1,8 +1,12 @@
 <form #myForm="ngForm" (ngSubmit)="doRegister(myForm)" class="surveyContainer">
     <mat-card style="padding: 10px;margin-top:25px" class="mainContainer">
-        <div
+        <div *ngIf="password"
             style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
-            <h3 class="header">User Registration</h3>
+            <h3 class="header" >User Registration</h3>
+        </div>
+        <div *ngIf="!password"
+            style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
+            <h3 class="header" >Update Registration</h3>
         </div>
         <br />
 
@@ -22,7 +26,7 @@
             <mat-icon matSuffix>email</mat-icon>
 
         </mat-form-field>
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" *ngIf="password">
             <mat-label>Password</mat-label>
             <input required type="password" matInput name="userPassword" required #userPassword="ngModel" required
                 pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}" [(ngModel)]=user.userPassword

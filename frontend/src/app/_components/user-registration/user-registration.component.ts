@@ -15,9 +15,13 @@ import { UserService } from 'src/app/_services/user.service';
 export class UserRegistrationComponent implements OnInit {
 
   user: User = new User();
+  userId:any=sessionStorage.getItem('userId')
+  
+  
   islength = false;
   isCapital = false;
   isSpecial = false;
+  password=true;
  states = [ 
    "Andhra Pradesh",
   "Arunachal Pradesh",
@@ -100,6 +104,23 @@ export class UserRegistrationComponent implements OnInit {
 
   ngOnInit() {
     
+    console.log(this.userId,"Id...")
+
+    if(this.userId)
+    {
+      this.userService.update(this.userId).subscribe(response=>{
+        console.log(response,"updating response");
+        this.password=false;
+        this.user.userName=response.result.userName;
+        this.user.userEmail=response.result.userEmail;
+        this.user.userCity=response.result.userCity;
+        this.user.userState=response.result.userState;
+        this.user.pinCode=response.result.pinCode;
+        this.user.userPhone=response.result.userPhone;
+        this.user.userAddress=response.result.userAddress;
+
+      })
+    }
 
 
   }

@@ -1,0 +1,21 @@
+<p>profile works!</p>
+<mat-card class="main">
+    <mat-card-header>
+
+    </mat-card-header>
+    <mat-card-content class="container">
+        <a mat-button>
+            <mat-icon>person</mat-icon>{{userName}}
+        </a>
+        <br>
+        <br>
+        <button mat-button [routerLink]="['/claim']">
+            <mat-icon>money</mat-icon>Claims
+        </button>
+        <br>
+        <br>
+        <button mat-button [routerLink]="['/user_registration']">
+            <mat-icon>edit</mat-icon>edit Profile
+        </button>
+    </mat-card-content>
+</mat-card>

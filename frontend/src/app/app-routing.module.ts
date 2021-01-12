@@ -6,6 +6,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { UserRegistrationComponent } from "./_components/user-registration/user-registration.component";
 import { HomeComponent } from "./_components/home/home.component";
 import { VehicleHomeComponent } from "./_components/vehicle-home/vehicle-home.component";
+import { ClaimsComponent } from "./_components/claims/claims.component";
 
 const routes: Routes = [
   { path: "user_registration", component: UserRegistrationComponent },
@@ -13,12 +14,13 @@ const routes: Routes = [
   { path: "user_login", component: LoginComponent },
   { path: "admin_login", component: LoginComponent },
   { path: "vehicleRegistration", component: VehicleDetailsComponent },
+  {path:"claim",component:ClaimsComponent},
   { path: "**", redirectTo: "home" },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
