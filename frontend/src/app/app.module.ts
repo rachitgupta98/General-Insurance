@@ -24,6 +24,7 @@ import { from } from "rxjs";
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ProfileComponent } from './_components/profile/profile.component';
 import { ClaimsComponent } from './_components/claims/claims.component';
+import { PolicyFormComponent } from './_components/policy-form/policy-form.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ClaimsComponent } from './_components/claims/claims.component';
     ForgotpasswordComponent,
     ProfileComponent,
     ClaimsComponent,
+    PolicyFormComponent,
   ],
   imports: [
     BrowserModule,

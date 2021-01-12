@@ -11,6 +11,9 @@ export class InputFieldComponent implements OnInit {
 
   @Input()
   inputType;
+
+  @Input()
+  inputValue;
   constructor() {}
 
   ngOnInit() {}
