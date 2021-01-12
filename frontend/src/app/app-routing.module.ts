@@ -1,3 +1,4 @@
+import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
 import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
 import { LoginComponent } from "./_components/login/login.component";
 import { NgModule } from "@angular/core";
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: "user_login", component: LoginComponent },
   { path: "admin_login", component: LoginComponent },
   { path: "vehicleRegistration", component: VehicleDetailsComponent },
+  { path: "policyForm", component: PolicyFormComponent },
   { path: "**", redirectTo: "home" },
 ];
 
