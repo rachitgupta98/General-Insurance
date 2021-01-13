@@ -3,6 +3,7 @@ import VehicleInfoModel from "src/app/_models/vehicleInfoModel";
 
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { VehicleDetailsService } from "src/app/_services/vehicle-details/vehicle-details.service";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-vehicle-details",
@@ -17,11 +18,16 @@ export class VehicleDetailsComponent implements OnInit {
   constructor(
     private vehicleService: VehicleDetailsService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     //console.log(sessionStorage.getItem("regNo"));
     this.vehicleInfoModel.registrationNo = sessionStorage.getItem("regNo");
+
+
+
+
+
     // this.vehicleService
     //   .fetchVehicleInfo(sessionStorage.getItem("regNo"))
     //   .subscribe((data) => {
@@ -36,17 +42,21 @@ export class VehicleDetailsComponent implements OnInit {
     //   });
   }
 
-  handleOnSubmit() {
+  handleOnSubmit(f: NgForm) {
+
     if (sessionStorage.getItem("userId") == null) {
       this.router.navigate(["/user_login"]);
       return;
     }
-    this.vehicleService
-      .saveVehicleInfo(this.vehicleInfoModel)
-      .subscribe((data) => {
-        sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
-        console.log(data.result);
-      });
-    this.router.navigate(["/policyForm"]);
+    if (f.valid) {
+
+      this.vehicleService
+        .saveVehicleInfo(this.vehicleInfoModel)
+        .subscribe((data) => {
+          sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
+          console.log(data.result);
+        });
+      this.router.navigate(["/policyForm"]);
+    }
   }
 }
