@@ -15,6 +15,8 @@ export class VehicleDetailsComponent implements OnInit {
 
   vehicleClass = ["2 Wheeler", "4 Wheeler"];
 
+  checkRegistraionNo = false;
+
   constructor(
     private vehicleService: VehicleDetailsService,
     private router: Router
@@ -23,10 +25,24 @@ export class VehicleDetailsComponent implements OnInit {
   ngOnInit() {
     //console.log(sessionStorage.getItem("regNo"));
     this.vehicleInfoModel.registrationNo = sessionStorage.getItem("regNo");
+    this.vehicleService
+      .fetchExistedVehicleData(sessionStorage.getItem("regNo"))
+      .subscribe(
+        (data) => {
+          console.log(data.HttpErrorResponse.status);
 
-
-
-
+          console.log("200 Ok");
+          this.checkRegistraionNo = true;
+          delete data.result["fuelType"];
+          this.vehicleInfoModel = data.result;
+          sessionStorage.setItem("existVehicleId", data.result["vehicleId"]);
+        },
+        (err) => {
+          console.log("error2231eee" + err.status);
+          this.checkRegistraionNo = false;
+          sessionStorage.removeItem("existVehicleId");
+        }
+      );
 
     // this.vehicleService
     //   .fetchVehicleInfo(sessionStorage.getItem("regNo"))
@@ -43,20 +59,27 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   handleOnSubmit(f: NgForm) {
+    if (!this.checkRegistraionNo) {
 
-    if (sessionStorage.getItem("userId") == null) {
-      this.router.navigate(["/user_login"]);
-      return;
+      if (sessionStorage.getItem("userId") == null) {
+        this.router.navigate(["/user_login"]);
+        return;
+      }
+      if (f.valid) {
+
+        this.vehicleService
+          .saveVehicleInfo(this.vehicleInfoModel)
+          .subscribe((data) => {
+            sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
+            sessionStorage.setItem("model", data.result["makerModel"]);
+            console.log(data.result);
+          });
+        this.router.navigate(["/policyForm"]);
+      }
     }
-    if (f.valid) {
-
-      this.vehicleService
-        .saveVehicleInfo(this.vehicleInfoModel)
-        .subscribe((data) => {
-          sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
-          console.log(data.result);
-        });
-      this.router.navigate(["/policyForm"]);
+    else {
+      this.router.navigate(["/policyDisplay"]);
     }
   }
+
 }

@@ -26,6 +26,7 @@ import { ProfileComponent } from './_components/profile/profile.component';
 import { ClaimsComponent } from './_components/claims/claims.component';
 import { PolicyFormComponent } from './_components/policy-form/policy-form.component';
 import { UserPolicesComponent } from './_components/user-polices/user-polices.component';
+import { PolicyDisplayComponent } from './_components/policy-display/policy-display.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { UserPolicesComponent } from './_components/user-polices/user-polices.co
     ClaimsComponent,
     PolicyFormComponent,
     UserPolicesComponent,
+    PolicyDisplayComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,4 +15,16 @@ export class VehicleDetailsService {
       vehicle
     );
   }
+
+  fetchExistedVehicleData(registrationNo): Observable<any> {
+    return this.http.get<any>(
+      `http://localhost:8080/insurance/findVehicleByRegNo?regist=${registrationNo}`
+    );
+  }
+
+  fetchPolicyByVehcileId(vehicleId): Observable<any> {
+    return this.http.get<any>(
+      `http://localhost:8080/insurance/findPolicyByVehicleId?vehicleId=${vehicleId}`
+    );
+  }
 }
