@@ -1,2 +1,78 @@
-<p>policy-display works!</p>
-<h3>policyId: {{policyId}}</h3>
+<mat-card class="main">
+    <div class="header">
+        <h3>Current Policy Details</h3>
+    </div>
+    <div>
+        <ng-container
+  *ngIf="numberOfYearLeft >0 then year;else month">
+</ng-container>
+
+<ng-template #year>
+  <div>
+    No of years left {{numberOfYearLeft}}
+  </div>
+</ng-template>
+<ng-template #loggedOut>
+  <div>
+    Please friend, login.
+  </div>
+</ng-template>
+    </div>
+    <mat-grid-list cols="2" rowHeight="120px">
+        <!-- <mat-grid-tile *ngFor="let field of vdData | keyvalue"><app-input-field [inputType]="'text'" [inputTitle]="field.key" [inputValue]="field.value"> </app-input-field></mat-grid-tile>
+     -->
+  
+     <mat-grid-tile>
+        <div class="block">
+            <label>Policy Number</label>     
+            <input name="registrationNo" placeholder="Registration No" [(ngModel)]=policData.policyId required disabled>
+           </div>
+       </mat-grid-tile>
+     <mat-grid-tile>
+     <div class="block">
+     <label>Plan type</label>     
+     <input type="text" name="chesisNo" placeholder="Chassis No"[(ngModel)]=policData.planType required disabled/>
+    </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+        <div class="block">
+            <label>Plan Year</label>     
+            <input name="engineNo" placeholder="Engine No" [(ngModel)]=policData.planYear required disabled/>
+           </div>
+    </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Policy Purchase Date</label>     
+            <input name="makerModel" placeholder="Maker / Model" [(ngModel)]=policData.purchaseDate required disabled/>
+           </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Policy End Date</label>     
+            <input name="ownerName" placeholder="Owner Name" [(ngModel)]=policData.policyEndDate required disabled/>
+           </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Premium Amount Paid</label>  
+               
+            <input name="registrationDate" placeholder="Registration Date" [(ngModel)]=policData.premiumAmount required disabled/>
+             
+        </div>
+       </mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Insured Amount</label>     
+            <input  name="vehicleClass" placeholder="Vehicle Class" [(ngModel)]=policData.insuranceAmount required disabled/>
+           </div>       
+        </mat-grid-tile>
+        
+    <!-- <mat-grid-tile><button class="btn">Get Prices</button></mat-grid-tile> -->
+    </mat-grid-list>  
+    <!--  -->
+</mat-card>
