@@ -1,4 +1,4 @@
-<div> 
+<div>
   <mat-sidenav-container class="sidenav-container" style="color: #18478b; min-height:auto;">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [ngClass]="{'hidden': !(isHandset$ | async)}"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'push' : 'side'"
@@ -18,15 +18,15 @@
           Permium Calculator
 
         </a>
-        <a href="#" mat-button>
+        <a  mat-button [routerLink]="['/claimPolicy']">
           <mat-icon>money</mat-icon>
           Claim
         </a>
-        <mat-list-item [matMenuTriggerFor]="menu">
+        <mat-list-item [matMenuTriggerFor]="menuLogin" *ngIf="!userLogged">
           <mat-icon>unfold_more</mat-icon>
           <a matline>Login</a>
         </mat-list-item>
-        <mat-menu #menu="matMenu" style="color: #18478b;">
+        <mat-menu #menuLogin="matMenu" style="color: #18478b;">
           <button mat-menu-item [routerLink]="['/admin_login']">
             <mat-icon>lock</mat-icon>Admin
           </button>
@@ -34,7 +34,30 @@
             <mat-icon>person_pin</mat-icon>User
           </button>
         </mat-menu>
-        <a (click)="drawer.close()" mat-button><mat-icon >close</mat-icon>Close</a>
+        <br>
+
+        <button mat-button [matMenuTriggerFor]="menu" style="text-align: center" *ngIf="userLogged">
+          <mat-icon matPrefix>person_pin</mat-icon>{{userName}}
+
+        </button>
+        <mat-menu #menu="matMenu">
+
+          <button mat-menu-item (click)="logOut()">
+            <mat-icon>exit_to_app</mat-icon>Logout
+          </button>
+          <button mat-menu-item [routerLink]="['/profile']">
+            <mat-icon>person</mat-icon>Profile
+          </button>
+        </mat-menu>
+        <!-- <a href="profile" mat-button *ngIf="userLogged">
+          <mat-icon>person</mat-icon>
+          Profile
+        </a> -->
+        <br>
+
+        <a (click)="drawer.close()" mat-button>
+          <mat-icon>close</mat-icon>Close
+        </a>
 
 
       </mat-nav-list>
@@ -63,18 +86,16 @@
             Permium Calculator
 
           </a>
-          <a href="#" mat-button>
+          <a [routerLink]="['/claimPolicy']" mat-button>
             <mat-icon>money</mat-icon>
             Claim
           </a>
 
-          <button mat-button [matMenuTriggerFor]="menu" style="text-align: center">
+          <button mat-button [matMenuTriggerFor]="menuLogin" style="text-align: center" *ngIf="!userLogged">
             <mat-icon matPrefix>account_box</mat-icon> Login
 
           </button>
-
-
-          <mat-menu #menu="matMenu">
+          <mat-menu #menuLogin="matMenu">
 
             <button mat-menu-item [routerLink]="['/admin_login']">
               <mat-icon>lock</mat-icon>Admin
@@ -83,11 +104,30 @@
               <mat-icon>person_pin</mat-icon>User
             </button>
           </mat-menu>
-          
+
+          <button mat-button [matMenuTriggerFor]="menu" style="text-align: center" *ngIf="userLogged">
+            <mat-icon matPrefix>person_pin</mat-icon>{{userName}}
+
+          </button>
+          <mat-menu #menu="matMenu">
+
+            <button mat-menu-item (click)="logOut()">
+              <mat-icon>exit_to_app</mat-icon>Logout
+            </button>
+            <button mat-menu-item [routerLink]="['/profile']">
+              <mat-icon>person</mat-icon>Profile
+            </button>
+          </mat-menu>
+
+          <!-- <a href="profile" mat-button *ngIf="userLogged">
+            <mat-icon>person</mat-icon>
+            Profile
+          </a> -->
+
         </div>
-      </mat-toolbar>      
+      </mat-toolbar>
     </mat-sidenav-content>
-    
+
   </mat-sidenav-container>
-  
+
 </div>

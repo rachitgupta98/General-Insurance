@@ -97,8 +97,12 @@
 
 
         <br>
-        <button type="submit" class="submitButton" mat-raised-button>
+        <button type="submit" class="submitButton" mat-raised-button *ngIf="password">
             Register
+        </button>
+
+        <button type="submit" class="submitButton" mat-raised-button *ngIf="!password">
+            Update
         </button>
     </mat-card>
 

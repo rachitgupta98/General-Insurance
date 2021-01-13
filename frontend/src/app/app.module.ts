@@ -25,7 +25,10 @@ import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpass
 import { ProfileComponent } from './_components/profile/profile.component';
 import { ClaimsComponent } from './_components/claims/claims.component';
 import { PolicyFormComponent } from './_components/policy-form/policy-form.component';
+import { UserPolicesComponent } from './_components/user-polices/user-polices.component';
 import { PolicyDisplayComponent } from './_components/policy-display/policy-display.component';
+import { ClaimPolicyComponent } from './_components/claim-policy/claim-policy.component';
+import { DocUploadComponent } from './_components/doc-upload/doc-upload.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,10 @@ import { PolicyDisplayComponent } from './_components/policy-display/policy-disp
     ProfileComponent,
     ClaimsComponent,
     PolicyFormComponent,
+    UserPolicesComponent,
     PolicyDisplayComponent,
+    ClaimPolicyComponent,
+    DocUploadComponent,
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,6 @@ $formRuler: 32px;
 mat-icon {
   vertical-align: middle;
   margin-right: 0.25rem !important;
-  color: #18478b;
 }
 .header-btn {
   border: 0;
@@ -35,12 +34,11 @@ mat-icon {
 }
 
 .container {
-  padding: 50px 95px 60px;
-    width: 50%;
+  padding: 50px 35px 60px;
+  width:350px;
   margin: 0 auto;
   background-color: $color-bg;
   border-radius: 20px;
-  color: #18478b;
   box-shadow: 3px 5px 6px #ccc;
 }
 label {

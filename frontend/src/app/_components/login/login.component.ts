@@ -1,15 +1,11 @@
-import { OnInit } from "@angular/core";
-import { Component } from "@angular/core";
-import {
-  FormBuilder,
-  FormGroup,
-  FormControl,
-  Validators,
-} from "@angular/forms";
-import { UserService } from "../../_services/user.service";
-import { Router } from "@angular/router";
-import { Login } from "../login";
-import { Session } from "src/app/_services/Session";
+import { OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { UserService } from '../../_services/user.service';
+import { Router } from '@angular/router';
+import { Login } from '../login';
+import { Auth } from 'src/app/_guards/authGuard';
+import { Session } from "src/app/_services/SessionValues";
 
 @Component({
   selector: "app-login",
@@ -20,15 +16,24 @@ export class LoginComponent implements OnInit {
   login: Login = new Login();
   message: string;
   formGroup: FormGroup;
+
+
+
+
+
+
   session: Session;
   hide = true;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
+    if (sessionStorage.getItem('userId') !== null) {
+      this.router.navigate(['/home'])
+    }
     this.createForm();
   }
 
@@ -81,7 +86,6 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.login).subscribe((response) => {
       // alert(JSON.stringify(response));
       console.log(response);
-      console.log("below alert");
 
       if (response.status == 200) {
         console.log("in success");
@@ -89,8 +93,16 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("userId", response.result.userId);
         sessionStorage.setItem("userName", response.result.userName);
 
-        this.router.navigate(["/home"]);
-      } else this.message = response.message;
-    });
+
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });;
+      }
+      else {
+        this.message = response.message;
+      }
+      // this.router.navigate(["/home"]);
+
+    })
   }
 }
