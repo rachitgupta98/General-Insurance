@@ -135,7 +135,7 @@ export class UserRegistrationComponent implements OnInit {
         console.log(response);
         if(response.status==200)
         {
-          this.router.navigate(['/home']);
+          this.router.navigate(['/user_login']);
 
         }
 

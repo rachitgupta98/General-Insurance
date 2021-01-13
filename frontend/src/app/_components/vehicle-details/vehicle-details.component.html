@@ -7,55 +7,57 @@
         <!-- <mat-grid-tile *ngFor="let field of vdData | keyvalue"><app-input-field [inputType]="'text'" [inputTitle]="field.key" [inputValue]="field.value"> </app-input-field></mat-grid-tile>
      -->
      <mat-grid-tile>
+        <div class="block">
+            <label>Registration No</label>     
+            <input name="registrationNo" placeholder="Registration No" [(ngModel)]=vehicleInfoModel.registrationNo required disabled>
+           </div>
+       </mat-grid-tile>
+     <mat-grid-tile>
      <div class="block">
      <label>Chassis No</label>     
-     <input type="text" name="chesisNo" [(ngModel)]=vehicleInfoModel.chasisNo required/>
+     <input type="text" name="chesisNo" placeholder="Chassis No"[(ngModel)]=vehicleInfoModel.chasisNo required/>
     </div>
     </mat-grid-tile>
 
     <mat-grid-tile>
         <div class="block">
             <label>Engine No</label>     
-            <input name="engineNo" [(ngModel)]=vehicleInfoModel.engineNo required/>
+            <input name="engineNo" placeholder="Engine No" [(ngModel)]=vehicleInfoModel.engineNo required/>
            </div>
     </mat-grid-tile>
 
        <mat-grid-tile>
         <div class="block">
             <label>Maker / Model</label>     
-            <input name="makerModel" [(ngModel)]=vehicleInfoModel.makerModel required/>
+            <input name="makerModel" placeholder="Maker / Model" [(ngModel)]=vehicleInfoModel.makerModel required/>
            </div>
        </mat-grid-tile>
 
        <mat-grid-tile>
         <div class="block">
             <label>Owner Name</label>     
-            <input name="ownerName" [(ngModel)]=vehicleInfoModel.ownerName required/>
+            <input name="ownerName" placeholder="Owner Name" [(ngModel)]=vehicleInfoModel.ownerName required/>
            </div>
        </mat-grid-tile>
 
        <mat-grid-tile>
         <div class="block">
-            <label>Registration Date</label>     
-            <input name="registrationDate" [(ngModel)]=vehicleInfoModel.registrationDate required/>
-           </div>
-       </mat-grid-tile>
-
-       <mat-grid-tile>
-        <div class="block">
-            <label>Registration No</label>     
-            <input name="registrationNo" [(ngModel)]=vehicleInfoModel.registrationNo required/>
-           </div>
+            <label>Registration Date <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>  </label>  
+               
+            <input [matDatepicker]="picker" name="registrationDate" placeholder="Registration Date" [(ngModel)]=vehicleInfoModel.registrationDate required/>
+             
+        </div>
        </mat-grid-tile>
 
        <mat-grid-tile>
         <div class="block">
             <label>Vehicle Class</label>     
-            <input name="vehicleClass" [(ngModel)]=vehicleInfoModel.vehicleClass required/>
+            <input  name="vehicleClass" placeholder="Vehicle Class" [(ngModel)]=vehicleInfoModel.vehicleClass required/>
            </div>       
         </mat-grid-tile>
     <mat-grid-tile><button class="btn">Get Prices</button></mat-grid-tile>
     </mat-grid-list>  
-    
+    <!--  -->
 </mat-card>
 </form>

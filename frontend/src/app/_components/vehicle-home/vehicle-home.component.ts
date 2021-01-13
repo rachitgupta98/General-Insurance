@@ -30,7 +30,22 @@ export class VehicleHomeComponent implements OnInit {
   }
   createForm() {
     this.vehicleRegForm = this.formBuilder.group({
-      regNo: ["", Validators.required],
+      regNo: [
+        "",
+        [
+          Validators.required,
+          Validators.pattern("^[A-Z]{2}[0-9]{1,2}[A-Z]{1,2}[0-9]{1,4}$"),
+          // DL 01 AA 1111
+
+          // DL 0 AA 1111
+
+          // DL 1 A 1111
+
+          // DL 0 A 11
+
+          // DL 01 AA 111
+        ],
+      ],
     });
   }
   getError(el) {
@@ -38,6 +53,8 @@ export class VehicleHomeComponent implements OnInit {
       case "registrationNo":
         if (this.vehicleRegForm.get("regNo").hasError("required")) {
           return "Registration Number is required";
+        } else if (this.vehicleRegForm.get("regNo").hasError("pattern")) {
+          return "Incorrect pattern, please check your Registration number";
         }
         break;
       default:
@@ -63,6 +80,10 @@ export class VehicleHomeComponent implements OnInit {
 
     this.submitted = true;
     if (this.vehicleRegForm.invalid) {
+      return;
+    }
+    if (sessionStorage.getItem("userId") == null) {
+      this.router.navigate(["/user_login"]);
       return;
     }
     console.log(this.vehicleRegForm.value.regNo);

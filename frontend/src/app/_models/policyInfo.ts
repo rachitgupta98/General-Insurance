@@ -5,4 +5,5 @@ export default class PolicyInfo {
   premiumAmount;
   isExpired;
   insuranceAmount;
+  planYear;
 }

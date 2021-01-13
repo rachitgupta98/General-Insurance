@@ -9,8 +9,8 @@ import { Injectable } from "@angular/core";
 export class PolicyServiceService {
   constructor(private http: HttpClient) {}
 
-  savePolicyData(policy: PolicyInfo): Observable<PolicyInfo> {
-    return this.http.post<PolicyInfo>(
+  savePolicyData(policy: PolicyInfo): Observable<any> {
+    return this.http.post<any>(
       `http://localhost:8080/insurance/buyPolicy`,
       policy
     );
