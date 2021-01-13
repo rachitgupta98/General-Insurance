@@ -1,3 +1,4 @@
+import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
 import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
 import { LoginComponent } from "./_components/login/login.component";
@@ -15,14 +16,15 @@ const routes: Routes = [
   { path: "user_login", component: LoginComponent },
   { path: "admin_login", component: LoginComponent },
   { path: "vehicleRegistration", component: VehicleDetailsComponent },
-  {path:"claim",component:ClaimsComponent},
+  { path: "claim", component: ClaimsComponent },
   { path: "policyForm", component: PolicyFormComponent },
+  { path: "policyDisplay", component: PolicyDisplayComponent },
   { path: "**", redirectTo: "home" },
 ];
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
+  imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

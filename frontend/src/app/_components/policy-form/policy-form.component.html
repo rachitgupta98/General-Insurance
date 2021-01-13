@@ -1,4 +1,4 @@
-<h2 style="text-align: center;">Plan for your Activa 120CC</h2>
+<h2 style="text-align: center;">Plan for your {{vehicleName}} 120CC</h2>
 <div class="main-container">
     
 <form (ngSubmit)="onHandleSubmit()">
@@ -21,7 +21,7 @@
           <div class="optionsBtn"*ngFor="let price of thirdPartyPlanPrice">
             <div class="left" >
                 <mat-radio-button class="example-radio-button" [value]="price.value">
-                  <p>{{price.key}}</p>
+                  <p>{{price.key}} years</p>
                 </mat-radio-button>
             </div>
             <div class="right">
@@ -63,7 +63,7 @@
               <div class="optionsBtn"*ngFor="let price of comprehensivePlanPrice">
                 <div class="left" >
                     <mat-radio-button class="example-radio-button" [value]="price.value">
-                      <p>{{price.key}}</p>
+                      <p>{{price.key}} years</p>
                     </mat-radio-button>
                 </div>
                 <div class="right">
