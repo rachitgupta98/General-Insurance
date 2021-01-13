@@ -11,6 +11,8 @@ import { VehicleHomeComponent } from "./_components/vehicle-home/vehicle-home.co
 import { ClaimsComponent } from "./_components/claims/claims.component";
 import { ProfileComponent } from "./_components/profile/profile.component";
 import { UserPolicesComponent } from "./_components/user-polices/user-polices.component";
+import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
+import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
 
 const routes: Routes = [
   { path: "user_registration", component: UserRegistrationComponent },
@@ -24,7 +26,10 @@ const routes: Routes = [
   {path:"policies",component:UserPolicesComponent},
   {path:"profile",component:ProfileComponent},
   { path: "policyDisplay", component: PolicyDisplayComponent },
+  {path:"docUpload",component:DocUploadComponent},
+  { path: "claimPolicy",component:ClaimPolicyComponent},
   { path: "**", redirectTo: "home" },
+  
 ];
 
 @NgModule({
