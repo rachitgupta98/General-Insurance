@@ -3,7 +3,7 @@ export default class VehicleInfoModel {
   engineNo;
   makerModel;
   ownerName;
-  registrationDate;
+  registrationDate: Date;
   registrationNo;
   fuelType;
   vehicleClass;

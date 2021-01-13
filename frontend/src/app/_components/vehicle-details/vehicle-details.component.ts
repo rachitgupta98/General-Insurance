@@ -11,13 +11,17 @@ import { VehicleDetailsService } from "src/app/_services/vehicle-details/vehicle
 })
 export class VehicleDetailsComponent implements OnInit {
   vehicleInfoModel = new VehicleInfoModel();
+
+  vehicleClass = ["2 Wheeler", "4 Wheeler"];
+
   constructor(
     private vehicleService: VehicleDetailsService,
     private router: Router
   ) {}
 
   ngOnInit() {
-    console.log(sessionStorage.getItem("regNo"));
+    //console.log(sessionStorage.getItem("regNo"));
+    this.vehicleInfoModel.registrationNo = sessionStorage.getItem("regNo");
     // this.vehicleService
     //   .fetchVehicleInfo(sessionStorage.getItem("regNo"))
     //   .subscribe((data) => {
@@ -33,10 +37,15 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   handleOnSubmit() {
+    if (sessionStorage.getItem("userId") == null) {
+      this.router.navigate(["/user_login"]);
+      return;
+    }
     this.vehicleService
       .saveVehicleInfo(this.vehicleInfoModel)
       .subscribe((data) => {
-        console.log(data);
+        sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
+        console.log(data.result);
       });
     this.router.navigate(["/policyForm"]);
   }
