@@ -51,11 +51,6 @@ export class PolicyFormComponent implements OnInit {
 
   ngOnInit() {
     this.vehicleName = sessionStorage.getItem("model");
-    this.vehicleService
-      .fetchPolicyByVehcileId(sessionStorage.getItem("existVehicleId"))
-      .subscribe((data) => {
-        this.router.navigate(["/policyDisplay"]);
-      });
   }
   onHandleSubmit() {
     if (this.policyInfo.premiumAmount == null) {

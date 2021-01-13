@@ -29,18 +29,22 @@ export class VehicleDetailsComponent implements OnInit {
       .fetchExistedVehicleData(sessionStorage.getItem("regNo"))
       .subscribe(
         (data) => {
-          console.log(data.HttpErrorResponse.status);
-
-          console.log("200 Ok");
-          this.checkRegistraionNo = true;
-          delete data.result["fuelType"];
-          this.vehicleInfoModel = data.result;
-          sessionStorage.setItem("existVehicleId", data.result["vehicleId"]);
+          console.log(data);
+          if (data.result != null) {
+            console.log("200 Ok");
+            this.checkRegistraionNo = true;
+            delete data.result["fuelType"];
+            this.vehicleInfoModel = data.result;
+            sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
+            sessionStorage.setItem("model", data.result["makerModel"]);
+          } else {
+            this.checkRegistraionNo = false;
+          }
         },
         (err) => {
           console.log("error2231eee" + err.status);
           this.checkRegistraionNo = false;
-          sessionStorage.removeItem("existVehicleId");
+          sessionStorage.removeItem("vehicleId");
         }
       );
 
