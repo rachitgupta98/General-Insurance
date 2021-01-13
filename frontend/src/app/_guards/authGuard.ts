@@ -1,18 +1,21 @@
 import { OnInit } from '@angular/core';
-import { Session } from "../_services/Session";
+import { Session } from "../_services/SessionValues";
 
 
-export class Auth implements OnInit {
-    session: Session;
+export class Auth  {
+    session: Session=new Session();
     userId: string;
 
 
-    ngOnInit() {
-
-        this.userId=sessionStorage.getItem('userId')
-
-
-
+    constructor()
+    {
+        this.userId=this.session.userId;
     }
+
+        
+
+
+
+    
 
 }

@@ -1,4 +1,5 @@
 export default   class User{
+    public userId:any;
     public userName:string="";
     public userPassword:string="";
     public userEmail:string="";

@@ -16,7 +16,7 @@ import VehicleInfoModel from "src/app/_models/vehicleInfoModel";
 export class VehicleHomeComponent implements OnInit {
   @Input()
   typeOfVehicle: string = "4 wheeler";
-
+  fromgroup:FormGroup
   activeBtn1: boolean = true;
   activeBtn2: boolean = false;
 

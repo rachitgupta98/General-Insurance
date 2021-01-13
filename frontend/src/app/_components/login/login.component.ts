@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { UserService } from '../../_services/user.service';
 import { Router } from '@angular/router';
 import { Login } from '../login';
-import { Session } from 'src/app/_services/Session';
+import { Auth } from 'src/app/_guards/authGuard';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   login: Login = new Login();
   message: string;
   formGroup: FormGroup;
-  session: Session;
+  
 
 
 
@@ -26,6 +26,10 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    if(sessionStorage.getItem('userId')!==null)
+    {
+      this.router.navigate(['/home'])
+    }
     this.createForm();
   }
 
@@ -67,7 +71,6 @@ export class LoginComponent implements OnInit {
     this.userService.login(this.login).subscribe(response => {
       // alert(JSON.stringify(response));
       console.log(response);
-      console.log("below alert");
 
       if (response.status == 200) {
 
@@ -76,9 +79,12 @@ export class LoginComponent implements OnInit {
 
         sessionStorage.setItem('userId', response.result.userId);
         sessionStorage.setItem('userName', response.result.userName);
+        
 
-
-        this.router.navigate(['/home']);
+        
+        this.router.navigate(['/home']).then(() => {
+          window.location.reload();
+        });;
       }
       else
         this.message = response.message;

@@ -25,6 +25,7 @@ import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpass
 import { ProfileComponent } from './_components/profile/profile.component';
 import { ClaimsComponent } from './_components/claims/claims.component';
 import { PolicyFormComponent } from './_components/policy-form/policy-form.component';
+import { UserPolicesComponent } from './_components/user-polices/user-polices.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { PolicyFormComponent } from './_components/policy-form/policy-form.compo
     ProfileComponent,
     ClaimsComponent,
     PolicyFormComponent,
+    UserPolicesComponent,
   ],
   imports: [
     BrowserModule,

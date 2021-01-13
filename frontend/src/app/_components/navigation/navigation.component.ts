@@ -1,11 +1,12 @@
 
 import { Auth } from 'src/app/_guards/authGuard';
-import { Session } from 'src/app/_services/Session';
+import { Session } from 'src/app/_services/SessionValues';
 
 import { Component, OnInit } from "@angular/core";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map, shareReplay } from "rxjs/operators";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-navigation",
@@ -15,17 +16,24 @@ import { map, shareReplay } from "rxjs/operators";
 export class NavigationComponent implements OnInit {
   userId:any;
   userLogged: boolean = false;
-  refreshed:boolean=false;
-  auth:Auth;
+  refreshed:number=0;
+  userName:string='';
+  session:Session=new Session();
+  ref=0;
 
   ngOnInit()
   {
+    //
+    
+      // if(this.auth.userId!==null)
+      // {
+      //   this.userLogged=true;
+      // }
     
     
 
   }
   
-
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -33,29 +41,27 @@ export class NavigationComponent implements OnInit {
 
     );
 
-
-
-  constructor(private breakpointObserver: BreakpointObserver) {
-    
-    console.log("session Check",sessionStorage.getItem('userId'))
-    this.userId=sessionStorage.getItem('userId');
-    
-    // if(sessionStorage.getItem('userId')!=null && !this.refreshed)
-    // {
-    //   this.refreshed=true;
       
-    //   //location.reload()
-    //   this.userLogged=true;
-      
-    // }
-    
-    
-   
-    // else{
-    //   this.userLogged=false;
-    // }
-  
+
+  constructor(private breakpointObserver: BreakpointObserver, private router:Router) {
+    console.log("coming...")
+    if(sessionStorage.getItem('userId')!==null)
+    {
+      this.userLogged=true
+      this.userName=sessionStorage.getItem('userName')
+    }
+    console.log(this.userLogged)
  };
+
+ logOut()
+      {
+        sessionStorage.removeItem('userId');
+        sessionStorage.removeItem('userName');
+        this.userLogged=false
+        this.router.navigate(['/home']).then(()=>{
+        location.reload()});
+
+      }
 
 
 
