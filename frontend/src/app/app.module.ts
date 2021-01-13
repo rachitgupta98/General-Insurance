@@ -19,6 +19,8 @@ import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
+import { ClaimPolicyComponent } from './_components/claim-policy/claim-policy.component';
+import { DocUploadComponent } from './_components/doc-upload/doc-upload.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { NavigationComponent } from "./_components/navigation/navigation.compone
     InputFieldComponent,
     LoginComponent,
     AboutUsComponent,
+    ClaimPolicyComponent,
+    DocUploadComponent,
   ],
   imports: [
     BrowserModule,

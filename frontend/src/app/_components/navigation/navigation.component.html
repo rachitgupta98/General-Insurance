@@ -18,10 +18,10 @@
           Permium Calculator
 
         </a>
-        <a href="#" mat-button>
+        <button href="#" mat-button [routerLink]="['/claimPolicy']">
           <mat-icon>money</mat-icon>
           Claim
-        </a>
+        </button>
         <mat-list-item [matMenuTriggerFor]="menu">
           <mat-icon>unfold_more</mat-icon>
           <a matline>Login</a>
@@ -64,10 +64,10 @@
             Permium Calculator
 
           </a>
-          <a href="#" mat-button>
+          <button href="#" mat-button [routerLink]="['/claimPolicy']">
             <mat-icon>money</mat-icon>
             Claim
-          </a>
+          </button>
 
           <button mat-button [matMenuTriggerFor]="menu" style="text-align: center">
             <mat-icon matPrefix>account_box</mat-icon> Login
