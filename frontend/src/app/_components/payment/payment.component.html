@@ -1,0 +1,16 @@
+<div class="main-container">
+  <div class="heading">
+    <h2 class="header">₹{{amount}}</h2>
+  </div>
+<mat-card class="example-card">
+  
+  <mat-card-header>
+    <mat-card-title>Hi {{userName}}</mat-card-title>     
+    <mat-card-subtitle>One step away from securing your vehicle</mat-card-subtitle> 
+  </mat-card-header>  
+  
+      <div class="insuredValue"><h4>Registration Number :</h4> <span style="opacity: 0.8;">  {{regNo}}</span></div>
+     <div class="premiumCss"><h4>Plan Detail:</h4><span style="opacity: 0.8;"> {{planYear}}, {{planType}}</span></div>
+      <button class="btn" (click)="payment()">Pay Now</button>
+</mat-card>
+</div>
