@@ -138,7 +138,10 @@ export class UserRegistrationComponent implements OnInit {
           console.log(response);
           if (response.status == 200) {
             alert("details updated successfully");
-            this.router.navigate(['/home']);
+            sessionStorage.setItem('userName',response.result.userName);
+            this.router.navigate(['/home']).then(() => {
+              window.location.reload();
+            });;
           }
         })
       }

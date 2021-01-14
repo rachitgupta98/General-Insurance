@@ -1,5 +1,5 @@
-<div>
-  <mat-sidenav-container class="sidenav-container" style="color: #18478b; min-height:auto;">
+<div style="height: 100%;">
+  <mat-sidenav-container class="sidenav-container" style="color: #18478b; min-height:auto;" >
     <mat-sidenav #drawer class="sidenav" fixedInViewport [ngClass]="{'hidden': !(isHandset$ | async)}"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'push' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -55,9 +55,9 @@
         </a> -->
         <br>
 
-        <a (click)="drawer.close()" mat-button>
+        <!-- <a (click)="drawer.close()" mat-button>
           <mat-icon>close</mat-icon>Close
-        </a>
+        </a> -->
 
 
       </mat-nav-list>
@@ -97,7 +97,7 @@
           </button>
           <mat-menu #menuLogin="matMenu">
 
-            <button mat-menu-item [routerLink]="['/admin_login']">
+            <button mat-menu-item [routerLink]="['/dashboard']">
               <mat-icon>lock</mat-icon>Admin
             </button>
             <button mat-menu-item [routerLink]="['/user_login']">
@@ -123,10 +123,13 @@
             <mat-icon>person</mat-icon>
             Profile
           </a> -->
-
+          
         </div>
       </mat-toolbar>
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
     </mat-sidenav-content>
+    
 
   </mat-sidenav-container>
 
