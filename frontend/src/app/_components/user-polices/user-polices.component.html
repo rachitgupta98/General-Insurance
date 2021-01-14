@@ -1,14 +1,13 @@
 
-<div>
+<div >
 <mat-card class="container" style="margin-top: 100px;" *ngFor="let p of policy; index as i;">
 
     <!-- differentiating between expired and non expired policies -->
     
         <div *ngIf="!p.expired" style="text-align: center; font-size: 14px;font-weight: bold;">Policy for {{p.vehicle.makerModel}}</div>
-        
-           <!-- <div *ngIf="p.expired" style="text-align: center; font-size: 16px;font-weight: bold;">Expired for {{p.vehicle.vehicleClass}}</div>
-        -->
-        <br> 
+        <div *ngIf="p.expired" style="text-align: center; font-size: 16px;font-weight: bold;">Expired for {{p.vehicle.vehicleClass}}</div>
+        <br>
+    
     <mat-card-content >
         <br>
         <mat-list-item *ngIf="show[i]">

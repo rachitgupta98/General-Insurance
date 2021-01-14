@@ -37,11 +37,12 @@ mat-icon {
 .container {
   padding: 50px 95px 60px;
     width: 50%;
+    
   margin: 0 auto;
   background-color: $color-bg;
   border-radius: 20px;
-  box-shadow: 3px 5px 6px #ccc;
   color: #18478b;
+  box-shadow: 3px 5px 6px #ccc;
 }
 label {
   display: block;

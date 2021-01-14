@@ -30,6 +30,7 @@ import { PolicyDisplayComponent } from "./_components/policy-display/policy-disp
 import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
 import { PaymentComponent } from './_components/payment/payment.component';
+import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { PaymentComponent } from './_components/payment/payment.component';
     PolicyDisplayComponent,
     ClaimPolicyComponent,
     DocUploadComponent,
+    AdminDashboardComponent,
     PaymentComponent,
   ],
   imports: [

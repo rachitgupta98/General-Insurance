@@ -1,6 +1,8 @@
-export class ClaimDto {
-  claimForPolicyId;
-  userId;
-  claimAmount;
-  claimReason;
+export class ClaimDto{
+    claimForPolicyId:number;
+    userId:any;
+    claimAmount:number;
+    claimReason:String;
+    makerModel:string;
+    
 }
