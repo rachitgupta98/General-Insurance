@@ -17,10 +17,18 @@ export class VehicleDetailsComponent implements OnInit {
 
   checkRegistraionNo = false;
 
+  minDate: Date;
+  maxDate: Date;
   constructor(
     private vehicleService: VehicleDetailsService,
     private router: Router
-  ) { }
+  ) {
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const currentDay = new Date().getDate();
+    this.minDate = new Date(currentYear - 20, 0, 1);
+    this.maxDate = new Date(currentYear, currentMonth, currentDay);
+  }
 
   ngOnInit() {
     //console.log(sessionStorage.getItem("regNo"));
@@ -64,13 +72,11 @@ export class VehicleDetailsComponent implements OnInit {
 
   handleOnSubmit(f: NgForm) {
     if (!this.checkRegistraionNo) {
-
       if (sessionStorage.getItem("userId") == null) {
         this.router.navigate(["/user_login"]);
         return;
       }
       if (f.valid) {
-
         this.vehicleService
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
@@ -80,10 +86,8 @@ export class VehicleDetailsComponent implements OnInit {
           });
         this.router.navigate(["/policyForm"]);
       }
-    }
-    else {
+    } else {
       this.router.navigate(["/policyDisplay"]);
     }
   }
-
 }
