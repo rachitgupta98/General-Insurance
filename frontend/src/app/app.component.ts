@@ -13,5 +13,7 @@ export class AppComponent {
   toggleGridColumns() {
     this.gridColumns = this.gridColumns === 3 ? 4 : 3;
   }
+
+  
   
 }

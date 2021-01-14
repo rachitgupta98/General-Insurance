@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SampeService } from './sampe.service';
+import { PolicyServiceService } from './policy-service.service';
 
-describe('SampeService', () => {
+describe('PolicyServiceService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: SampeService = TestBed.get(SampeService);
+    const service: PolicyServiceService = TestBed.get(PolicyServiceService);
     expect(service).toBeTruthy();
   });
 });

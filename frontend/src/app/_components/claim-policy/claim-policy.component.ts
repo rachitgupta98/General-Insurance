@@ -16,22 +16,24 @@ export class ClaimPolicyComponent implements OnInit {
   claimId:number;
   
   constructor(private sampleService:SampeService,private router:Router) { 
+    
 
   }
 
   ngOnInit() {
-    //this.claimDto.userId=sessionStorage.getItem('userId');
+    this.claimDto.userId=sessionStorage.getItem('userId');
   }
   
   claimPolicy(){
-    this.claimDto.userId=115;
+    console.log(sessionStorage.getItem('userId'))
+    // this.claimDto.userId=140;
     //console.log(this.claimDto)
     this.sampleService.claim(this.claimDto).subscribe(
       data=>{
-        //console.log(data);
+        console.log(data);
         this.claim=data.result;
         //console.log(this.claim);
-        this.claimId=this.claim.claimId;
+       this.claimId=this.claim.claimId;
         //console.log(this.claimId);
         alert("Claim raised, your claim ID is : "+this.claim.claimId+" and status is '"+this.claim.claimStatus+"'");
         //console.log(this.claim);

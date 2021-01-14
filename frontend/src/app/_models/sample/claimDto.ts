@@ -1,6 +1,6 @@
 export class ClaimDto{
     claimForPolicyId:number;
-    userId:number;
+    userId:any;
     claimAmount:number;
     claimReason:String;
     
