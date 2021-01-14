@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SampeService } from 'src/app/_services/sample/sampe.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class DocUploadComponent implements OnInit {
   documentPic:File;
   isDocument:boolean=false;
   claimId:any;
-  constructor(private sampleService :SampeService) { }
+  constructor(private sampleService :SampeService , private router:Router) { }
 
   ngOnInit() {
   }
@@ -25,7 +26,8 @@ export class DocUploadComponent implements OnInit {
     // formData.append('claimId', this.claimId);
     // formData.append('profilePic', this.documentPic);
     this.sampleService.picUpload(this.documentPic,this.claimId).subscribe(response => {
-      alert(JSON.stringify(response));
+      alert("Document uploaded successfully");
+      this.router.navigate(['home']);
     });
   }
 
