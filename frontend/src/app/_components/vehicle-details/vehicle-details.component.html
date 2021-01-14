@@ -51,7 +51,7 @@
             <label>Registration Date <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>  </label>  
                
-            <input [matDatepicker]="picker" name="registrationDate" placeholder="Registration Date" #regDate="ngModel" [(ngModel)]=vehicleInfoModel.registrationDate required/>
+            <input [matDatepicker]="picker" [min]="minDate" [max]="maxDate" name="registrationDate" placeholder="Registration Date" #regDate="ngModel" [(ngModel)]=vehicleInfoModel.registrationDate required/>
             <div *ngIf="regDate.errors?.required && regDate.touched " style="color: red;">Registration Date required</div>
         </div>
        </mat-grid-tile>

@@ -17,7 +17,6 @@ export class PolicyDisplayComponent implements OnInit {
   date2;
   finalDate1;
   finalDate2;
-  policyId;
 
   constructor(
     private vehicleService: VehicleDetailsService,
@@ -37,10 +36,9 @@ export class PolicyDisplayComponent implements OnInit {
             delete data.result.vehicle;
             this.policData = data.result;
             console.log(data);
-            this.policyId = this.policData["policyId"];
+            //this.policyId = this.policData["policyId"];
 
             this.endDate = data.result["policyEndDate"];
-
             this.date2 = this.endDate.split("-");
             this.finalDate2 = new Date(
               this.date2[0],
