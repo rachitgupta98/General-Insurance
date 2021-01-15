@@ -6,8 +6,12 @@ import { Routes, RouterModule } from "@angular/router";
 import { UserRegistrationComponent } from "./_components/user-registration/user-registration.component";
 import { HomeComponent } from "./_components/home/home.component";
 import { VehicleHomeComponent } from "./_components/vehicle-home/vehicle-home.component";
+import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassword.component";
+import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
 
 const routes: Routes = [
+  { path: "resetpassword", component: ResetpasswordComponent },
+  { path: "forgotpassword", component: ForgotpasswordComponent  },
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
   { path: "user_login", component: LoginComponent },

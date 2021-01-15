@@ -21,6 +21,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
 import { from } from "rxjs";
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpass
     LoginComponent,
     AboutUsComponent,
     ForgotpasswordComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
