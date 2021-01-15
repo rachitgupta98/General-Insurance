@@ -1,3 +1,4 @@
+import { MatSnackBar } from "@angular/material";
 import { Router } from "@angular/router";
 import { VehicleDetailsService } from "src/app/_services/vehicle-details/vehicle-details.service";
 import { PolicyServiceService } from "./../../_services/policyService/policy-service.service";
@@ -9,6 +10,7 @@ import PolicyInfo from "src/app/_models/policyInfo";
   styleUrls: ["./policy-form.component.scss"],
 })
 export class PolicyFormComponent implements OnInit {
+  loggesInUser;
   policyInfo = new PolicyInfo();
   vehicleName;
   thirdPartyPlanPrice = [
@@ -46,7 +48,8 @@ export class PolicyFormComponent implements OnInit {
   constructor(
     private policyService: PolicyServiceService,
     private vehicleService: VehicleDetailsService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
@@ -75,9 +78,16 @@ export class PolicyFormComponent implements OnInit {
       this.policyInfo.userId = sessionStorage.getItem("userId");
       this.policyInfo.planYear = parseInt(this.year.key);
       console.log(this.year);
-      this.policyService.savePolicyData(this.policyInfo).subscribe((data) => {
-        console.log(data);
-      });
+      // this.policyService.savePolicyData(this.policyInfo).subscribe((data) => {
+      //   console.log(data);
+      //   this._snackBar.open("Policy Registered", "Dismiss", {
+      //     verticalPosition: "top",
+      //     duration: 4000,
+      //   });
+      //   this.router.navigate(["/home"]);
+      // });
+      this.policyService.policyData = this.policyInfo;
+      this.router.navigate(["/paymentgateway"]);
     }
   }
 
@@ -96,19 +106,24 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
-      if(sessionStorage.getItem("policyId")!=null){
-      this.policyInfo.policyId=sessionStorage.getItem("policyId");
-      }
-      this.policyInfo.insuranceAmount = 0;
+      this.policyInfo.insuranceAmount = 2500;
       this.policyInfo.isExpired = false;
       this.policyInfo.planType = "Comprehensive";
       this.policyInfo.vehicleId = sessionStorage.getItem("vehicleId");
       this.policyInfo.userId = sessionStorage.getItem("userId");
       this.policyInfo.planYear = parseInt(this.yearForComprehensive.key);
       console.log(this.policyInfo.premiumAmount);
-      this.policyService.savePolicyData(this.policyInfo).subscribe((data) => {
-        console.log(data);
-      });
+      // this.policyService.savePolicyData(this.policyInfo).subscribe((data) => {
+      //   console.log(data);
+      //   //alert("Policy is registered, go to payment for generating Policy Id");
+      //   this._snackBar.open("Policy Registered", "Dismiss", {
+      //     verticalPosition: "top",
+      //     duration: 4000,
+      //   });
+      //   this.router.navigate(["/home"]);
+      // });
+      this.policyService.policyData = this.policyInfo;
+      this.router.navigate(["/paymentgateway"]);
     }
   }
 }
