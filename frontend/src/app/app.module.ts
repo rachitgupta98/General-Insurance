@@ -21,6 +21,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
 import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
+
+import { RenewComponent } from './_components/renew/renew.component';
+//import { RenewComponent } from './_components/renew/renew.component';
 import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ProfileComponent } from "./_components/profile/profile.component";
 import { ClaimsComponent } from "./_components/claims/claims.component";
@@ -53,6 +56,8 @@ import { AdminDashboardComponent } from './_components/admin-dashboard/admin-das
     PolicyDisplayComponent,
     ClaimPolicyComponent,
     DocUploadComponent,
+    RenewComponent,
+    //RenewComponent,
     AdminDashboardComponent,
     PaymentComponent,
   ],

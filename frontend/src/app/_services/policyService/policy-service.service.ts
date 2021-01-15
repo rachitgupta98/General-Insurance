@@ -19,9 +19,11 @@ export class PolicyServiceService {
     );
   }
 
-  findPolicyData(userId: number): Observable<any> {
-    return this.http.get<any>(
-      "http://localhost:8080/insurance/policies/" + userId
-    );
-  }
+    findPolicyData(userId:number):Observable<any>{
+      return this.http.get<any>("http://localhost:8080/insurance/policies/"+userId);
+    }
+    policyToRenew(policyId:number,userId:number):Observable<any>{
+      return this.http.get<any>("http://localhost:8080/insurance/renewPolicy/?policyId="+policyId+"&userId="+userId);
+    }
+
 }
