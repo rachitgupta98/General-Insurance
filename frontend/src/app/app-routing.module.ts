@@ -17,8 +17,12 @@ import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.co
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
 import { RenewComponent } from "./_components/renew/renew.component";
 import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-dashboard.component";
+import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassword.component";
+import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
 
 const routes: Routes = [
+  { path: "resetpassword", component: ResetpasswordComponent },
+  { path: "forgotpassword", component: ForgotpasswordComponent  },
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
