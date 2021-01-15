@@ -29,6 +29,8 @@ import { UserPolicesComponent } from './_components/user-polices/user-polices.co
 import { PolicyDisplayComponent } from './_components/policy-display/policy-display.component';
 import { ClaimPolicyComponent } from './_components/claim-policy/claim-policy.component';
 import { DocUploadComponent } from './_components/doc-upload/doc-upload.component';
+import { RenewComponent } from './_components/renew/renew.component';
+//import { RenewComponent } from './_components/renew/renew.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { DocUploadComponent } from './_components/doc-upload/doc-upload.componen
     PolicyDisplayComponent,
     ClaimPolicyComponent,
     DocUploadComponent,
+    RenewComponent,
+    //RenewComponent,
   ],
   imports: [
     BrowserModule,

@@ -96,6 +96,9 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
+      if(sessionStorage.getItem("policyId")!=null){
+      this.policyInfo.policyId=sessionStorage.getItem("policyId");
+      }
       this.policyInfo.insuranceAmount = 0;
       this.policyInfo.isExpired = false;
       this.policyInfo.planType = "Comprehensive";
