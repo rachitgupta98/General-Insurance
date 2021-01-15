@@ -1,6 +1,11 @@
 <div class="main-container">
+  <div class="img-head" *ngIf="btnDisable==true">
+    <img class="success-image" src="../../../assets/images/success.png"/>
+    <h3 class="success-msg">Payment was successfully processed!</h3>
+  </div>
   <div class="heading">
     <h2 class="header">₹{{amount}}</h2>
+    <p class="header">Total Payable Amount</p>
   </div>
 <mat-card class="example-card">
   
@@ -11,6 +16,7 @@
   
       <div class="insuredValue"><h4>Registration Number :</h4> <span style="opacity: 0.8;">  {{regNo}}</span></div>
      <div class="premiumCss"><h4>Plan Detail:</h4><span style="opacity: 0.8;"> {{planYear}}, {{planType}}</span></div>
-      <button class="btn" (click)="payment()">Pay Now</button>
-</mat-card>
+      <button matRipple [ngClass]="{'disableBtn':btnDisable}" class="btn" (click)="payment()" [disabled]="btnDisable">Pay Now</button>
+      <button matRipple *ngIf="btnDisable==true" class="btn" style="float: left;">Download Policy</button>
+    </mat-card>
 </div>

@@ -1,3 +1,4 @@
+import { PaymentServiceService } from "./../../_services/payment/payment-service.service";
 import { MatSnackBar } from "@angular/material";
 import { Router } from "@angular/router";
 import { PolicyServiceService } from "src/app/_services/policyService/policy-service.service";
@@ -16,10 +17,12 @@ export class PaymentComponent implements OnInit {
   planType;
   planYear;
   regNo;
+  btnDisable = false;
   constructor(
     private policyService: PolicyServiceService,
     private router: Router,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private paymentService: PaymentServiceService
   ) {
     this.payInfo.userId = sessionStorage.getItem("userId");
     this.userName = sessionStorage.getItem("userName");
@@ -39,11 +42,23 @@ export class PaymentComponent implements OnInit {
       .subscribe((data) => {
         console.log(data);
         //alert("Policy is registered, go to payment for generating Policy Id");
-        this._snackBar.open("Policy Registered", "Dismiss", {
-          verticalPosition: "top",
-          duration: 4000,
-        });
-        this.router.navigate(["/home"]);
+        if (data.result != null) {
+          this.payInfo.userId = sessionStorage.getItem("userId");
+          this.payInfo.policyId = data.result["policyId"];
+          this.payInfo.paymentAmount = data.result["premiumAmount"];
+
+          this.paymentService.paymentGateway(this.payInfo).subscribe((res) => {
+            console.log(res);
+            if (res.result != null) {
+              this.btnDisable = true;
+            }
+          });
+          this._snackBar.open("Policy Registered", "Dismiss", {
+            verticalPosition: "top",
+            duration: 4000,
+          });
+          //this.router.navigate(["/home"]);
+        }
       });
   }
 }
