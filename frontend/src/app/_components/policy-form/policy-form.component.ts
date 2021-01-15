@@ -70,6 +70,10 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
+      this.policyInfo.policyId=sessionStorage.getItem("policyId");
+      if(sessionStorage.getItem("policyId")==null){
+        this.policyInfo.policyId=0; 
+      }
 
       this.policyInfo.insuranceAmount = 0;
       this.policyInfo.isExpired = false;

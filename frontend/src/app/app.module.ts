@@ -24,7 +24,7 @@ import { from } from "rxjs";
 
 import { RenewComponent } from './_components/renew/renew.component';
 //import { RenewComponent } from './_components/renew/renew.component';
-import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
+//import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ProfileComponent } from "./_components/profile/profile.component";
 import { ClaimsComponent } from "./_components/claims/claims.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
@@ -34,6 +34,8 @@ import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.co
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
 import { PaymentComponent } from './_components/payment/payment.component';
 import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
+import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,7 @@ import { AdminDashboardComponent } from './_components/admin-dashboard/admin-das
     //RenewComponent,
     AdminDashboardComponent,
     PaymentComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
