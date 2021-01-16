@@ -1,0 +1,82 @@
+<h2 style="text-align: center;">Plan for your {{vehicleName}} 120CC</h2>
+<div class="main-container">
+    
+<form (ngSubmit)="onHandleSubmit()">
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Third Party Plan</mat-card-title>     
+      <mat-card-subtitle>Only cover third party loses, damage to your vehicle is not covered here</mat-card-subtitle> 
+    </mat-card-header>
+    
+    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+     -->
+     
+    <mat-card-content>
+        <!-- <label id="example-radio-group-label">Pick your favorite season</label> -->
+        <mat-radio-group
+        name="policy"
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="policyInfo.premiumAmount">
+          <div class="optionsBtn"*ngFor="let price of thirdPartyPlanPrice">
+            <div class="left" >
+                <mat-radio-button class="example-radio-button" [value]="price.value">
+                  <p>{{price.key}} years</p>
+                </mat-radio-button>
+            </div>
+            <div class="right">
+                      <h3>₹{{price.value}}</h3>
+            </div>
+            <mat-divider></mat-divider>
+          </div>
+          
+        </mat-radio-group>
+        <div class="insuredValue"><b>Insured value :</b> <span style="opacity: 0.5;">  Not applicable</span></div>
+       <h3 class="premiumCss">Premium Amoint :{{policyInfo.premiumAmount}}</h3>
+        <button class="btn">Buy</button>
+    </mat-card-content>
+  </mat-card>
+</form>
+
+
+<!-- Comprehensice plan -->
+
+
+
+<form (ngSubmit)="onHandleSubmitComprehensive()">
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Comprehensive Plan</mat-card-title>     
+          <mat-card-subtitle>Standard policy coverage damages to third-party and to your own vehicle</mat-card-subtitle> 
+        </mat-card-header>
+        
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+         -->
+         
+        <mat-card-content>
+            <!-- <label id="example-radio-group-label">Pick your favorite season</label> -->
+            <mat-radio-group
+            name="policy"
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              [(ngModel)]="compPremium">
+              <div class="optionsBtn"*ngFor="let price of comprehensivePlanPrice">
+                <div class="left" >
+                    <mat-radio-button class="example-radio-button" [value]="price.value">
+                      <p>{{price.key}} years</p>
+                    </mat-radio-button>
+                </div>
+                <div class="right">
+                          <h3>₹{{price.value}}</h3>
+                </div>
+                <mat-divider></mat-divider>
+              </div>
+              
+            </mat-radio-group>
+            <div class="insuredValue"><b>Insured value :</b> <span style="opacity: 0.5;"> ₹52,000</span></div>
+           <h3 class="premiumCss">Premium Amoint :{{compPremium}}</h3>
+            <button matRipple class="btn">Buy</button>
+        </mat-card-content>
+      </mat-card>
+    </form>
+</div>

@@ -1,0 +1,41 @@
+<form #myForm="ngForm" (ngSubmit)="claimPolicy()" class="surveyContainer" style="margin-top: 100px;">
+        <mat-card style="padding: 10px" class="mainContainer">
+            <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
+                <h3 class="header">Claim Policy</h3>
+            </div>
+            <br />
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Policy ID</mat-label>
+                <input required matInput placeholder="" value="" #policyNumber="ngModel" id="policyNumber" name="policyNumber"
+                    [(ngModel)]=claimDto.claimForPolicyId />
+                
+                <div *ngIf="policyNumber.errors?.required && policyNumber.touched "> policyNumber can't be empty</div>
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Claim Amount</mat-label>
+                <input required type="text" matInput placeholder="" id="claimAmount" name="claimAmount"
+                    required #claimAmount="ngModel" 
+                    [(ngModel)]=claimDto.claimAmount />
+                    <div *ngIf="claimAmount.errors?.required && claimAmount.touched "> Claim Amount can't be empty</div>
+
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Claim Reason</mat-label>
+                <input required type="text" matInput name="claimReason" required #claimReason="ngModel"  [(ngModel)]=claimDto.claimReason />
+                <div *ngIf="claimReason.errors?.required && claimReason.touched "> Claim Reason can't be empty</div>
+                    
+            </mat-form-field>
+            <br>
+            
+            <button  type="submit" class="submitButton" mat-raised-button>
+                Claim
+            </button>
+        </mat-card>
+
+    <div style="text-align: center; ;">
+        
+    </div>
+
+</form>

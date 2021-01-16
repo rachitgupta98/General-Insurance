@@ -1,0 +1,53 @@
+.main-container {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  max-width: 400px;
+}
+.insuredValue {
+  margin-top: 30px;
+}
+.heading {
+  padding: 10px;
+  text-align: center;
+  background: transparent
+    linear-gradient(276deg, rgba(13, 53, 148, 0.898039), #35d3e1);
+}
+.header {
+  color: #ebecf0;
+}
+.btn {
+  float: right;
+  padding: 12px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 400;
+  max-width: 150px;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  transition: transform 0.2s;
+  box-shadow: 3px 3px 3px #cecece, -3px -3px 3px #fff;
+  background: transparent
+    linear-gradient(276deg, rgba(13, 53, 148, 0.898039), #35d3e1) 0 0 no-repeat
+    padding-box;
+}
+.btn:hover {
+  transform: scale(1.03);
+}
+.disableBtn {
+  opacity: 0.3;
+}
+.success-image {
+  max-width: 60px;
+}
+
+.success-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.success-msg {
+  text-align: center;
+}

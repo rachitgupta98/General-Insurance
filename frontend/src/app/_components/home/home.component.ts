@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { Auth } from 'src/app/_guards/authGuard';
+import { Session } from 'src/app/_services/SessionValues';
 
 
 @Component({
@@ -8,11 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  
- 
-  constructor() { }
-  
+
+  userName: string = "User";
+  userId: any;
+  session: Session = new Session();
+  refreshed: boolean = false;
+
+  constructor(private router: Router) {
+    console.log("session Check", sessionStorage.getItem('userId'))
+    this.userName = sessionStorage.getItem('userName')
+    this.userId=sessionStorage.getItem('userId')
+    this.session.userId = sessionStorage.getItem('userId')
+  }
+
   ngOnInit() {
+
+
+    
+
+
   }
 
 }

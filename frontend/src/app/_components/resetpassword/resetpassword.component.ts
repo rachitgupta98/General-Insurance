@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Resetpassword } from '../resetpassword';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserService } from '../user.service';
+
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/_services/user.service';
 
 
 @Component({

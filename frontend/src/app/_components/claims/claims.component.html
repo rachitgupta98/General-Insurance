@@ -1,0 +1,43 @@
+<div>
+    <ng-container *ngFor="let claimed of claim; index as i;">
+
+        <mat-card class="container" style="margin-top: 100px;" *ngFor="let c of claimed">
+
+            <div style="text-align: center; font-size: 14px;font-weight: bold;">Claim for  {{claimed.makerModel}}</div>
+            <br>
+
+            <mat-card-content>
+
+
+                <br>
+                <mat-list-item *ngIf="show[i]">
+                    <mat-list-item role="listitem">PolicyID:{{claimed.claimForPolicyId}} </mat-list-item>
+                    <br>
+                    <mat-list-item role="listitem">ClaimId:{{c.claimId}} </mat-list-item>
+                    <br>
+                    <mat-list-item role="listitem">Claim Reason:{{c.claimReason}} </mat-list-item>
+                    <br>
+                    <mat-list-item role="listitem" *ngIf="c.claimStatus===Status" >Claim: <span style="color: red;">{{c.claimStatus}}</span></mat-list-item>
+                    <br>
+                    <mat-list-item role="listitem" *ngIf="c.claimStatus!==Status">Claim Status:{{c.claimStatus}} </mat-list-item>
+                    <br>
+                   
+
+                    <mat-list-item role="listitem"> </mat-list-item>
+                    <br>
+
+
+                    <mat-list-item role="listitem"></mat-list-item>
+                </mat-list-item>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button class="btn" style="text-align:right" mat-button (click)="Open(i)" *ngIf="show[i]">Hide</button>
+                <button class="btn" style="text-align:right" mat-button (click)="Open(i)" *ngIf="!show[i]">Show</button>
+            </mat-card-actions>
+
+
+        </mat-card>
+    </ng-container>
+
+</div>
