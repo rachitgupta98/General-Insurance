@@ -50,10 +50,15 @@ export class PolicyFormComponent implements OnInit {
     private vehicleService: VehicleDetailsService,
     private router: Router,
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.vehicleName =
+      sessionStorage.getItem("manufacturer") +
+      " " +
+      sessionStorage.getItem("model");
+  }
 
   ngOnInit() {
-    this.vehicleName = sessionStorage.getItem("model");
+    
   }
   onHandleSubmit() {
     console.log(sessionStorage.getItem("policyId"));
@@ -71,9 +76,9 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
-      this.policyInfo.policyId=sessionStorage.getItem("policyId");
-      if(sessionStorage.getItem("policyId")==null){
-        this.policyInfo.policyId=0; 
+      this.policyInfo.policyId = sessionStorage.getItem("policyId");
+      if (sessionStorage.getItem("policyId") == null) {
+        this.policyInfo.policyId = 0;
       }
       console.log(this.policyInfo.policyId);
       this.policyInfo.insuranceAmount = 0;

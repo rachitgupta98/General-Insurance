@@ -1,7 +1,8 @@
 export default class VehicleInfoModel {
   chasisNo;
   engineNo;
-  makerModel;
+  manufacturer;
+  model;
   ownerName;
   registrationDate: Date;
   registrationNo;

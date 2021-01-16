@@ -51,6 +51,7 @@ export class NavigationComponent implements OnInit {
     sessionStorage.removeItem("vehicleId");
     sessionStorage.removeItem("model");
     sessionStorage.removeItem("policyId");
+    sessionStorage.removeItem("manufacturer");
     this.userLogged = false;
     this.router.navigate(["/home"]).then(() => {
       location.reload();
