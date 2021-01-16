@@ -53,7 +53,10 @@ export class PolicyFormComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.vehicleName = sessionStorage.getItem("model");
+    this.vehicleName =
+      sessionStorage.getItem("manufacturer") +
+      " " +
+      sessionStorage.getItem("model");
   }
   onHandleSubmit() {
     if (this.policyInfo.premiumAmount == null) {
@@ -70,9 +73,9 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
-      this.policyInfo.policyId=sessionStorage.getItem("policyId");
-      if(sessionStorage.getItem("policyId")==null){
-        this.policyInfo.policyId=0; 
+      this.policyInfo.policyId = sessionStorage.getItem("policyId");
+      if (sessionStorage.getItem("policyId") == null) {
+        this.policyInfo.policyId = 0;
       }
 
       this.policyInfo.insuranceAmount = 0;
