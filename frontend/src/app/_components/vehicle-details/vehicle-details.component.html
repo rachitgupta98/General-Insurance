@@ -15,7 +15,7 @@
      <mat-grid-tile>
      <div class="block">
      <label>Chassis No</label>     
-     <input type="text" name="chasisNo" placeholder="Chassis No" #chasisNo="ngModel" [(ngModel)]=vehicleInfoModel.chasisNo required/>
+     <input type="text" name="chasisNo" placeholder="Chassis No" #chasisNo="ngModel" [(ngModel)]=vehicleInfoModel.chasisNo required [disabled]="checkForDisable"/>
      <div *ngIf="chasisNo.errors?.required && chasisNo.touched " style="color: red;"> Name can't be empty</div>
     </div>
     
@@ -25,48 +25,79 @@
     <mat-grid-tile>
         <div class="block">
             <label>Engine No</label>     
-            <input name="engineNo" placeholder="Engine No"  #engineNo="ngModel" [(ngModel)]=vehicleInfoModel.engineNo required/>
+            <input name="engineNo" placeholder="Engine No"  #engineNo="ngModel" [(ngModel)]=vehicleInfoModel.engineNo required [disabled]="checkForDisable"/>
             <div *ngIf="engineNo.errors?.required && engineNo.touched " style="color: red;">Engine Number Required</div>
            </div>
     </mat-grid-tile>
 
-       <mat-grid-tile>
-        <div class="block">
-            <label>Maker / Model</label>     
-            <input name="makerModel" placeholder="Maker / Model" #markerModel="ngModel" [(ngModel)]=vehicleInfoModel.makerModel required/>
-            <div *ngIf="markerModel.errors?.required && markerModel.touched " style="color: red;">Engine Number Required</div>
-           </div>
-       </mat-grid-tile>
-
-       <mat-grid-tile>
+    <mat-grid-tile>
         <div class="block">
             <label>Owner Name</label>     
-            <input name="ownerName" placeholder="Owner Name"  #ownerName="ngModel" [(ngModel)]=vehicleInfoModel.ownerName required/>
+            <input name="ownerName" placeholder="Owner Name"  #ownerName="ngModel" [(ngModel)]=vehicleInfoModel.ownerName required [disabled]="checkForDisable"/>
             <div *ngIf="ownerName.errors?.required && ownerName.touched " style="color: red;">Owner Name required</div>
            </div>
        </mat-grid-tile>
-
-       <mat-grid-tile>
-        <div class="block">
-            <label>Registration Date <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>  </label>  
-               
-            <input [matDatepicker]="picker" [min]="minDate" [max]="maxDate" name="registrationDate" placeholder="Registration Date" #regDate="ngModel" [(ngModel)]=vehicleInfoModel.registrationDate required/>
-            <div *ngIf="regDate.errors?.required && regDate.touched " style="color: red;">Registration Date required</div>
-        </div>
-       </mat-grid-tile>
-
-       <mat-grid-tile>
+    <mat-grid-tile>
         <div class="block" style="width: 250px;">
             <label>Vehicle Class</label>     
             <!-- <input  name="vehicleClass" placeholder="Vehicle Class"  [(ngModel)]=vehicleInfoModel.vehicleClass required/> -->  
-            <mat-select id="vehicleType" required #vehicleType="ngModel" name="vehicleType" [(ngModel)]=vehicleInfoModel.vehicleClass>
+            <mat-select id="vehicleType" required #vehicleType="ngModel" name="vehicleType" [(ngModel)]=vehicleInfoModel.vehicleClass [disabled]="checkForDisable">
                     <mat-option *ngFor="let type of vehicleClass" value={{type}}>{{type}}</mat-option>
                 </mat-select>
                 <div *ngIf="vehicleType.errors?.required && vehicleType.touched " style="color: red;">Vehicle Type required</div>
             </div> 
         </mat-grid-tile>
-    <mat-grid-tile><button class="btn">Get Prices</button></mat-grid-tile>
+
+       <mat-grid-tile>
+        <div class="block" style="width: 250px;">
+            <label>Manufacturer</label> 
+            <mat-select id="manufacturer" required #manufacturer="ngModel" name="manufacturer" [(ngModel)]=vehicleInfoModel.manufacturer [disabled]="checkForDisable">
+               <span *ngIf="vehicleInfoModel.vehicleClass=='4 Wheeler'">
+                 <mat-option  *ngFor="let type of vehicleCarManufacturer" value={{type}}>{{type}}</mat-option>
+                </span>
+                <span *ngIf="vehicleInfoModel.vehicleClass=='2 Wheeler'">
+                    <mat-option  *ngFor="let type of vehicleBikeManufacturer" value={{type}}>{{type}}</mat-option>
+                   </span>
+            </mat-select>
+            <!-- <input name="manufacturer" placeholder="Manufacturer" #manufacturer="ngModel" [(ngModel)]=vehicleInfoModel.manufacturer required/> -->
+            <div *ngIf="manufacturer.errors?.required && manufacturer.touched " style="color: red;">Manufacturer Required</div>
+           </div>
+           
+       </mat-grid-tile>
+
+
+       <mat-grid-tile>
+        <div class="block">
+            <label>Model</label>     
+            <input name="model" placeholder="Model" #model="ngModel" [(ngModel)]=vehicleInfoModel.model required [disabled]="checkForDisable"/>
+            <div *ngIf="model.errors?.required && model.touched " style="color: red;">Model Required</div>
+           </div>
+       </mat-grid-tile>
+
+       
+       <mat-grid-tile>
+        <div class="block">
+            <label>Registration Date <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>  </label>  
+               
+            <input [matDatepicker]="picker" [min]="minDate" [max]="maxDate" name="registrationDate" placeholder="Registration Date" #regDate="ngModel" [(ngModel)]=vehicleInfoModel.registrationDate required [disabled]="checkForDisable"/>
+            <div *ngIf="regDate.errors?.required && regDate.touched " style="color: red;">Registration Date required</div>
+        </div>
+       </mat-grid-tile>
+       
+       <mat-grid-tile>
+        <div class="block" style="width: 250px;">
+            <label>Fuel Type</label>     
+            <!-- <input  name="vehicleClass" placeholder="Vehicle Class"  [(ngModel)]=vehicleInfoModel.vehicleClass required/> -->  
+            <mat-select id="fuelType" required #fuelType="ngModel" name="fuelType" [(ngModel)]=vehicleInfoModel.fuelType [disabled]="checkForDisable">
+                    <mat-option *ngFor="let type of vehicleFuelType" value={{type}}>{{type}}</mat-option>
+                </mat-select>
+                <div *ngIf="fuelType.errors?.required && fuelType.touched " style="color: red;">Fuel Type required</div>
+            </div> 
+        </mat-grid-tile>
+       
+       
+    <mat-grid-tile><button matRipple class="btn">Get Prices</button></mat-grid-tile>
     </mat-grid-list>  
     <!--  -->
 </mat-card>

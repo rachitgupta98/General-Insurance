@@ -6,4 +6,5 @@ export default class PolicyInfo {
   isExpired;
   insuranceAmount;
   planYear;
+  policyId;
 }

@@ -9,7 +9,7 @@
           <mat-icon>directions_car</mat-icon>
           Buy
         </a>
-        <a href="#" mat-list-item>
+        <a [routerLink]="['/renewPolicy']" mat-list-item>
           <mat-icon>autorenew</mat-icon>
           Renew
         </a>
@@ -73,11 +73,11 @@
         <span>General Insurance</span>
         <span class="spacer"></span>
         <div fxHide fxShow.gt-sm>
-          <a href="#" mat-button>
+          <a [routerLink]="['/home']" mat-button>
             <mat-icon> directions_car</mat-icon>
             Buy
           </a>
-          <a href="#" mat-button>
+          <a [routerLink]="['/renewPolicy']" mat-button>
             <mat-icon>autorenew</mat-icon>
             Renew
           </a>

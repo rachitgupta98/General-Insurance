@@ -1,0 +1,19 @@
+<div class="head">
+<form  #renewForm="ngForm" (ngSubmit)="renew()" style="text-align: center;">
+    <mat-card class="main" style="width: 450px;">
+      <mat-card-header>
+        <p class="segment">Enter the Policy Id that you want to renew</p>
+      </mat-card-header>
+    <mat-card-content class="container" >    
+        <label>        
+          <input required type="text" placeholder="Enter the policy Id" [(ngModel)]="policyId" name="policyId"/>
+          <mat-error *ngIf="message!=null">
+            {{message}}
+          </mat-error>
+        </label>    
+      
+        <button class="btn" type="submit">Renew</button>    
+    </mat-card-content>
+    </mat-card>
+</form>
+</div>    

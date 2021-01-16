@@ -50,12 +50,18 @@ export class PolicyFormComponent implements OnInit {
     private vehicleService: VehicleDetailsService,
     private router: Router,
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+    this.vehicleName =
+      sessionStorage.getItem("manufacturer") +
+      " " +
+      sessionStorage.getItem("model");
+  }
 
   ngOnInit() {
-    this.vehicleName = sessionStorage.getItem("model");
+    
   }
   onHandleSubmit() {
+    console.log(sessionStorage.getItem("policyId"));
     if (this.policyInfo.premiumAmount == null) {
       alert("no plan is selected for payment");
       return;
@@ -70,7 +76,11 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
-
+      this.policyInfo.policyId = sessionStorage.getItem("policyId");
+      if (sessionStorage.getItem("policyId") == null) {
+        this.policyInfo.policyId = 0;
+      }
+      console.log(this.policyInfo.policyId);
       this.policyInfo.insuranceAmount = 0;
       this.policyInfo.isExpired = false;
       this.policyInfo.planType = "Third Party";
@@ -92,6 +102,7 @@ export class PolicyFormComponent implements OnInit {
   }
 
   onHandleSubmitComprehensive() {
+    console.log(sessionStorage.getItem("policyId"));
     this.policyInfo.premiumAmount = this.compPremium;
     if (this.compPremium == null) {
       alert("no plan is selected for payment");
@@ -106,6 +117,11 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
+      this.policyInfo.policyId=sessionStorage.getItem("policyId");
+      if(sessionStorage.getItem("policyId")==null){
+        this.policyInfo.policyId=0; 
+      }
+      console.log(this.policyInfo.policyId);
       this.policyInfo.insuranceAmount = 2500;
       this.policyInfo.isExpired = false;
       this.policyInfo.planType = "Comprehensive";

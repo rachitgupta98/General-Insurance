@@ -36,7 +36,7 @@ export class DocUploadComponent implements OnInit {
         this._snackBar.open("Document Uploaded", "Dismiss", {
           verticalPosition: "top",
         });
-        // this.router.navigate(["/home"]);
+         this.router.navigate(["/home"]);
       });
   }
 }

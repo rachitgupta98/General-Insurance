@@ -6,7 +6,7 @@
             <br />
 
             <mat-form-field class="example-full-width">
-                <mat-label>Policy Number</mat-label>
+                <mat-label>Policy ID</mat-label>
                 <input required matInput placeholder="" value="" #policyNumber="ngModel" id="policyNumber" name="policyNumber"
                     [(ngModel)]=claimDto.claimForPolicyId />
                 
@@ -15,7 +15,7 @@
 
             <mat-form-field class="example-full-width">
                 <mat-label>Claim Amount</mat-label>
-                <input required type="number" matInput placeholder="" id="claimAmount" name="claimAmount"
+                <input required type="text" matInput placeholder="" id="claimAmount" name="claimAmount"
                     required #claimAmount="ngModel" 
                     [(ngModel)]=claimDto.claimAmount />
                     <div *ngIf="claimAmount.errors?.required && claimAmount.touched "> Claim Amount can't be empty</div>

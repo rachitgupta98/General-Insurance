@@ -29,22 +29,20 @@ export class ClaimPolicyComponent implements OnInit {
     console.log(sessionStorage.getItem("userId"));
     // this.claimDto.userId=140;
     //console.log(this.claimDto)
-    this.sampleService.claim(this.claimDto).subscribe((data) => {
-      console.log(data);
-      this.claim = data.result;
-      //console.log(this.claim);
-      this.claimId = this.claim.claimId;
-      //console.log(this.claimId);
-      alert(
-        "Claim raised, your claim ID is : " +
-          this.claim.claimId +
-          " and status is '" +
-          this.claim.claimStatus +
-          "'"
-      );
-      //console.log(this.claim);
-      this.sampleService.claimId = this.claimId;
-      this.router.navigate(["docUpload"]);
-    });
+    this.sampleService.claim(this.claimDto).subscribe(
+      data=>{
+        console.log(data);
+        if(data.status==200){
+          this.claim=data.result;
+          this.claimId=this.claim.claimId;
+          alert("Claim raised, your claim ID is : "+this.claim.claimId+" and status is '"+this.claim.claimStatus+"'");
+          this.sampleService.claimId=this.claimId;
+          this.router.navigate(['docUpload']);
+        }else{
+          alert(data.message+" "+data.result.claimId+" is your claimId, pending from admin");
+        }
+      }
+    );
+    
   }
 }

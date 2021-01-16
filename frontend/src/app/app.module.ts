@@ -24,7 +24,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
 import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
-import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
+
+import { RenewComponent } from './_components/renew/renew.component';
+//import { RenewComponent } from './_components/renew/renew.component';
+//import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ProfileComponent } from "./_components/profile/profile.component";
 import { ClaimsComponent } from "./_components/claims/claims.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
@@ -50,6 +53,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { ClaimTableComponent } from './_components/claim-table/claim-table.component';
 import { LineChartComponent } from './_components/line-chart/line-chart.component';
 import { MiniCardComponent } from './_components/mini-card/mini-card.component';
+import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
+import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +85,9 @@ import { MiniCardComponent } from './_components/mini-card/mini-card.component';
     ClaimTableComponent,
     LineChartComponent,
     MiniCardComponent,
-    
+    RenewComponent,
+    PaymentComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,
