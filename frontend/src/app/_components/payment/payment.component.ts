@@ -51,6 +51,7 @@ export class PaymentComponent implements OnInit {
             console.log(res);
             if (res.result != null) {
               this.btnDisable = true;
+              sessionStorage.removeItem("policyId");
             }
           });
           this._snackBar.open("Policy Registered", "Dismiss", {
