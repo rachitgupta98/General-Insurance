@@ -11,4 +11,5 @@ export default   class User{
     public userState:string="";
     public pinCode:number;
 
+
 }

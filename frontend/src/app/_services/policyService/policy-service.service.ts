@@ -24,4 +24,12 @@ export class PolicyServiceService {
       "http://localhost:8080/insurance/policies/" + userId
     );
   }
+
+  findExistingPolicies():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/existingPolicies");
+  }
+
+  viewAll():Observable<any>{
+    return this.http.get<any>("http://localhost:8080/viewUsers");
+  }
 }

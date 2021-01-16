@@ -15,21 +15,22 @@ import { ProfileComponent } from "./_components/profile/profile.component";
 import { UserPolicesComponent } from "./_components/user-polices/user-polices.component";
 import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
-import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-dashboard.component";
+
+import { AdmindashboardComponent } from "./_components/admindashboard/admindashboard.component";
 
 const routes: Routes = [
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
   { path: "user_login", component: LoginComponent },
-  { path: "admin_login", component: LoginComponent },
+  { path: "admin_login", component: LoginComponent,data : {admin :true} },
   { path: "vehicleRegistration", component: VehicleDetailsComponent },
   { path: "claim", component: ClaimsComponent },
   { path: "policyForm", component: PolicyFormComponent },
   { path: "policies", component: UserPolicesComponent },
   { path: "profile", component: ProfileComponent },
   { path: "policyDisplay", component: PolicyDisplayComponent },
-  {path:"dashboard",component:AdminDashboardComponent},
+  {path:"dashboard",component:AdmindashboardComponent},
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
   { path: "premiumCalculation", component: PremiumCalculatorComponent },

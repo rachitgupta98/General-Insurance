@@ -14,7 +14,7 @@ export class ClaimsComponent implements OnInit {
   claim: ClaimDto[] = [];
   result: any[] = [];
   policyId: any = "";
-  Status="pending From Admin";
+  Status="Pending from Admin";
   show: { [key: number]: boolean } = {};
 
 

@@ -22,4 +22,6 @@ export class UserService {
   update(userId:number):Observable<any>{
     return this.http.get<any>("http://localhost:8080/insurance/findUser/"+userId);
   }
+
+ 
 }

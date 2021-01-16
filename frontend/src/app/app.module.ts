@@ -12,6 +12,9 @@ import { VehicleDetailsService } from "./_services/vehicle-details/vehicle-detai
 import { LoginComponent } from "./_components/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
 import { AboutUsComponent } from "./_components/about-us/about-us.component";
+import { ChartModule } from 'angular-highcharts'
+
+
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FooterComponent } from "./_components/footer/footer.component";
@@ -30,7 +33,23 @@ import { PolicyDisplayComponent } from "./_components/policy-display/policy-disp
 import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
 import { PaymentComponent } from './_components/payment/payment.component';
-import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
+
+import { DashCardComponent } from './_components/dash-card/dash-card.component';
+import { AdmindashboardComponent } from './_components/admindashboard/admindashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ChartComponent } from './_components/chart/chart.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ClaimTableComponent } from './_components/claim-table/claim-table.component';
+import { LineChartComponent } from './_components/line-chart/line-chart.component';
+import { MiniCardComponent } from './_components/mini-card/mini-card.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +72,15 @@ import { AdminDashboardComponent } from './_components/admin-dashboard/admin-das
     PolicyDisplayComponent,
     ClaimPolicyComponent,
     DocUploadComponent,
-    AdminDashboardComponent,
+    
     PaymentComponent,
+    DashCardComponent,
+    AdmindashboardComponent,
+    ChartComponent,
+    ClaimTableComponent,
+    LineChartComponent,
+    MiniCardComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -65,6 +91,18 @@ import { AdminDashboardComponent } from './_components/admin-dashboard/admin-das
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ChartModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+    
+    
   ],
   providers: [VehicleDetailsService],
   bootstrap: [AppComponent],

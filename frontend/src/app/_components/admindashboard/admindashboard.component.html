@@ -1,0 +1,59 @@
+<!--dash.component.html-->
+<div class="grid-container">
+  <h1 class="mat-h1"></h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <mat-grid-tile *ngFor="let i of [1, 2]" [colspan]="( cardLayout | async )?.miniCard.cols"
+      [rowspan]="( cardLayout | async )?.miniCard.rows">
+      <app-card title="Admin Details" *ngIf="i==1" style="text-align: center;">
+        <br>
+        
+        <mat-list-item style="font-size: 16px; font-weight: bold">
+          <mat-icon style="font-size: 32px;">person</mat-icon>
+          <mat-list-item role="listitem">AdminId:{{adminId}} </mat-list-item>
+          <br>
+          <mat-list-item role="listitem">AdminName:{{adminName}} </mat-list-item>
+        </mat-list-item>
+        
+      </app-card>
+      <app-card title="Summary" *ngIf="i==2">
+        <mat-list-item style="font-size: 16px;text-align: left;">
+          <mat-grid-list cols="2" rowHeight="50px">
+             <mat-grid-tile><mat-icon>people</mat-icon>Total Users:{{usercount}}</mat-grid-tile>
+            <mat-grid-tile><i class="fa fa-file" aria-hidden="true" style="padding-right: 5px;"></i> Existing Policies:{{policycount}}</mat-grid-tile>
+            <mat-grid-tile><mat-icon style="color: green;">check_circle</mat-icon>approvedClaims:{{approvedClaims}}</mat-grid-tile>
+            <mat-grid-tile><i class="fa fa-times-circle" aria-hidden="true" style="padding-right: 5px;font-size: 22px;color: red;"></i>pendingClaims:{{pendingClaims}}</mat-grid-tile>
+          </mat-grid-list>
+          <!-- Total Users:{{usercount}} 
+          Existing Policies:{{policycount}}
+          
+            approvedClaims:{{approvedClaims}}
+            pendingClaims:{{pendingClaims}} -->
+          
+        </mat-list-item>
+
+      </app-card>
+    </mat-grid-tile>
+    <!--dash.component.html-->
+
+    <!--Charts-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Policy-Claim">
+        <app-chart></app-chart>
+      </app-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="User-Policy">
+        <line-chart></line-chart>
+      </app-card>
+    </mat-grid-tile>
+    <!--Table-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.tables.cols" [rowspan]="( cardLayout | async )?.tables.rows">
+      <app-card tu>
+        <app-table></app-table>
+      </app-card>
+
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

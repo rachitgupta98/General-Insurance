@@ -24,7 +24,7 @@
      <div class="form-element">
        <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid" >Login</button><br><br>
        <button mat-stroked-button color="primary"  [routerLink]="['/forgotpassword']">Forgot password</button>
-       <button mat-stroked-button color="primary" [routerLink]="['/user_registration']">Sign up</button>
+       <button mat-stroked-button color="primary" [routerLink]="['/user_registration']" *ngIf="!admin">Sign up</button>
      </div>
     
    </form>
