@@ -71,6 +71,7 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   handleOnSubmit(f: NgForm) {
+    
     if (!this.checkRegistraionNo) {
       if (sessionStorage.getItem("userId") == null) {
         this.router.navigate(["/user_login"]);

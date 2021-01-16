@@ -6,15 +6,26 @@
         <br />
         <mat-form-field class="example-full-width">
             <mat-label>Registration Date</mat-label>
-            <input required matInput placeholder="Registration" value=" "
-                [(ngModel)]="registrationYear" />
-
+                <input matInput [matDatepicker]="picker"   name="registrationDate"  [(ngModel)]="registrationDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+             
         </mat-form-field>
-        
         <mat-form-field class="example-full-width">
-            <mat-label>Model</mat-label>
+            <mat-label>Vehicle Type</mat-label>
+            <mat-select id="vehicleType" required name="vehicleType" [(ngModel)]="typeOfVehicle">
+                <mat-option *ngFor="let type of vehicleType" value={{type.type}}   >{{type.type}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+      
+        <mat-form-field class="example-full-width">
+            <mat-label>Manufacturer</mat-label>
             <mat-select id="vehicleModel" required name="vehicleModel">
-                <mat-option *ngFor="let model of models" value={{model.model}}  >{{model.model}} </mat-option>
+               
+               
+                <mat-option *ngFor="let model of vehicleBikeManufacturer" value={{model.model}}  >{{model.model}} </mat-option>
+               
+            <!--    <mat-option *ngFor="let model of vehicleCarManufacturer" value={{model.model}}  >{{model.model}} </mat-option>-->
             </mat-select>
         </mat-form-field>
         
