@@ -5,15 +5,17 @@ $color-shadow: #babecc;
 $color-white: #fff;
 $formRuler: 32px;
 
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .main {
-  max-width: 100%;
   transition: none !important;
   box-shadow: none !important;
 }
-mat-icon {
-  vertical-align: middle;
-  margin-right: 0.25rem !important;
-}
+
 .header-btn {
   border: 0;
   outline: 0;
@@ -48,7 +50,7 @@ label {
 }
 .segment {
   color: #071e54;
-  opacity: 0.5;
+  opacity: 0.7;
   font-family: Georgia, "Times New Roman", Times, serif;
   margin: 0px 0px 8px 24px;
   font-size: 20px;

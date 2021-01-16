@@ -13,8 +13,32 @@ import { NgForm } from "@angular/forms";
 export class VehicleDetailsComponent implements OnInit {
   vehicleInfoModel = new VehicleInfoModel();
 
-  vehicleClass = ["2 Wheeler", "4 Wheeler"];
+  checkForDisable = false;
 
+  vehicleFuelType = ["Petrol", "Diesel"];
+  vehicleClass = ["2 Wheeler", "4 Wheeler"];
+  vehicleCarManufacturer = [
+    "Ford",
+    "Honda",
+    "Hyundai",
+    "Mahindra & Mahindra",
+    "Maruti Suzuki",
+    "Nissan",
+    "Renault",
+    "Tata Motors",
+    "Toyota",
+    "Volkswagen",
+  ];
+  vehicleBikeManufacturer = [
+    "Hero MotoCorp",
+    "Honda Motorcycle and Scooter",
+    "TVS Motor",
+    "Bajaj Auto",
+    "Yamaha Motor",
+    "Royal Enfield",
+    "Suzuki Motorcycle",
+    "Mahindra Two Wheelers",
+  ];
   checkRegistraionNo = false;
 
   minDate: Date;
@@ -41,10 +65,12 @@ export class VehicleDetailsComponent implements OnInit {
           if (data.result != null) {
             console.log("200 Ok");
             this.checkRegistraionNo = true;
-            delete data.result["fuelType"];
+
             this.vehicleInfoModel = data.result;
+            this.checkForDisable = true;
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
-            sessionStorage.setItem("model", data.result["makerModel"]);
+            sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
+            sessionStorage.setItem("model", data.result["model"]);
           } else {
             this.checkRegistraionNo = false;
           }
@@ -82,7 +108,8 @@ export class VehicleDetailsComponent implements OnInit {
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
-            sessionStorage.setItem("model", data.result["makerModel"]);
+            sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
+            sessionStorage.setItem("model", data.result["model"]);
             console.log(data.result);
           });
         this.router.navigate(["/policyForm"]);
