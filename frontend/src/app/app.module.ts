@@ -22,6 +22,8 @@ import { NavigationComponent } from "./_components/navigation/navigation.compone
 import { from } from "rxjs";
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
+import { PremiumcalculatorComponent } from './_components/premiumcalculator/premiumcalculator.component';
+import { DisplayPremiumComponent } from './_components/display-premium/display-premium.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ResetpasswordComponent } from './_components/resetpassword/resetpasswor
     AboutUsComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
+    PremiumcalculatorComponent,
+    DisplayPremiumComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,10 +8,12 @@ import { HomeComponent } from "./_components/home/home.component";
 import { VehicleHomeComponent } from "./_components/vehicle-home/vehicle-home.component";
 import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
+import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
 
 const routes: Routes = [
   { path: "resetpassword", component: ResetpasswordComponent },
   { path: "forgotpassword", component: ForgotpasswordComponent  },
+  { path: "premiumcalculator", component: PremiumcalculatorComponent  },
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
   { path: "user_login", component: LoginComponent },

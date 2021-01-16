@@ -1,0 +1,32 @@
+<form #myForm="ngForm"  (ngSubmit)="calculateIDV()" class="surveyContainer" style="margin-top: 100px;">
+    <mat-card style="padding: 10px" class="mainContainer">
+        <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
+            <h3 class="header">Premium Calculator</h3>
+        </div>
+        <br />
+        <mat-form-field class="example-full-width">
+            <mat-label>Registration Date</mat-label>
+            <input required matInput placeholder="Registration" value=" "
+                [(ngModel)]="registrationYear" />
+
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Model</mat-label>
+            <mat-select id="vehicleModel" required name="vehicleModel">
+                <mat-option *ngFor="let model of models" value={{model.model}}  >{{model.model}} </mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <br>
+        
+        <button  type="submit" class="submitButton" mat-raised-button>
+           Calculate
+        </button>
+    </mat-card>
+
+<div style="text-align: center; ;">
+    
+</div>
+
+</form>
