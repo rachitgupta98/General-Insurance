@@ -32,13 +32,13 @@
     <ng-container matColumnDef="approve">
         <mat-header-cell *matHeaderCellDef>approve</mat-header-cell>
         <mat-cell *matCellDef="let element">
-            <a mat-button style="background-color:#2e942e;">Approve</a>
+            <a mat-button style="background-color:#2e942e;" (click)="claimStatus(element.claimId,'approved')">Approve</a>
         </mat-cell>
     </ng-container>
     <ng-container matColumnDef="reject">
         <mat-header-cell *matHeaderCellDef>reject</mat-header-cell>
         <mat-cell *matCellDef="let element">
-            <button mat-button style="background-color: rgb(206, 56, 56);">reject</button>
+            <button mat-button style="background-color: rgb(206, 56, 56);" (click)="claimStatus(element.claimId,'rejected')">reject</button>
         </mat-cell>
     </ng-container>
 

@@ -53,7 +53,7 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 
   ngOnInit()
   {
-    if(sessionStorage.getItem('policycount')===null)
+    if(sessionStorage.getItem('pendingclaims')===null)
     {
       window.location.reload()
     }

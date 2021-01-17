@@ -45,6 +45,11 @@ export class LoginComponent implements OnInit {
     if (sessionStorage.getItem('userId') !== null) {
       this.router.navigate(['/home'])
     }
+
+    if(sessionStorage.getItem('adminId')!==null)
+    {
+      this.router.navigate(['/dashboard']).then(()=>window.location.reload())
+    }
     this.createForm();
   }
 
@@ -100,6 +105,7 @@ export class LoginComponent implements OnInit {
         console.log("Admin response",response);
         sessionStorage.setItem('adminId',response.result.adminId)
         sessionStorage.setItem('adminName',response.result.adminName)
+        this.router.navigate(['/dashboard']).then(()=>window.location.reload())
       })
     }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import adminApprove from 'src/app/_models/adminApprove';
 import { Claim } from 'src/app/_models/sample/claim';
 import { ClaimPolicyService } from 'src/app/_services/claim-policy/claim-policy.service';
 
@@ -33,10 +35,13 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ClaimTableComponent implements OnInit {
    claim: Claim[]=[]
    claims:Claim[]=[]
+   updateClaim:Claim=new Claim();
+   claimapproval:adminApprove=new adminApprove();
+   
   ngOnInit() {
   }
 
-  constructor(admin: ClaimPolicyService) {
+  constructor(private admin: ClaimPolicyService,private router: Router) {
     admin.fetchAllclaims().subscribe(response => {
       
       
@@ -65,6 +70,32 @@ export class ClaimTableComponent implements OnInit {
     let url=`http://127.0.0.1:8081/${doc}`
 
     window.open(url, "_blank");
+  }
+
+  claimStatus(claimId,claimStat:string)
+  {
+      
+        
+        
+          this.claimapproval.claimStatus=claimStat;
+          this.claimapproval.claimId=claimId;
+          this.claimapproval.adminId=sessionStorage.getItem('adminId');
+          console.log("claimapproval",this.claimapproval)
+          this.admin.updateClaimstatus(this.claimapproval).subscribe(response=>{
+        
+            console.log(response,"Responsee..")
+
+            if(response.status==200)
+            {
+              this.router.navigate(['/admin_login']).then(()=>{window.location.reload()})
+
+            }
+            
+          })
+        
+      
+      
+
   }
 
   

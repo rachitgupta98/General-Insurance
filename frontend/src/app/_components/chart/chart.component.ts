@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Options } from 'highcharts';
 import { Chart } from 'angular-highcharts';
 import { ClaimPolicyService } from 'src/app/_services/claim-policy/claim-policy.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chart',
@@ -53,9 +54,9 @@ export class ChartComponent implements OnInit {
         
         data: [
           // { name: 'a', y: 1, color: '#eeeeee' },
-          // { name: 'b', y: 2, color: '#393e46' },
-          { name: 'ClaimsApproved', y:this.claims, color: '#ebecf0' },
-          { name: 'PoliciesGiven', y:this.policies, color: '#18478b' },
+          // { name: 'b', y: 2, color: '' },
+          { name: 'ClaimsApproved', y:this.claims, color: '#393e46' },
+          { name: 'PoliciesGiven', y:this.policies, color: '#eeeeee' },
           // { name: 'e', y: 5, color: '#506ef9' },
         ],
       },
@@ -65,7 +66,7 @@ export class ChartComponent implements OnInit {
   
   
 chart=new Chart(this.donutChartOptions)
-  constructor(admin:ClaimPolicyService) { 
+  constructor(private admin:ClaimPolicyService,private router: Router) { 
     admin.fetchapprovedclaims().subscribe(response=>{
       console.log(response,"resssponse");
       this.claims=response.result
@@ -75,6 +76,7 @@ chart=new Chart(this.donutChartOptions)
       console.log(response,"policy..ka");
       this.policies=response.result;
       sessionStorage.setItem('policycount',response.result)
+      this.router.navigate(['/dashboard'])
     })
     
     

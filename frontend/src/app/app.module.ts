@@ -55,6 +55,7 @@ import { LineChartComponent } from './_components/line-chart/line-chart.componen
 import { MiniCardComponent } from './_components/mini-card/mini-card.component';
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
+import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.service";
 
 @NgModule({
   declarations: [
@@ -111,7 +112,7 @@ import { ResetpasswordComponent } from './_components/resetpassword/resetpasswor
     
     
   ],
-  providers: [VehicleDetailsService],
+  providers: [VehicleDetailsService,ClaimPolicyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

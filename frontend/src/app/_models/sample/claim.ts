@@ -9,6 +9,6 @@ export class Claim{
     claimAmount:number;
     cliamForPolicyNumber:number;
     documentFile:String;
-    user:User;
-    policy:Policy;
+    // user:User;
+    // policy:Policy;
 }
