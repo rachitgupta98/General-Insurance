@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,DoCheck} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Chart } from 'angular-highcharts';
 
@@ -58,5 +58,11 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     {
       window.location.reload()
     }
+    
   }
+  ngDoCheck()
+  {
+    this.pendingClaims=sessionStorage.getItem('pendingclaims')
+  }
+
 }

@@ -1,3 +1,4 @@
+import { FaqsComponent } from "./_components/faqs/faqs.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { UserRegistrationComponent } from "./_components/user-registration/user-registration.component";
@@ -11,10 +12,11 @@ import { InputFieldComponent } from "./_components/input-field/input-field.compo
 import { VehicleDetailsService } from "./_services/vehicle-details/vehicle-details.service";
 import { LoginComponent } from "./_components/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { AboutUsComponent } from "./_components/about-us/about-us.component";
+
 import { ChartModule } from 'angular-highcharts'
 
 
+//import { AboutUsComponent } from "./_components/about-us/about-us.component";
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FooterComponent } from "./_components/footer/footer.component";
@@ -24,7 +26,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
 import { from } from "rxjs";
 
-import { RenewComponent } from './_components/renew/renew.component';
+import { RenewComponent } from "./_components/renew/renew.component";
 //import { RenewComponent } from './_components/renew/renew.component';
 //import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ProfileComponent } from "./_components/profile/profile.component";
@@ -52,12 +54,15 @@ import { MatSortModule } from '@angular/material/sort';
 import { ClaimTableComponent } from './_components/claim-table/claim-table.component';
 import { LineChartComponent } from './_components/line-chart/line-chart.component';
 import { MiniCardComponent } from './_components/mini-card/mini-card.component';
-import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
-import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.service";
-import { PremiumcalculatorComponent } from './_components/premiumcalculator/premiumcalculator.component';
-import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
-import { ClaimStatusComponent } from './_components/claim-status/claim-status.component';
+import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
+import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
+import { DownloadPageComponent } from "./_components/download-page/download-page.component";
+import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
+import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
+import { AboutusComponent } from "./_components/aboutus/aboutus.component";
+import { ContactusComponent } from "./_components/contactus/contactus.component";
+//import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -70,8 +75,9 @@ import { ClaimStatusComponent } from './_components/claim-status/claim-status.co
     VehicleDetailsComponent,
     InputFieldComponent,
     LoginComponent,
-    AboutUsComponent,
-   // PremiumCalculatorComponent,
+    AboutusComponent,
+    // AboutUsComponent,
+    // PremiumCalculatorComponent,
     ForgotpasswordComponent,
     ProfileComponent,
     ClaimsComponent,
@@ -92,8 +98,14 @@ import { ClaimStatusComponent } from './_components/claim-status/claim-status.co
     PaymentComponent,
     ResetpasswordComponent,
     PremiumcalculatorComponent,   
-    ChatBotComponent,
     ClaimStatusComponent,
+    DownloadPageComponent,
+    ClaimStatusComponent,
+    FaqsComponent,
+    PremiumcalculatorComponent,
+    ContactusComponent,
+
+    // ChatBotComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,6 @@
       <div class="insuredValue"><h4>Registration Number :</h4> <span style="opacity: 0.8;">  {{regNo}}</span></div>
      <div class="premiumCss"><h4>Plan Detail:</h4><span style="opacity: 0.8;"> {{planYear}}, {{planType}}</span></div>
       <button matRipple [ngClass]="{'disableBtn':btnDisable}" class="btn" (click)="payment()" [disabled]="btnDisable">Pay Now</button>
-      <button matRipple *ngIf="btnDisable==true" class="btn" style="float: left;">Download Policy</button>
+      <button matRipple *ngIf="btnDisable==true" class="btn" style="float: left;" (click)="download()">Download Policy</button>
     </mat-card>
 </div>

@@ -33,4 +33,7 @@ export class PolicyServiceService {
       return this.http.get<any>("http://localhost:8080/insurance/renewPolicy/?policyId="+policyId+"&userId="+userId);
     }
 
+    downloadPolicyByPolicyId(policyId):Observable<any>{
+      return this.http.get<any>(`http://localhost:8080/insurance/policy/downloads?policyId=${policyId}`)
+    }
 }

@@ -1,3 +1,4 @@
+import { DownloadPageComponent } from "./_components/download-page/download-page.component";
 import { PaymentComponent } from "./_components/payment/payment.component";
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
@@ -17,15 +18,14 @@ import { DocUploadComponent } from "./_components/doc-upload/doc-upload.componen
 
 import { AdmindashboardComponent } from "./_components/admindashboard/admindashboard.component";
 import { RenewComponent } from "./_components/renew/renew.component";
-import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassword.component";
-import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
-import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
+import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
+import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
 import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
+import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
 
 const routes: Routes = [
   { path: "resetpassword", component: ResetpasswordComponent },
-  { path: "forgotpassword", component: ForgotpasswordComponent  },
-  { path: "premiumcalculator", component: PremiumcalculatorComponent  },
+  { path: "forgotpassword", component: ForgotpasswordComponent },
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
@@ -43,7 +43,8 @@ const routes: Routes = [
   { path: "claimPolicy", component: ClaimPolicyComponent },
  { path: "premiumcalulator",component:PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
-  {path:"claimStatus",component:ClaimStatusComponent},
+  { path: "downloads", component: DownloadPageComponent },
+  { path: "claimStatus", component: ClaimStatusComponent },
   { path: "**", redirectTo: "home" },
 ];
 

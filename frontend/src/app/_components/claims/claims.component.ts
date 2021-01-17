@@ -41,7 +41,8 @@ export class ClaimsComponent implements OnInit {
           console.log("claims", i)
           this.claim.push(this.result[i].claims);
           this.claim[i].claimForPolicyId = this.result[i].policyId;
-          this.claim[i].makerModel=this.result[i].vehicle.makerModel;
+          this.claim[i].manufacturer=this.result[i].vehicle.manufacturer;
+          this.claim[i].model=this.result[i].vehicle.model
           console.log(this.claim, "lllll")
 
 

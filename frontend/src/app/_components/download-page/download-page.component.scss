@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+}
+h2 {
+  text-align: center;
+}
+#user {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#user td,
+#user th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#user th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background: #173f9e;
+  color: white;
+}
+.btn {
+  background: transparent
+    linear-gradient(276deg, rgba(13, 53, 148, 0.898039), #35d3e1) 0 0 no-repeat;
+  color: white;
+  padding: 20px;
+  border-radius: 50px;
+  outline: 0;
+  border: 0;
+}
+.download {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}

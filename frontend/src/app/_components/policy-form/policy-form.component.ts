@@ -268,9 +268,9 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
-      this.policyInfo.policyId=sessionStorage.getItem("policyId");
-      if(sessionStorage.getItem("policyId")==null){
-        this.policyInfo.policyId=0; 
+      this.policyInfo.policyId = sessionStorage.getItem("policyId");
+      if (sessionStorage.getItem("policyId") == null) {
+        this.policyInfo.policyId = 0;
       }
       console.log(this.policyInfo.policyId);
       this.policyInfo.insuranceAmount =this.idvValue;

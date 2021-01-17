@@ -29,21 +29,34 @@ export class ClaimPolicyComponent implements OnInit {
     console.log(sessionStorage.getItem("userId"));
     // this.claimDto.userId=140;
     //console.log(this.claimDto)
-    if(this.claimDto.claimAmount!=null&&this.claimDto.claimReason!=null&&this.claimDto.claimForPolicyId!=null){
-    this.sampleService.claim(this.claimDto).subscribe(
-      data=>{
+    if (
+      this.claimDto.claimAmount != null &&
+      this.claimDto.claimReason != null &&
+      this.claimDto.claimForPolicyId != null
+    ) {
+      this.sampleService.claim(this.claimDto).subscribe((data) => {
         console.log(data);
-        if(data.status==200){
-          this.claim=data.result;
-          this.claimId=this.claim.claimId;
-          alert("Claim raised, your claim ID is : "+this.claim.claimId+" and status is '"+this.claim.claimStatus+"'");
-          this.sampleService.claimId=this.claimId;
-          this.router.navigate(['docUpload']);
-        }else{
-          alert(data.message+" "+data.result.claimId+" is your claimId, pending from admin");
+        if (data.status == 200) {
+          this.claim = data.result;
+          this.claimId = this.claim.claimId;
+          alert(
+            "Claim raised, your claim ID is : " +
+              this.claim.claimId +
+              " and status is '" +
+              this.claim.claimStatus +
+              "'"
+          );
+          this.sampleService.claimId = this.claimId;
+          this.router.navigate(["docUpload"]);
+        } else {
+          alert(
+            data.message +
+              " " +
+              data.result.claimId +
+              " is your claimId, pending from admin"
+          );
         }
-      }
-    );
+      });
     }
   }
 }

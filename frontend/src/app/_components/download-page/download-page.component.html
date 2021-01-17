@@ -1,0 +1,80 @@
+<div class="download">
+<button matRipple class="fa fa-cloud-download btn" (click)="download()">Download</button>
+</div>
+<div style="opacity: 0;">
+<div id="main">
+<div>
+    <h2>General Insurance</h2>
+</div>
+<br/>
+
+<br/>
+<h3>{{profile}}</h3>
+<table id="user" >
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>City</th>
+        <th>State</th>
+    </tr>
+    <tr>
+        <td>{{userDataSource.userName}}</td>
+        <td>{{userDataSource.userEmail}}</td>
+        <td>{{userDataSource.userPhone}}</td>
+        <td>{{userDataSource.userAddress}}</td>
+        <td>{{userDataSource.userCity}}</td>
+        <td>{{userDataSource.userState}}</td>
+      </tr>
+</table>
+<br/>
+<br/>
+<br/>
+<h3>Vehicle Details</h3>
+<table id="user" >
+    <tr>
+        <th>Owner name</th>
+        <th>Manufacturer</th>
+        <th>Model</th>
+        <th>Registration Number</th>
+        <th>Registration Date</th>
+        <th>Vehicle Class</th>
+        <th>Fuel Type</th>
+    </tr>
+    <tr>
+        <td>{{vehicleDataSource.ownerName}}</td>
+        <td>{{vehicleDataSource.manufacturer}}</td>
+        <td>{{vehicleDataSource.model}}</td>
+        <td>{{vehicleDataSource.registrationNo}}</td>
+        <td>{{vehicleDataSource.registrationDate}}</td>
+        <td>{{vehicleDataSource.vehicleClass}}</td>
+        <td>{{vehicleDataSource.fuelType}}</td>
+      </tr>
+</table>
+<br/>
+<br/>
+<br/>
+<h3>Policy Details</h3>
+<table id="user" >
+    <tr>
+        <th>Policy Id</th>
+        <th>Insured Amount</th>
+        <th>Plan Type</th>
+        <th>Plan Year</th>
+        <th>Policy Start Date</th>
+        <th>Policy End Date</th>
+        <th>Premium Amount</th>
+    </tr>
+    <tr>
+        <td>{{policyDataSource.policyId}}</td>
+        <td>{{policyDataSource.insuranceAmount}}</td>
+        <td>{{policyDataSource.planType}}</td>
+        <td>{{policyDataSource.planYear}}</td>
+        <td>{{policyDataSource.policyStartDate}}</td>
+        <td>{{policyDataSource.policyEndDate}}</td>
+        <td>{{policyDataSource.premiumAmount}}</td>
+      </tr>
+</table>
+</div>
+</div>

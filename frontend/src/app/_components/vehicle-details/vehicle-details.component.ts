@@ -108,7 +108,7 @@ export class VehicleDetailsComponent implements OnInit {
         this.vehicleService
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
-            
+            console.log(data,"data....")
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
             sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
             sessionStorage.setItem("model", data.result["model"]);
