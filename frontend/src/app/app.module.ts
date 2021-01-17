@@ -19,7 +19,7 @@ import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
-import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
+//import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
 
 import { RenewComponent } from './_components/renew/renew.component';
@@ -37,7 +37,6 @@ import { AdminDashboardComponent } from './_components/admin-dashboard/admin-das
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 import { PremiumcalculatorComponent } from './_components/premiumcalculator/premiumcalculator.component';
-import { DisplayPremiumComponent } from './_components/display-premium/display-premium.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +50,7 @@ import { DisplayPremiumComponent } from './_components/display-premium/display-p
     InputFieldComponent,
     LoginComponent,
     AboutUsComponent,
-    PremiumCalculatorComponent,
+   // PremiumCalculatorComponent,
     ForgotpasswordComponent,
     ProfileComponent,
     ClaimsComponent,
@@ -65,8 +64,8 @@ import { DisplayPremiumComponent } from './_components/display-premium/display-p
     AdminDashboardComponent,
     PaymentComponent,
     ResetpasswordComponent,
-    PremiumcalculatorComponent,
-    DisplayPremiumComponent,
+    PremiumcalculatorComponent
+   
   ],
   imports: [
     BrowserModule,

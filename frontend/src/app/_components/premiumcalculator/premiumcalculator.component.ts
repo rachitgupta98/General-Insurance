@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Premium } from 'src/app/_models/premium';
 
 @Component({
   selector: 'app-premiumcalculator',
@@ -6,19 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./premiumcalculator.component.scss']
 })
 export class PremiumcalculatorComponent implements OnInit {
+  premium = new Premium();
+  vehicleType;
   registrationDate;
   finalDate;
   finalDate2;
   finalDate3;
+  idvValue;
   numberOfYear;
-  numberOfMonth;
+  flag=false;
   minDate: Date;
   maxDate: Date;
+  odValue;
  //show:boolean=false;
- typeOfVehicle;
-  vehicleType=[{type:'Two wheeler' },
-  {type:'Four wheeler'}
-];
+ vehicleClass = ["2 Wheeler", "4 Wheeler"];
+addons=[{type:'Engine ProtectionCover',amount:'10000'},
+{type:'Tyre ProtectionCover',amount:'20000'},
+{type:'Passenger Cover',amount:'15000'},
+{type:'None',amount:'0'}];
 
 vehicleBikeManufacturer = [
    
@@ -61,14 +67,125 @@ vehicleBikeManufacturer = [
    
   
   }
-
+ 
    calculateIDV(){
-     
-     
-     // this.numberOfYear = this.finalDate2[0] - new Date().getFullYear();
-     // this.numberOfMonth = this.finalDate2[1] - new Date().getMonth();
+     this.flag=!this.flag;
+    this.finalDate = this.registrationDate
+            this.finalDate2 = this.finalDate.toString().split(" ");
+            this.finalDate3 = new Date(
+              this.finalDate2[0],
+              this.finalDate2[1],
+              this.finalDate2[2],
+              this.finalDate2[3], 
+            );
+
+            this.numberOfYear =  new Date().getFullYear()-this.finalDate2[3] ;
+          if(this.premium.vehicletype=="4 Wheeler") {
+            if(this.numberOfYear<0){
+              this.flag=!this.flag;
+              alert("Please Enter valid year");
+            }
+            if(this.numberOfYear==0){
+              for(var i=0;i<this.vehicleCarManufacturer.length;i++){
+                console.log(this.vehicleCarManufacturer[i]);
+                 if(this.vehicleCarManufacturer[i].model==this.premium.manufacturer){
+                   this.idvValue=parseInt(this.vehicleCarManufacturer[i].price);
+                   this.odValue=0.0197*this.idvValue; 
+                   
+                 }
+              }
+           }
+            if(this.numberOfYear==1){
+               for(var i=0;i<this.vehicleCarManufacturer.length;i++){
+                 console.log(this.vehicleCarManufacturer[i]);
+                  if(this.vehicleCarManufacturer[i].model==this.premium.manufacturer){
+                    this.idvValue=parseInt(this.vehicleCarManufacturer[i].price)-(parseInt(this.vehicleCarManufacturer[i].price)*0.1);
+                    this.odValue=0.0197*this.idvValue; 
+                  }
+               }
+            }
+            if(this.numberOfYear>1 && this.numberOfYear<3){
+              for(var i=0;i<this.vehicleCarManufacturer.length;i++){
+                console.log(this.vehicleCarManufacturer[i]);
+                 if(this.vehicleCarManufacturer[i].model==this.premium.manufacturer){
+                   this.idvValue=parseInt(this.vehicleCarManufacturer[i].price)-(parseInt(this.vehicleCarManufacturer[i].price)*0.15);
+                   this.odValue=0.0197*this.idvValue; 
+                 }
+              }
+           }if(this.numberOfYear>2 && this.numberOfYear<10){
+            for(var i=0;i<this.vehicleCarManufacturer.length;i++){
+              console.log(this.vehicleCarManufacturer[i]);
+               if(this.vehicleCarManufacturer[i].model==this.premium.manufacturer){
+                 this.idvValue=parseInt(this.vehicleCarManufacturer[i].price)-(parseInt(this.vehicleCarManufacturer[i].price)*0.2);
+                 this.odValue=0.0197*this.idvValue; 
+               }
+            }
+         }
+         if(this.numberOfYear>=10){
+          for(var i=0;i<this.vehicleCarManufacturer.length;i++){
+            console.log(this.vehicleCarManufacturer[i]);
+             if(this.vehicleCarManufacturer[i].model==this.premium.manufacturer){
+               this.idvValue=parseInt(this.vehicleCarManufacturer[i].price)-(parseInt(this.vehicleCarManufacturer[i].price)*0.5);
+               this.odValue=0.0197*this.idvValue; 
+             }
+          }
+       }
+          
+          }else{
+            if(this.numberOfYear<0){
+              this.flag=!this.flag;
+              alert("Please Enter valid year");
+            }
+            if(this.numberOfYear==0){
+              for(var i=0;i<this.vehicleBikeManufacturer.length;i++){
+                console.log(this.vehicleBikeManufacturer[i]);
+                 if(this.vehicleBikeManufacturer[i].model==this.premium.manufacturer){
+                   this.idvValue=parseInt(this.vehicleBikeManufacturer[i].price);
+                   this.odValue=0.0197*this.idvValue; 
+                 }
+              }
+           }
+            if(this.numberOfYear==1){
+               for(var i=0;i<this.vehicleBikeManufacturer.length;i++){
+                 console.log(this.vehicleBikeManufacturer[i]);
+                  if(this.vehicleBikeManufacturer[i].model==this.premium.manufacturer){
+                    this.idvValue=parseInt(this.vehicleBikeManufacturer[i].price)-(parseInt(this.vehicleBikeManufacturer[i].price)*0.1);
+                    this.odValue=0.0197*this.idvValue; 
+                  }
+               }
+            }
+            if(this.numberOfYear>1 && this.numberOfYear<3){
+              for(var i=0;i<this.vehicleBikeManufacturer.length;i++){
+                console.log(this.vehicleBikeManufacturer[i]);
+                 if(this.vehicleBikeManufacturer[i].model==this.premium.manufacturer){
+                   this.idvValue=parseInt(this.vehicleBikeManufacturer[i].price)-(parseInt(this.vehicleBikeManufacturer[i].price)*0.15);
+                   this.odValue=0.0197*this.idvValue; 
+                 }
+              }
+           }if(this.numberOfYear>2 && this.numberOfYear<10){
+            for(var i=0;i<this.vehicleBikeManufacturer.length;i++){
+              console.log(this.vehicleBikeManufacturer[i]);
+               if(this.vehicleBikeManufacturer[i].model==this.premium.manufacturer){
+                 this.idvValue=parseInt(this.vehicleBikeManufacturer[i].price)-(parseInt(this.vehicleBikeManufacturer[i].price)*0.2);
+                 this.odValue=0.0197*this.idvValue; 
+               }
+            }
+         }
+         if(this.numberOfYear>=10){
+          for(var i=0;i<this.vehicleBikeManufacturer.length;i++){
+            console.log(this.vehicleBikeManufacturer[i]);
+             if(this.vehicleBikeManufacturer[i].model==this.premium.manufacturer){
+               this.idvValue=parseInt(this.vehicleBikeManufacturer[i].price)-(parseInt(this.vehicleBikeManufacturer[i].price)*0.5);
+               this.odValue=0.0197*this.idvValue; 
+             }
+          }
+       }
+          }
+          console.log( this.premium.manufacturer);    
+     console.log( this.idvValue);
+    
       console.log( this.registrationDate.toString().split(" ")); 
-      console.log( this.typeOfVehicle);
+ 
   
       console.log( this.numberOfYear);
     

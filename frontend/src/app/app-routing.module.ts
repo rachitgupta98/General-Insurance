@@ -1,5 +1,4 @@
 import { PaymentComponent } from "./_components/payment/payment.component";
-import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
 import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
@@ -42,7 +41,7 @@ const routes: Routes = [
   {path:"dashboard",component:AdminDashboardComponent},
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
-  { path: "premiumCalculation", component: PremiumCalculatorComponent },
+ { path: "premiumCalulator",component:PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
   { path: "**", redirectTo: "home" },
 ];
