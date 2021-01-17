@@ -29,16 +29,15 @@ h3 {
   display: block;
   text-align: left;
 }
-input {
-  display: block;
-}
+
 label {
   color: #3b61b8;
   font-size: small;
   padding: 8px;
 }
 
-input,.mat-select {
+input,
+.mat-select {
   max-width: 400px;
   border: 0;
   outline: 0;

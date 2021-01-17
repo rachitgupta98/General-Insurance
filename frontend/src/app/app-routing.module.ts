@@ -20,10 +20,10 @@ import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassw
 import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
 import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
 
+
 const routes: Routes = [
   { path: "resetpassword", component: ResetpasswordComponent },
-  { path: "forgotpassword", component: ForgotpasswordComponent  },
-  { path: "premiumcalculator", component: PremiumcalculatorComponent  },
+  { path: "forgotpassword", component: ForgotpasswordComponent },
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
@@ -36,9 +36,9 @@ const routes: Routes = [
   { path: "profile", component: ProfileComponent },
   { path: "policyDisplay", component: PolicyDisplayComponent },
   //{path:"docUpload",component:DocUploadComponent},
-  {path:"renewPolicy",component:RenewComponent},
- // { path: "claimPolicy",component:ClaimPolicyComponent},
-  {path:"dashboard",component:AdminDashboardComponent},
+  { path: "renewPolicy", component: RenewComponent },
+  // { path: "claimPolicy",component:ClaimPolicyComponent},
+  { path: "dashboard", component: AdminDashboardComponent },
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
  { path: "premiumCalulator",component:PremiumcalculatorComponent },
