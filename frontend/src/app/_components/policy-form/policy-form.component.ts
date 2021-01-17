@@ -57,9 +57,7 @@ export class PolicyFormComponent implements OnInit {
       sessionStorage.getItem("model");
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
   onHandleSubmit() {
     console.log(sessionStorage.getItem("policyId"));
     if (this.policyInfo.premiumAmount == null) {
@@ -88,14 +86,6 @@ export class PolicyFormComponent implements OnInit {
       this.policyInfo.userId = sessionStorage.getItem("userId");
       this.policyInfo.planYear = parseInt(this.year.key);
       console.log(this.year);
-      // this.policyService.savePolicyData(this.policyInfo).subscribe((data) => {
-      //   console.log(data);
-      //   this._snackBar.open("Policy Registered", "Dismiss", {
-      //     verticalPosition: "top",
-      //     duration: 4000,
-      //   });
-      //   this.router.navigate(["/home"]);
-      // });
       this.policyService.policyData = this.policyInfo;
       this.router.navigate(["/paymentgateway"]);
     }
@@ -117,9 +107,9 @@ export class PolicyFormComponent implements OnInit {
           console.log("not found");
         }
       });
-      this.policyInfo.policyId=sessionStorage.getItem("policyId");
-      if(sessionStorage.getItem("policyId")==null){
-        this.policyInfo.policyId=0; 
+      this.policyInfo.policyId = sessionStorage.getItem("policyId");
+      if (sessionStorage.getItem("policyId") == null) {
+        this.policyInfo.policyId = 0;
       }
       console.log(this.policyInfo.policyId);
       this.policyInfo.insuranceAmount = 2500;
@@ -129,15 +119,6 @@ export class PolicyFormComponent implements OnInit {
       this.policyInfo.userId = sessionStorage.getItem("userId");
       this.policyInfo.planYear = parseInt(this.yearForComprehensive.key);
       console.log(this.policyInfo.premiumAmount);
-      // this.policyService.savePolicyData(this.policyInfo).subscribe((data) => {
-      //   console.log(data);
-      //   //alert("Policy is registered, go to payment for generating Policy Id");
-      //   this._snackBar.open("Policy Registered", "Dismiss", {
-      //     verticalPosition: "top",
-      //     duration: 4000,
-      //   });
-      //   this.router.navigate(["/home"]);
-      // });
       this.policyService.policyData = this.policyInfo;
       this.router.navigate(["/paymentgateway"]);
     }

@@ -22,7 +22,7 @@ import { NavigationComponent } from "./_components/navigation/navigation.compone
 import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
 
-import { RenewComponent } from './_components/renew/renew.component';
+import { RenewComponent } from "./_components/renew/renew.component";
 //import { RenewComponent } from './_components/renew/renew.component';
 //import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ProfileComponent } from "./_components/profile/profile.component";
@@ -32,12 +32,11 @@ import { UserPolicesComponent } from "./_components/user-polices/user-polices.co
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
-import { PaymentComponent } from './_components/payment/payment.component';
-import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
-import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
-import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
-import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
-import { DownloadPageComponent } from './_components/download-page/download-page.component';
+import { PaymentComponent } from "./_components/payment/payment.component";
+import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-dashboard.component";
+import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
+import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
+import { DownloadPageComponent } from "./_components/download-page/download-page.component";
 
 @NgModule({
   declarations: [
@@ -65,7 +64,6 @@ import { DownloadPageComponent } from './_components/download-page/download-page
     AdminDashboardComponent,
     PaymentComponent,
     ResetpasswordComponent,
-    ChatBotComponent,
     DownloadPageComponent,
   ],
   imports: [
