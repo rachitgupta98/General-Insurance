@@ -8,8 +8,8 @@
    <form [formGroup]="formGroup" (ngSubmit)="loginCheck()" class="form">
      <div class="input-icons">
     <i class="fa fa-envelope icon fa-md"></i> 
-       <input type="email" placeholder="Email" formControlName="useremail" required>
-       <mat-error *ngIf="formGroup.controls['useremail'].invalid">
+       <input type="email" placeholder="Email" formControlName="useremail" #useremail id="useremail" required>
+       <mat-error *ngIf="useremail?.touched && !formGroup.controls['useremail'].invalid">
          {{getError('user')}}
        </mat-error> 
      </div>

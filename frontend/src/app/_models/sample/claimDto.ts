@@ -3,6 +3,7 @@ export class ClaimDto{
     userId:any;
     claimAmount:number;
     claimReason:String;
-    makerModel:string;
+    manufacturer:string;
+    model:string;
     
 }

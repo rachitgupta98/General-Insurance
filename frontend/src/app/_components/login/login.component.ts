@@ -2,10 +2,12 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../../_services/user.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Login } from '../login';
 import { Auth } from 'src/app/_guards/authGuard';
 import { Session } from "src/app/_services/SessionValues";
+import adminDto from 'src/app/_models/adminDto';
+import { adminService } from 'src/app/_services/admin.service';
 
 @Component({
   selector: "app-login",
@@ -16,6 +18,8 @@ export class LoginComponent implements OnInit {
   login: Login = new Login();
   message: string;
   formGroup: FormGroup;
+  admin: boolean = false;
+  admindto: adminDto=new adminDto();
 
 
 
@@ -27,12 +31,24 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private router: Router
-  ) { }
+    private adminService:adminService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { this.admin = route.snapshot.data['admin'] }
+
+
+
+
 
   ngOnInit() {
+
     if (sessionStorage.getItem('userId') !== null) {
       this.router.navigate(['/home'])
+    }
+
+    if(sessionStorage.getItem('adminId')!==null)
+    {
+      this.router.navigate(['/dashboard']).then(()=>window.location.reload())
     }
     this.createForm();
   }
@@ -79,30 +95,48 @@ export class LoginComponent implements OnInit {
   }
 
   loginCheck() {
-    this.login.userEmail = this.formGroup.value.useremail;
-    this.login.userPassword = this.formGroup.value.password;
-    console.log(this.formGroup.value.useremail);
-    console.log(this.formGroup.value.password);
-    this.userService.login(this.login).subscribe((response) => {
-      // alert(JSON.stringify(response));
-      console.log(response);
 
-      if (response.status == 200) {
-        console.log("in success");
+    if (this.admin) {
+      this.admindto.adminEmail = this.formGroup.value.useremail;
+      this.admindto.adminPassword = this.formGroup.value.password;
 
-        sessionStorage.setItem("userId", response.result.userId);
-        sessionStorage.setItem("userName", response.result.userName);
+      console.log(this.admindto)
+      this.adminService.adminlogin(this.admindto).subscribe((response)=>{
+        console.log("Admin response",response);
+        sessionStorage.setItem('adminId',response.result.adminId)
+        sessionStorage.setItem('adminName',response.result.adminName)
+        this.router.navigate(['/dashboard']).then(()=>window.location.reload())
+      })
+    }
+
+    else {
+      this.login.userEmail = this.formGroup.value.useremail;
+      this.login.userPassword = this.formGroup.value.password;
+      console.log(this.formGroup.value.useremail);
+      console.log(this.formGroup.value.password);
+      this.userService.login(this.login).subscribe((response) => {
+        // alert(JSON.stringify(response));
+        console.log(response);
+
+        if (response.status == 200) {
+          console.log("in success");
+
+          sessionStorage.setItem("userId", response.result.userId);
+          sessionStorage.setItem("userName", response.result.userName);
 
 
-        this.router.navigate(['/home']).then(() => {
-          window.location.reload();
-        });;
-      }
-      else {
-        this.message = response.message;
-      }
-      // this.router.navigate(["/home"]);
+          this.router.navigate(['/home']).then(() => {
+            window.location.reload();
+          });;
+        }
+        else {
+          this.message = response.message;
+        }
+        // this.router.navigate(["/home"]);
 
-    })
+      })
+
+    }
+
   }
 }

@@ -1,0 +1,48 @@
+<mat-table [dataSource]="claims" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="claimId">
+        <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.claimId}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="claimReason">
+        <mat-header-cell *matHeaderCellDef> Reason </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.claimReason}} </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="claimStatus">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.claimStatus}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="claimAmount">
+        <mat-header-cell *matHeaderCellDef> Amount </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.claimAmount}} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="documentFile">
+        <mat-header-cell *matHeaderCellDef> documentFile </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-button style="background-color: lavender;"
+                (click)="show(element.claimId,element.documentFile)"
+                >{{element.documentFile}}</button>
+        </mat-cell>
+        <button></button>
+    </ng-container>
+    <ng-container matColumnDef="approve">
+        <mat-header-cell *matHeaderCellDef>approve</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <a mat-button style="background-color:#2e942e;" (click)="claimStatus(element.claimId,'approved')">Approve</a>
+        </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="reject">
+        <mat-header-cell *matHeaderCellDef>reject</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-button style="background-color: rgb(206, 56, 56);" (click)="claimStatus(element.claimId,'rejected')">reject</button>
+        </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" style="letter-spacing: inherit;"></mat-row>
+</mat-table>

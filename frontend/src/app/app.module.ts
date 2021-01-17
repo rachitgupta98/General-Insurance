@@ -12,6 +12,10 @@ import { InputFieldComponent } from "./_components/input-field/input-field.compo
 import { VehicleDetailsService } from "./_services/vehicle-details/vehicle-details.service";
 import { LoginComponent } from "./_components/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
+
+import { ChartModule } from 'angular-highcharts'
+
+
 //import { AboutUsComponent } from "./_components/about-us/about-us.component";
 
 import { FlexLayoutModule } from "@angular/flex-layout";
@@ -20,7 +24,6 @@ import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
-//import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
 
 import { RenewComponent } from "./_components/renew/renew.component";
@@ -33,8 +36,25 @@ import { UserPolicesComponent } from "./_components/user-polices/user-polices.co
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
-import { PaymentComponent } from "./_components/payment/payment.component";
-import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-dashboard.component";
+import { PaymentComponent } from './_components/payment/payment.component';
+
+import { DashCardComponent } from './_components/dash-card/dash-card.component';
+import { AdmindashboardComponent } from './_components/admindashboard/admindashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ChartComponent } from './_components/chart/chart.component';
+
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { ClaimTableComponent } from './_components/claim-table/claim-table.component';
+import { LineChartComponent } from './_components/line-chart/line-chart.component';
+import { MiniCardComponent } from './_components/mini-card/mini-card.component';
+import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.service";
 import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
 import { DownloadPageComponent } from "./_components/download-page/download-page.component";
@@ -66,11 +86,19 @@ import { ContactusComponent } from "./_components/contactus/contactus.component"
     PolicyDisplayComponent,
     ClaimPolicyComponent,
     DocUploadComponent,
+    
+    PaymentComponent,
+    DashCardComponent,
+    AdmindashboardComponent,
+    ChartComponent,
+    ClaimTableComponent,
+    LineChartComponent,
+    MiniCardComponent,
     RenewComponent,
-    //RenewComponent,
-    AdminDashboardComponent,
     PaymentComponent,
     ResetpasswordComponent,
+    PremiumcalculatorComponent,   
+    ClaimStatusComponent,
     DownloadPageComponent,
     ClaimStatusComponent,
     FaqsComponent,
@@ -88,8 +116,20 @@ import { ContactusComponent } from "./_components/contactus/contactus.component"
     HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    ChartModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    LayoutModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+    
+    
   ],
-  providers: [VehicleDetailsService],
+  providers: [VehicleDetailsService,ClaimPolicyService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

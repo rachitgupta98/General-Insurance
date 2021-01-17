@@ -164,7 +164,7 @@ export class UserRegistrationComponent implements OnInit {
     }
     else {
       alert("enter all details");
-      console.log(this.user)
+      
     }
   }
 

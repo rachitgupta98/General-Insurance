@@ -1,24 +1,25 @@
 <div style="height: 100%;">
-  <mat-sidenav-container class="sidenav-container" style="color: #18478b; min-height:auto;" >
+  <mat-sidenav-container class="sidenav-container" style="color: #18478b; min-height:auto;">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [ngClass]="{'hidden': !(isHandset$ | async)}"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'push' : 'side'"
       [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>Menu</mat-toolbar>
+      <mat-toolbar *ngIf="!admin">Menu</mat-toolbar>
+      <mat-toolbar *ngIf="admin">Dashboard options</mat-toolbar>
       <mat-nav-list>
-        <a href="#" mat-list-item>
+        <a href="#" mat-list-item *ngIf="!admin">
           <mat-icon>directions_car</mat-icon>
           Buy
         </a>
-        <a [routerLink]="['/renewPolicy']" mat-list-item>
+        <a [routerLink]="['/renewPolicy']" mat-list-item *ngIf="!admin">
           <mat-icon>autorenew</mat-icon>
           Renew
         </a>
-        <a href="#" mat-button>
+        <a href="#" mat-button *ngIf="!admin" [routerLink]="['/premiumcalulator']">
           <i class="fa fa-calculator" aria-hidden="true" style="color: #18478b;"></i>
           Permium Calculator
 
         </a>
-        <a  mat-button [matMenuTriggerFor]="claim" style="text-align: center">
+        <a mat-button [matMenuTriggerFor]="claim" style="text-align: center" *ngIf="!admin">
           <mat-icon>money</mat-icon>
           Claim
         </a>
@@ -31,7 +32,8 @@
             New Claim
           </button>
         </mat-menu>
-        <mat-list-item [matMenuTriggerFor]="menuLogin" *ngIf="!userLogged">
+
+        <mat-list-item [matMenuTriggerFor]="menuLogin" *ngIf="!admin && !userLogged">
           <mat-icon>unfold_more</mat-icon>
           <a matline>Login</a>
         </mat-list-item>
@@ -45,8 +47,9 @@
         </mat-menu>
         <br>
 
-        <button mat-button [matMenuTriggerFor]="menu" style="text-align: center" *ngIf="userLogged">
-          <mat-icon matPrefix>person_pin</mat-icon>{{userName}}
+        <button mat-button [matMenuTriggerFor]="menu" style="text-align: center" *ngIf="userLogged || admin">
+          <mat-icon matPrefix>person_pin</mat-icon><span *ngIf="userLogged">{{userName}}</span>
+          <span *ngIf="admin">{{adminName}}</span>
 
         </button>
         <mat-menu #menu="matMenu">
@@ -54,8 +57,11 @@
           <button mat-menu-item (click)="logOut()">
             <mat-icon>exit_to_app</mat-icon>Logout
           </button>
-          <button mat-menu-item [routerLink]="['/profile']">
+          <button mat-menu-item [routerLink]="['/profile']" *ngIf="userLogged">
             <mat-icon>person</mat-icon>Profile
+          </button>
+          <button mat-menu-item [routerLink]="['/dashboard']" *ngIf="admin">
+            <mat-icon>dashboard</mat-icon>Dashboard
           </button>
         </mat-menu>
         <!-- <a href="profile" mat-button *ngIf="userLogged">
@@ -82,20 +88,20 @@
         <span>General Insurance</span>
         <span class="spacer"></span>
         <div fxHide fxShow.gt-sm>
-          <a [routerLink]="['/home']" mat-button>
+          <a [routerLink]="['/home']" mat-button *ngIf="!admin">
             <mat-icon> directions_car</mat-icon>
             Buy
           </a>
-          <a [routerLink]="['/renewPolicy']" mat-button>
+          <a [routerLink]="['/renewPolicy']" mat-button *ngIf="!admin">
             <mat-icon>autorenew</mat-icon>
             Renew
           </a>
-          <a  mat-button [routerLink]="['/premiumcalculator']">
+          <a href="#" mat-button *ngIf="!admin" [routerLink]="['/premiumcalulator']">
             <i class="fa fa-calculator" aria-hidden="true"></i>
             Permium Calculator
 
           </a>
-          <a  mat-button [matMenuTriggerFor]="claim" style="text-align: center">
+          <a mat-button [matMenuTriggerFor]="claim" style="text-align: center" *ngIf="!admin">
             <mat-icon>money</mat-icon>
             Claim
           </a>
@@ -109,13 +115,13 @@
             </button>
           </mat-menu>
 
-          <button mat-button [matMenuTriggerFor]="menuLogin" style="text-align: center" *ngIf="!userLogged">
+          <button mat-button [matMenuTriggerFor]="menuLogin" style="text-align: center" *ngIf="!admin && !userLogged">
             <mat-icon matPrefix>account_box</mat-icon> Login
 
           </button>
           <mat-menu #menuLogin="matMenu">
 
-            <button mat-menu-item [routerLink]="['/dashboard']">
+            <button mat-menu-item [routerLink]="['/admin_login']">
               <mat-icon>lock</mat-icon>Admin
             </button>
             <button mat-menu-item [routerLink]="['/user_login']">
@@ -123,8 +129,9 @@
             </button>
           </mat-menu>
 
-          <button mat-button [matMenuTriggerFor]="menu" style="text-align: center" *ngIf="userLogged">
-            <mat-icon matPrefix>person_pin</mat-icon>{{userName}}
+          <button mat-button [matMenuTriggerFor]="menu" style="text-align: center" *ngIf="userLogged || admin">
+            <mat-icon matPrefix>person_pin</mat-icon><span *ngIf="userLogged">{{userName}}</span>
+            <span *ngIf="admin">{{adminName}}</span>
 
           </button>
           <mat-menu #menu="matMenu">
@@ -132,8 +139,11 @@
             <button mat-menu-item (click)="logOut()">
               <mat-icon>exit_to_app</mat-icon>Logout
             </button>
-            <button mat-menu-item [routerLink]="['/profile']">
+            <button mat-menu-item [routerLink]="['/profile']" *ngIf="userLogged">
               <mat-icon>person</mat-icon>Profile
+            </button>
+            <button mat-menu-item [routerLink]="['/dashboard']" *ngIf="admin">
+              <mat-icon>dashboard</mat-icon>Dashboard
             </button>
           </mat-menu>
 
@@ -141,24 +151,14 @@
             <mat-icon>person</mat-icon>
             Profile
           </a> -->
-          
+
         </div>
       </mat-toolbar>
       <router-outlet></router-outlet>
-  <div id="about" class="about">
-    <app-aboutus></app-aboutus>
-  </div>
-  <div id="faq" class="faq">
-    <app-faqs></app-faqs>
-  </div>
-  <div id="contact" class="contact">
-    <app-contactus></app-contactus>
-  </div>
-  
       <app-footer></app-footer>
     <!--  <app-chat-bot></app-chat-bot>-->
     </mat-sidenav-content>
-    
+
 
   </mat-sidenav-container>
 

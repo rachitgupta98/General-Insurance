@@ -70,7 +70,8 @@ const MaterialComponents = [
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
-  MatRippleModule
+  MatRippleModule,
+  MatCheckboxModule
 ];
 @NgModule({
   imports: [MaterialComponents],

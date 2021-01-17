@@ -15,8 +15,9 @@ import { ProfileComponent } from "./_components/profile/profile.component";
 import { UserPolicesComponent } from "./_components/user-polices/user-polices.component";
 import { ClaimPolicyComponent } from "./_components/claim-policy/claim-policy.component";
 import { DocUploadComponent } from "./_components/doc-upload/doc-upload.component";
+
+import { AdmindashboardComponent } from "./_components/admindashboard/admindashboard.component";
 import { RenewComponent } from "./_components/renew/renew.component";
-import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-dashboard.component";
 import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
 import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
@@ -29,20 +30,18 @@ const routes: Routes = [
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
   { path: "user_login", component: LoginComponent },
-  { path: "admin_login", component: LoginComponent },
+  { path: "admin_login", component: LoginComponent,data : {admin :true} },
   { path: "vehicleRegistration", component: VehicleDetailsComponent },
   { path: "claim", component: ClaimsComponent },
   { path: "policyForm", component: PolicyFormComponent },
   { path: "policies", component: UserPolicesComponent },
   { path: "profile", component: ProfileComponent },
   { path: "policyDisplay", component: PolicyDisplayComponent },
-  //{path:"docUpload",component:DocUploadComponent},
+  {path:"dashboard",component:AdmindashboardComponent},
   { path: "renewPolicy", component: RenewComponent },
-  // { path: "claimPolicy",component:ClaimPolicyComponent},
-  { path: "dashboard", component: AdminDashboardComponent },
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
-  { path: "premiumCalulator", component: PremiumcalculatorComponent },
+ { path: "premiumcalulator",component:PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
   { path: "downloads", component: DownloadPageComponent },
   { path: "claimStatus", component: ClaimStatusComponent },

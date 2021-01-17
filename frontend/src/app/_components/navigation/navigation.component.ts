@@ -17,9 +17,10 @@ export class NavigationComponent implements OnInit {
   userLogged: boolean = false;
   refreshed: number = 0;
   userName: string = "";
+  adminName:string="";
   session: Session = new Session();
   ref = 0;
-
+  admin:boolean=false
   ngOnInit() {
     //
     // if(this.auth.userId!==null)
@@ -36,12 +37,15 @@ export class NavigationComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     private router: Router
   ) {
-    console.log("coming...");
+    
     if (sessionStorage.getItem("userId") !== null) {
       this.userLogged = true;
       this.userName = sessionStorage.getItem("userName");
     }
-    console.log(this.userLogged);
+    if(sessionStorage.getItem("adminId")!==null){
+      this.admin=true;
+      this.adminName=sessionStorage.getItem('adminName')
+    }
   }
 
   logOut() {
@@ -51,6 +55,13 @@ export class NavigationComponent implements OnInit {
     sessionStorage.removeItem("vehicleId");
     sessionStorage.removeItem("model");
     sessionStorage.removeItem("policyId");
+    sessionStorage.removeItem('adminName');
+    sessionStorage.removeItem('adminId');
+
+    sessionStorage.removeItem('userscount');
+    sessionStorage.removeItem('policycount');
+    sessionStorage.removeItem('claimNo');
+    sessionStorage.removeItem('pendingclaims')
     sessionStorage.removeItem("manufacturer");
     this.userLogged = false;
     this.router.navigate(["/home"]).then(() => {
