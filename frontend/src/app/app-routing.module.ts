@@ -1,3 +1,4 @@
+import { DownloadPageComponent } from "./_components/download-page/download-page.component";
 import { PaymentComponent } from "./_components/payment/payment.component";
 import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: "claimPolicy", component: ClaimPolicyComponent },
   { path: "premiumCalculation", component: PremiumCalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
+  { path: "downloads", component: DownloadPageComponent },
   { path: "**", redirectTo: "home" },
 ];
 

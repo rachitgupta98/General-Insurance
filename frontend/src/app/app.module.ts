@@ -37,6 +37,7 @@ import { AdminDashboardComponent } from './_components/admin-dashboard/admin-das
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
+import { DownloadPageComponent } from './_components/download-page/download-page.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
     PaymentComponent,
     ResetpasswordComponent,
     ChatBotComponent,
+    DownloadPageComponent,
   ],
   imports: [
     BrowserModule,

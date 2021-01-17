@@ -46,7 +46,10 @@ export class PaymentComponent implements OnInit {
           this.payInfo.userId = sessionStorage.getItem("userId");
           this.payInfo.policyId = data.result["policyId"];
           this.payInfo.paymentAmount = data.result["premiumAmount"];
-
+          sessionStorage.setItem(
+            "policyIdForDownload",
+            data.result["policyId"]
+          );
           this.paymentService.paymentGateway(this.payInfo).subscribe((res) => {
             console.log(res);
             if (res.result != null) {
@@ -61,5 +64,10 @@ export class PaymentComponent implements OnInit {
           //this.router.navigate(["/home"]);
         }
       });
+  }
+
+  download() {
+    console.log("download started...");
+    this.router.navigate(["/downloads"]);
   }
 }
