@@ -76,7 +76,7 @@ chart=new Chart(this.donutChartOptions)
       console.log(response,"policy..ka");
       this.policies=response.result;
       sessionStorage.setItem('policycount',response.result)
-      this.router.navigate(['/dashboard'])
+      
     })
     
     
