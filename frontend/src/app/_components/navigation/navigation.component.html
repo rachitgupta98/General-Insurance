@@ -14,15 +14,25 @@
           <mat-icon>autorenew</mat-icon>
           Renew
         </a>
-        <a href="#" mat-button *ngIf="!admin"  [routerLink]="['/premiumcalulator']">
+        <a href="#" mat-button *ngIf="!admin" [routerLink]="['/premiumcalulator']">
           <i class="fa fa-calculator" aria-hidden="true" style="color: #18478b;"></i>
           Permium Calculator
 
         </a>
-        <a mat-button [routerLink]="['/claimPolicy']" *ngIf="!admin">
+        <a mat-button [matMenuTriggerFor]="claim" style="text-align: center" *ngIf="!admin">
           <mat-icon>money</mat-icon>
           Claim
         </a>
+        <mat-menu #claim="matMenu">
+
+          <button mat-menu-item [routerLink]="['/claimStatus']">
+            Claim Status
+          </button>
+          <button mat-menu-item [routerLink]="['/claimPolicy']">
+            New Claim
+          </button>
+        </mat-menu>
+
         <mat-list-item [matMenuTriggerFor]="menuLogin" *ngIf="!admin && !userLogged">
           <mat-icon>unfold_more</mat-icon>
           <a matline>Login</a>
@@ -91,7 +101,7 @@
             Permium Calculator
 
           </a>
-          <a  mat-button [matMenuTriggerFor]="claim" style="text-align: center" *ngIf="!admin">
+          <a mat-button [matMenuTriggerFor]="claim" style="text-align: center" *ngIf="!admin">
             <mat-icon>money</mat-icon>
             Claim
           </a>

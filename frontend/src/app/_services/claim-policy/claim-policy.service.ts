@@ -1,6 +1,5 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 import { Claim } from 'src/app/_models/sample/claim';
 import adminApprove from 'src/app/_models/adminApprove';

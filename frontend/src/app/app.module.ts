@@ -57,6 +57,7 @@ import { ResetpasswordComponent } from './_components/resetpassword/resetpasswor
 import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.service";
 import { PremiumcalculatorComponent } from './_components/premiumcalculator/premiumcalculator.component';
 import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
+import { ClaimStatusComponent } from './_components/claim-status/claim-status.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
     ResetpasswordComponent,
     PremiumcalculatorComponent,   
     ChatBotComponent,
+    ClaimStatusComponent,
   ],
   imports: [
     BrowserModule,

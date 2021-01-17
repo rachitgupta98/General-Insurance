@@ -20,6 +20,7 @@ import { RenewComponent } from "./_components/renew/renew.component";
 import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
 import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
+import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
 
 const routes: Routes = [
   { path: "resetpassword", component: ResetpasswordComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: "claimPolicy", component: ClaimPolicyComponent },
  { path: "premiumcalulator",component:PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
+  {path:"claimStatus",component:ClaimStatusComponent},
   { path: "**", redirectTo: "home" },
 ];
 
