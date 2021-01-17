@@ -92,7 +92,8 @@
             <label>Fuel Type</label>     
             <!-- <input  name="vehicleClas placeholder="Vehicle Class"  [(ngModel)]=vehicleInfoModel.vehicleClass required/> -->  
             <mat-select id="fuelType" required #fuelType="ngModel" name="fuelType" [(ngModel)]=vehicleInfoModel.fuelType [disabled]="checkForDisable">
-                    <mat-option *ngFor="let type of vehicleFuelType" value={{type}}>{{type}}</mat-option>
+                    <mat-option *ngIf="vehicleInfoModel.vehicleClass=='4 Wheeler'" value="Diesel">Diesel</mat-option>
+                    <mat-option *ngIf="vehicleInfoModel.vehicleClass=='2 Wheeler' || vehicleInfoModel.vehicleClass=='4 Wheeler'" value='Petrol'>Petrol</mat-option>
                 </mat-select>
                 <div *ngIf="fuelType.errors?.required && fuelType.touched " style="color: red;">Fuel Type required</div>
             </div> 
