@@ -14,7 +14,7 @@
           <mat-icon>autorenew</mat-icon>
           Renew
         </a>
-        <a href="#" mat-button *ngIf="!admin">
+        <a href="#" mat-button *ngIf="!admin"  [routerLink]="['/premiumcalulator']">
           <i class="fa fa-calculator" aria-hidden="true" style="color: #18478b;"></i>
           Permium Calculator
 
@@ -86,7 +86,7 @@
             <mat-icon>autorenew</mat-icon>
             Renew
           </a>
-          <a href="#" mat-button *ngIf="!admin">
+          <a href="#" mat-button *ngIf="!admin" [routerLink]="['/premiumcalulator']">
             <i class="fa fa-calculator" aria-hidden="true"></i>
             Permium Calculator
 

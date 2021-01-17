@@ -1,5 +1,4 @@
 import { PaymentComponent } from "./_components/payment/payment.component";
-import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
 import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
@@ -20,10 +19,12 @@ import { AdmindashboardComponent } from "./_components/admindashboard/admindashb
 import { RenewComponent } from "./_components/renew/renew.component";
 import { ForgotpasswordComponent} from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent} from "./_components/resetpassword/resetpassword.component";
+import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
 
 const routes: Routes = [
   { path: "resetpassword", component: ResetpasswordComponent },
   { path: "forgotpassword", component: ForgotpasswordComponent  },
+  { path: "premiumcalculator", component: PremiumcalculatorComponent  },
   { path: "user_registration", component: UserRegistrationComponent },
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
@@ -41,7 +42,7 @@ const routes: Routes = [
  // { path: "claimPolicy",component:ClaimPolicyComponent},
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
-  { path: "premiumCalculation", component: PremiumCalculatorComponent },
+ { path: "premiumcalulator",component:PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
   { path: "**", redirectTo: "home" },
 ];

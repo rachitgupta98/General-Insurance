@@ -22,7 +22,6 @@ import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
-import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
 
 import { RenewComponent } from './_components/renew/renew.component';
@@ -56,6 +55,7 @@ import { MiniCardComponent } from './_components/mini-card/mini-card.component';
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
 import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.service";
+import { PremiumcalculatorComponent } from './_components/premiumcalculator/premiumcalculator.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +69,7 @@ import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.servic
     InputFieldComponent,
     LoginComponent,
     AboutUsComponent,
-    PremiumCalculatorComponent,
+   // PremiumCalculatorComponent,
     ForgotpasswordComponent,
     ProfileComponent,
     ClaimsComponent,
@@ -89,6 +89,8 @@ import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.servic
     RenewComponent,
     PaymentComponent,
     ResetpasswordComponent,
+    PremiumcalculatorComponent
+   
   ],
   imports: [
     BrowserModule,
