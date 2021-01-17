@@ -28,19 +28,24 @@ export class DownloadPageComponent {
     private policyService: PolicyServiceService,
     private router: Router
   ) {
-    this.policyService
-      .downloadPolicyByPolicyId(sessionStorage.getItem("policyIdForDownload"))
-      .subscribe((data) => {
-        console.log(data.result);
-        delete data.result.user["userId"];
-        delete data.result.vehicle["vehicleId"];
-        this.userDataSource = data.result.user;
-        this.vehicleDataSource = data.result.vehicle;
-        // delete data.result.claims;
-        // delete data.result.user;
-        // delete data.result.vehicle;
-        this.policyDataSource = data.result;
-      });
+    if (sessionStorage.getItem("policyIdForDownload") == null) {
+      this.router.navigate(["/home"]);
+      return;
+    } else {
+      this.policyService
+        .downloadPolicyByPolicyId(sessionStorage.getItem("policyIdForDownload"))
+        .subscribe((data) => {
+          console.log(data.result);
+          delete data.result.user["userId"];
+          delete data.result.vehicle["vehicleId"];
+          this.userDataSource = data.result.user;
+          this.vehicleDataSource = data.result.vehicle;
+          // delete data.result.claims;
+          // delete data.result.user;
+          // delete data.result.vehicle;
+          this.policyDataSource = data.result;
+        });
+    }
   }
 
   download() {
@@ -52,6 +57,7 @@ export class DownloadPageComponent {
       var imgHeight = (canvas.height * 208) / canvas.width;
       doc.addImage(imgData, 0, 0, 208, imgHeight);
       doc.save("image.pdf");
+      sessionStorage.removeItem("policyIdForDownload");
       this.router.navigate(["/home"]);
     });
   }

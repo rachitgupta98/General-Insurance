@@ -1,11 +1,11 @@
-<h2 style="text-align: center;">Plan for your {{vehicleName}} 120CC</h2>
+<h2 style="text-align: center;">Plan for your {{vehicleName}} </h2>
 <div class="main-container">
 
   <form (ngSubmit)="onHandleSubmit()">
     <mat-card class="example-card" style="max-height: max-;">
       <mat-card-header>
         <mat-card-title>Third Party Plan</mat-card-title>
-        <mat-card-subtitle>Only cover third party loses, damage to your vehicle is not covered here (₹450 charged extra)</mat-card-subtitle>
+        <mat-card-subtitle>Only cover third party loses, damage to your vehicle is not covered here</mat-card-subtitle>
       </mat-card-header>
 
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
@@ -55,7 +55,7 @@
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title>Comprehensive Plan</mat-card-title>
-        <mat-card-subtitle>Standard policy doesn't cover damages to third-party covers to your own vehicle</mat-card-subtitle>
+        <mat-card-subtitle>Standard policy cover damages to third-party and covers damages to your own vehicle</mat-card-subtitle>
       </mat-card-header>
 
       <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
@@ -72,7 +72,7 @@
               </mat-radio-button>
             </div>
             <div class="right">
-              <h3>₹{{(odValue)*price.key}}</h3>
+              <h3>₹{{(odValue*2)*price.key}}</h3>
             </div>
             <mat-divider></mat-divider>
           </div>
@@ -87,8 +87,8 @@
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
         </mat-list>
-        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(odValue+addonsValue)*planYear*0.18}}</span></div>
-        <h3 class="premiumCss">Premium Amount :₹{{(odValue+addonsValue)*planYear+(odValue+addonsValue)*planYear*0.18}}</h3>
+        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(odValue*2+addonsValue)*planYear*0.18}}</span></div>
+        <h3 class="premiumCss">Premium Amount :₹{{(odValue*2+addonsValue)*planYear+(odValue*2+addonsValue)*planYear*0.18}}</h3>
         
         <button matRipple class="btn">Buy</button>
       </mat-card-content>

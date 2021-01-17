@@ -1,21 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "./assets/highcharts.css";
 
-@import './assets/highcharts.css';
-
-*,
-*::after,
-*::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-
-}
 html,
 body,
 .mat-sidenav-container {
   background-color: #fff;
-  
 }
 body {
   margin: 0;
