@@ -33,4 +33,7 @@ export class ClaimPolicyService {
   fetchClaimbyId(claimId:number):Observable<any>{
     return this.http.get<any>("http://localhost:8080/claim/"+claimId);
   }
+  checkStatus(claimId:number):Observable<any>{
+    return this.http.get<any>("http://localhost:8080/checkStatus?claimId="+claimId);
+  }
 }

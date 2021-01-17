@@ -16,7 +16,7 @@
   <mat-card-content class="container"> 
       <p class="segment">Upload the documents to verify the claim</p>   
       <label>        
-        <input type="file" placeholder="no file uploaded" required (change)="onFileChange($event)"/>
+        <input type="file" accept="application/pdf,image/jpeg,image/jpg" placeholder="no file uploaded" required (change)="onFileChange($event)"/>
       </label>
       <button class="btn" type="submit">Upload</button>    
   </mat-card-content>
