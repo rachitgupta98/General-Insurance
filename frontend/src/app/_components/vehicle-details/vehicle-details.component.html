@@ -77,10 +77,12 @@
        
        <mat-grid-tile>
         <div class="block">
-            <label>Registration Date <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>  </label>  
+            <label>Registration Date<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  </label>  
                
             <input [matDatepicker]="picker" [min]="minDate" [max]="maxDate" name="registrationDate" placeholder="Registration Date" #regDate="ngModel" [(ngModel)]=vehicleInfoModel.registrationDate required [disabled]="checkForDisable"/>
+            
+            <mat-datepicker #picker></mat-datepicker>
             <div *ngIf="regDate.errors?.required && regDate.touched " style="color: red;">Registration Date required</div>
         </div>
        </mat-grid-tile>
@@ -88,7 +90,7 @@
        <mat-grid-tile>
         <div class="block" style="width: 250px;">
             <label>Fuel Type</label>     
-            <!-- <input  name="vehicleClass" placeholder="Vehicle Class"  [(ngModel)]=vehicleInfoModel.vehicleClass required/> -->  
+            <!-- <input  name="vehicleClas placeholder="Vehicle Class"  [(ngModel)]=vehicleInfoModel.vehicleClass required/> -->  
             <mat-select id="fuelType" required #fuelType="ngModel" name="fuelType" [(ngModel)]=vehicleInfoModel.fuelType [disabled]="checkForDisable">
                     <mat-option *ngFor="let type of vehicleFuelType" value={{type}}>{{type}}</mat-option>
                 </mat-select>
