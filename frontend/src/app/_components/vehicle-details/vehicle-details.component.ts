@@ -65,11 +65,12 @@ export class VehicleDetailsComponent implements OnInit {
           if (data.result != null) {
             console.log("200 Ok");
             this.checkRegistraionNo = true;
-
+            
             this.vehicleInfoModel = data.result;
             this.checkForDisable = true;
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
             sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
+            sessionStorage.setItem("registrationDate", data.result["registrationDate"]);
             sessionStorage.setItem("model", data.result["model"]);
           } else {
             this.checkRegistraionNo = false;
@@ -107,14 +108,20 @@ export class VehicleDetailsComponent implements OnInit {
         this.vehicleService
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
+            
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
             sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
             sessionStorage.setItem("model", data.result["model"]);
-            console.log(data.result);
+            sessionStorage.setItem("registrationDate", data.result["registrationDate"]);
+            
           });
-        this.router.navigate(["/policyForm"]);
+        this.router.navigate(["/policyForm"]).then(()=>window.location.reload());
+      }
+      else{
+        alert("enter all details")
       }
     } else {
+      
       this.router.navigate(["/policyDisplay"]);
     }
   }
