@@ -1,3 +1,4 @@
+import { FaqsComponent } from "./_components/faqs/faqs.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { UserRegistrationComponent } from "./_components/user-registration/user-registration.component";
@@ -37,6 +38,7 @@ import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-das
 import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
 import { DownloadPageComponent } from "./_components/download-page/download-page.component";
+import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
 
 @NgModule({
   declarations: [
@@ -65,6 +67,8 @@ import { DownloadPageComponent } from "./_components/download-page/download-page
     PaymentComponent,
     ResetpasswordComponent,
     DownloadPageComponent,
+    ClaimStatusComponent,
+    FaqsComponent,
   ],
   imports: [
     BrowserModule,
