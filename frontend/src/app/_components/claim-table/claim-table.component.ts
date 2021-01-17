@@ -35,6 +35,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
 export class ClaimTableComponent implements OnInit {
    claim: Claim[]=[]
    claims:Claim[]=[]
+   rejectedclaims:Claim[]=[];
    updateClaim:Claim=new Claim();
    claimapproval:adminApprove=new adminApprove();
    
@@ -52,7 +53,8 @@ export class ClaimTableComponent implements OnInit {
        this.claim.push(response.result[i]);
     }
     this.claims=this.claim.filter((e)=>e.claimStatus==='Pending from Admin')
-
+    this.rejectedclaims=this.claim.filter((e)=>e.claimStatus==="rejected")
+    sessionStorage.setItem('rejectedclaims',JSON.stringify(this.rejectedclaims.length))
     sessionStorage.setItem('pendingclaims',JSON.stringify(this.claims.length));
       });
 

@@ -23,7 +23,8 @@ export class AdmindashboardComponent implements OnInit {
   usercount=sessionStorage.getItem('userscount');
   policycount=sessionStorage.getItem('policycount');
   approvedClaims=sessionStorage.getItem('claimNo');
-  pendingClaims=sessionStorage.getItem('pendingclaims')
+  pendingClaims=sessionStorage.getItem('pendingclaims');
+  rejectedClaims=sessionStorage.getItem('rejectedclaims');
 
 cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
    map(({ matches }) => {

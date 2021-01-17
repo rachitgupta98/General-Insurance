@@ -1,71 +1,82 @@
-<div *ngIf="!flag">
-<form #myForm="ngForm"  (ngSubmit)="calculateIDV()" class="surveyContainer" style="margin-top: 100px;">
-    <mat-card style="padding: 10px" class="mainContainer">
-        <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
-            <h3 class="header">Premium Calculator</h3>
-        </div>
-        <br />
-        <mat-form-field class="example-full-width">
-            <mat-label>Registration Date</mat-label>
-                <input matInput [matDatepicker]="picker"   name="registrationDate"  [(ngModel)]="registrationDate">
+<div>
+    <form #myForm="ngForm" (ngSubmit)="calculateIDV()" class="surveyContainer" style="margin-top: 100px;">
+        <mat-card style="padding: 10px" class="mainContainer">
+            <div
+                style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
+                <h3 class="header">Premium Calculator</h3>
+            </div>
+            <br />
+            <mat-form-field class="example-full-width">
+                <mat-label>Registration Date</mat-label>
+                <input matInput [matDatepicker]="picker" name="registrationDate" [(ngModel)]="registrationDate">
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
-             
-        </mat-form-field>
-        <mat-form-field class="example-full-width">
-            <mat-label>Vehicle Type</mat-label>
-            <mat-select id="vehicleType" required  #vehicleType="ngModel" name="vehicleType" [(ngModel)]="premium.vehicletype">
-                <mat-option *ngFor="let type of vehicleClass" value={{type}}   >{{type}} </mat-option>
-            </mat-select>
-        </mat-form-field>
-      
-        <mat-form-field class="example-full-width" >
-            <mat-label>Manufacturer</mat-label>
-            <mat-select id="manufacturer"  #manufacturer="ngModel" name="manufacturer" [(ngModel)]="premium.manufacturer" >
-                <span *ngIf="premium.vehicletype=='2 Wheeler'">
-                <mat-option *ngFor="let model of vehicleBikeManufacturer" value={{model.model}}  >{{model.model}} </mat-option>
-               </span>
-               <span *ngIf="premium.vehicletype=='4 Wheeler'">
-              <mat-option *ngFor="let model of vehicleCarManufacturer" value={{model.model}}  >{{model.model}} </mat-option>
-            </span>
-            </mat-select>
-        </mat-form-field>
-        
-        <br>
-        
-        <button  type="submit" class="submitButton" mat-raised-button>
-           Calculate   
-        </button>
-    </mat-card>
 
-<div style="text-align: center; ;">
-    
-</div>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Vehicle Type</mat-label>
+                <mat-select id="vehicleType" required #vehicleType="ngModel" name="vehicleType"
+                    [(ngModel)]="premium.vehicletype">
+                    <mat-option *ngFor="let type of vehicleClass" value={{type}}>{{type}} </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-</form>
+            <mat-form-field class="example-full-width">
+                <mat-label>Manufacturer</mat-label>
+                <mat-select id="manufacturer" #manufacturer="ngModel" name="manufacturer"
+                    [(ngModel)]="premium.manufacturer">
+                    <span *ngIf="premium.vehicletype=='2 Wheeler'">
+                        <mat-option *ngFor="let model of vehicleBikeManufacturer" value={{model.model}}>{{model.model}}
+                        </mat-option>
+                    </span>
+                    <span *ngIf="premium.vehicletype=='4 Wheeler'">
+                        <mat-option *ngFor="let model of vehicleCarManufacturer" value={{model.model}}>{{model.model}}
+                        </mat-option>
+                    </span>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>Gender</mat-label>
+                
+            </mat-form-field>
+           
+
+            <br>
+
+            <button type="submit" class="submitButton" mat-raised-button>
+                Calculate
+            </button>
+        </mat-card>
+
+        <div style="text-align: center; ;">
+
+        </div>
+
+    </form>
 </div>
 <div *ngIf="flag">
-    <form  class="surveyContainer" style="margin-top: 100px;">
+    <form class="surveyContainer" style="margin-top: 100px;">
         <mat-card style="padding: 10px" class="mainContainer">
-            <div style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
+            <div
+                style="height: 50px; text-align: center; background:transparent linear-gradient(276deg,rgba(13,53,148,.898039),#35d3e1);">
                 <h3 class="header">Total Premium</h3>
             </div>
             <br />
             <mat-card class="example-card" style="margin: 10px">
-   
+
                 <mat-card-header>
-                  <mat-card-title>Insured Declared Value</mat-card-title>     
-                  <mat-card-subtitle>{{idvValue}}</mat-card-subtitle> 
-                </mat-card-header>  
-   </mat-card>
-   <mat-card class="example-card" style="margin: 10px">
-  
-    <mat-card-header>
-      <mat-card-title>OwnDamagePremium</mat-card-title>     
-      <mat-card-subtitle>{{odValue}}</mat-card-subtitle> 
-    </mat-card-header>  
-</mat-card>
-<!--<mat-card class="example-card">
+                    <mat-card-title>Insured Declared Value</mat-card-title>
+                    <mat-card-subtitle>{{idvValue}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <mat-card class="example-card" style="margin: 10px">
+
+                <mat-card-header>
+                    <mat-card-title>OwnDamagePremium</mat-card-title>
+                    <mat-card-subtitle>{{odValue}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <!--<mat-card class="example-card">
   
     <mat-card-header>
       <mat-card-title>Addons</mat-card-title>
@@ -74,20 +85,20 @@
     </mat-select>  
     </mat-card-header>  
 </mat-card>-->
-<mat-card class="example-card" style="margin: 10px">
-  
-    <mat-card-header>
-      <mat-card-title>GST</mat-card-title>     
-      <mat-card-subtitle>{{odValue}}</mat-card-subtitle> 
-    </mat-card-header>  
-</mat-card>
-<mat-card class="example-card" style="margin: 10px">
-  
-    <mat-card-header>
-      <mat-card-title>Total Premium</mat-card-title>     
-      <mat-card-subtitle>{{odValue}}</mat-card-subtitle> 
-    </mat-card-header>  
-</mat-card>
-   </mat-card>
+            <mat-card class="example-card" style="margin: 10px">
+
+                <mat-card-header>
+                    <mat-card-title>GST</mat-card-title>
+                    <mat-card-subtitle>{{odValue+odValue*0.18}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <mat-card class="example-card" style="margin: 10px">
+
+                <mat-card-header>
+                    <mat-card-title>Total Premium</mat-card-title>
+                    <mat-card-subtitle>{{odValue}}</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+        </mat-card>
     </form>
 </div>
