@@ -36,6 +36,7 @@ import { PaymentComponent } from './_components/payment/payment.component';
 import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
 import { ForgotpasswordComponent } from './_components/forgotpassword/forgotpassword.component';
 import { ResetpasswordComponent } from './_components/resetpassword/resetpassword.component';
+import { ClaimStatusComponent } from './_components/claim-status/claim-status.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { ResetpasswordComponent } from './_components/resetpassword/resetpasswor
     AdminDashboardComponent,
     PaymentComponent,
     ResetpasswordComponent,
+    ClaimStatusComponent,
   ],
   imports: [
     BrowserModule,
