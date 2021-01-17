@@ -1,6 +1,5 @@
 import { DownloadPageComponent } from "./_components/download-page/download-page.component";
 import { PaymentComponent } from "./_components/payment/payment.component";
-import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { PolicyDisplayComponent } from "./_components/policy-display/policy-display.component";
 import { PolicyFormComponent } from "./_components/policy-form/policy-form.component";
 import { VehicleDetailsComponent } from "./_components/vehicle-details/vehicle-details.component";
@@ -21,6 +20,7 @@ import { AdminDashboardComponent } from "./_components/admin-dashboard/admin-das
 import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
 import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
 import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
+import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
 
 const routes: Routes = [
   { path: "resetpassword", component: ResetpasswordComponent },
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: "dashboard", component: AdminDashboardComponent },
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
-  { path: "premiumCalculation", component: PremiumCalculatorComponent },
+  { path: "premiumCalulator", component: PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
   { path: "downloads", component: DownloadPageComponent },
   { path: "claimStatus", component: ClaimStatusComponent },

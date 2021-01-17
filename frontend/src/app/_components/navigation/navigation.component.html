@@ -90,7 +90,7 @@
             <mat-icon>autorenew</mat-icon>
             Renew
           </a>
-          <a href="#" mat-button>
+          <a  mat-button [routerLink]="['/premiumcalculator']">
             <i class="fa fa-calculator" aria-hidden="true"></i>
             Permium Calculator
 
@@ -145,8 +145,18 @@
         </div>
       </mat-toolbar>
       <router-outlet></router-outlet>
-      <app-faqs></app-faqs>
+  <div id="about" class="about">
+    <app-aboutus></app-aboutus>
+  </div>
+  <div id="faq" class="faq">
+    <app-faqs></app-faqs>
+  </div>
+  <div id="contact" class="contact">
+    <app-contactus></app-contactus>
+  </div>
+  
       <app-footer></app-footer>
+    <!--  <app-chat-bot></app-chat-bot>-->
     </mat-sidenav-content>
     
 

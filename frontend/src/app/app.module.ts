@@ -12,7 +12,7 @@ import { InputFieldComponent } from "./_components/input-field/input-field.compo
 import { VehicleDetailsService } from "./_services/vehicle-details/vehicle-details.service";
 import { LoginComponent } from "./_components/login/login.component";
 import { ReactiveFormsModule } from "@angular/forms";
-import { AboutUsComponent } from "./_components/about-us/about-us.component";
+//import { AboutUsComponent } from "./_components/about-us/about-us.component";
 
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { FooterComponent } from "./_components/footer/footer.component";
@@ -20,7 +20,7 @@ import { HomeComponent } from "./_components/home/home.component";
 import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { NavigationComponent } from "./_components/navigation/navigation.component";
-import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
+//import { PremiumCalculatorComponent } from "./_components/premium-calculator/premium-calculator.component";
 import { from } from "rxjs";
 
 import { RenewComponent } from "./_components/renew/renew.component";
@@ -39,6 +39,10 @@ import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpass
 import { ResetpasswordComponent } from "./_components/resetpassword/resetpassword.component";
 import { DownloadPageComponent } from "./_components/download-page/download-page.component";
 import { ClaimStatusComponent } from "./_components/claim-status/claim-status.component";
+import { PremiumcalculatorComponent } from "./_components/premiumcalculator/premiumcalculator.component";
+import { AboutusComponent } from "./_components/aboutus/aboutus.component";
+import { ContactusComponent } from "./_components/contactus/contactus.component";
+//import { ChatBotComponent } from './_components/chat-bot/chat-bot.component';
 
 @NgModule({
   declarations: [
@@ -51,8 +55,9 @@ import { ClaimStatusComponent } from "./_components/claim-status/claim-status.co
     VehicleDetailsComponent,
     InputFieldComponent,
     LoginComponent,
-    AboutUsComponent,
-    PremiumCalculatorComponent,
+    AboutusComponent,
+    // AboutUsComponent,
+    // PremiumCalculatorComponent,
     ForgotpasswordComponent,
     ProfileComponent,
     ClaimsComponent,
@@ -69,6 +74,10 @@ import { ClaimStatusComponent } from "./_components/claim-status/claim-status.co
     DownloadPageComponent,
     ClaimStatusComponent,
     FaqsComponent,
+    PremiumcalculatorComponent,
+    ContactusComponent,
+
+    // ChatBotComponent,
   ],
   imports: [
     BrowserModule,
