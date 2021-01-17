@@ -18,10 +18,19 @@
           Permium Calculator
 
         </a>
-        <a  mat-button [routerLink]="['/claimPolicy']">
+        <a  mat-button [matMenuTriggerFor]="claim" style="text-align: center">
           <mat-icon>money</mat-icon>
           Claim
         </a>
+        <mat-menu #claim="matMenu">
+
+          <button mat-menu-item [routerLink]="['/claimStatus']">
+            Claim Status
+          </button>
+          <button mat-menu-item [routerLink]="['/claimPolicy']">
+            New Claim
+          </button>
+        </mat-menu>
         <mat-list-item [matMenuTriggerFor]="menuLogin" *ngIf="!userLogged">
           <mat-icon>unfold_more</mat-icon>
           <a matline>Login</a>
@@ -136,6 +145,7 @@
         </div>
       </mat-toolbar>
       <router-outlet></router-outlet>
+      <app-faqs></app-faqs>
       <app-footer></app-footer>
     </mat-sidenav-content>
     
