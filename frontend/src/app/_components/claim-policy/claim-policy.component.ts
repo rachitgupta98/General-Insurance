@@ -29,6 +29,7 @@ export class ClaimPolicyComponent implements OnInit {
     console.log(sessionStorage.getItem("userId"));
     // this.claimDto.userId=140;
     //console.log(this.claimDto)
+    if(this.claimDto.claimAmount!=null&&this.claimDto.claimReason!=null&&this.claimDto.claimForPolicyId!=null){
     this.sampleService.claim(this.claimDto).subscribe(
       data=>{
         console.log(data);
@@ -43,6 +44,6 @@ export class ClaimPolicyComponent implements OnInit {
         }
       }
     );
-    
+    }
   }
 }

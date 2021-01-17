@@ -1,0 +1,23 @@
+<div class="head">
+    <form  #statusForm="ngForm" (ngSubmit)="checkStatus()" style="text-align: center;">
+        <mat-card class="main" style="width: 450px;">
+          <mat-card-header>
+            <p class="segment">Enter the Claim Id </p>
+          </mat-card-header>
+        <mat-card-content class="container" >    
+            <label>        
+              <input required type="text" placeholder="Enter the claim Id" [(ngModel)]="claimId" (ngModelChange)="changeMsg()" name="claimId"/>
+              <mat-error *ngIf="err">
+                {{errmsg}}
+              </mat-error>
+            </label>    
+          
+            <button class="btn" type="submit">Check Status</button>    
+        </mat-card-content>
+        <mat-card-footer *ngIf="msg">
+            <p class="footer">Status for Cliam ID: {{claimId}} is {{message}}</p>
+        </mat-card-footer>
+        </mat-card>
+    </form>
+    </div>    
+    
