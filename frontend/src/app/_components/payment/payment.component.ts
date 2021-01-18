@@ -34,7 +34,12 @@ export class PaymentComponent implements OnInit {
     console.log(policyService.policyData);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (sessionStorage.getItem("userId") == null) {
+      this.router.navigate(["/user_login"]);
+      return;
+    }
+  }
 
   payment() {
     this.policyService

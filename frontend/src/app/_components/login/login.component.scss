@@ -1,9 +1,3 @@
-$ruler: 16px;
-$color-red: #ae1100;
-$color-bg: #ebecf0;
-$color-shadow: #babecc;
-$color-white: #fff;
-$formRuler: 32px;
 .fill-remaining-space {
   /* This fills the remaining space, by using flexbox. 
        Every toolbar row uses a flexbox row layout. */
@@ -11,98 +5,33 @@ $formRuler: 32px;
 }
 
 .container {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  max-width: 400px;
-}
-.heading {
   padding: 10px;
-  text-align: center;
-  background: transparent
-    linear-gradient(276deg, rgba(13, 53, 148, 0.898039), #35d3e1);
+  background-color: #ebecf0;
+  border-radius: 10px;
+  box-shadow: 3px 5px 6px #ccc;
 }
-.header {
-  color: #ebecf0;
-}
+
 .form {
-  padding: 25px;
-}
-
-input {
-  border: 0;
-  outline: 0;
-  border-radius: $ruler * 20;
-  padding: 20px 0 15px 20px;
-  background-color: $color-bg;
-  text-shadow: 1px 1px 0 $color-white;
-  margin-right: $ruler/2;
-  box-shadow: inset 3px 3px 6px #a9adbb, inset -3px -3px 6px #fff;
+  align-content: center;
+  min-width: 150px;
+  max-width: 500px;
   width: 100%;
-  box-sizing: border-box;
-  transition: all 0.2s ease-in-out;
-  overflow: visible;
-  font-size: 16px;
-  font-weight: 600;
-  text-align: center;
-  color: #071e54;
-  &:focus {
-    box-shadow: inset 1px 1px 2px #a9adbb, inset -1px -1px 2px $color-white;
-  }
-}
-::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  color: #071e54;
-  opacity: 0.3;
-  font-size: 13px;
-}
-::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #071e54;
-  opacity: 0.3;
-}
-:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #071e54;
-  opacity: 0.3;
 }
 
-.input-icons i {
-  position: absolute;
-}
-.icon {
-  padding: 20px;
-  min-width: 80px;
-  color: black;
-  margin-right: 10px;
-}
-.input-icons {
-  margin-bottom: 20px;
-}
-.btn {
-  float: right;
-  padding: 12px;
-  border-radius: 50px;
-  font-size: 14px;
-  font-weight: 400;
-  max-width: 150px;
-  color: #fff;
-  border: 0;
-  outline: 0;
-  transition: transform 0.2s;
-  box-shadow: 3px 3px 3px #cecece, -3px -3px 3px #fff;
-  background: transparent
-    linear-gradient(276deg, rgba(13, 53, 148, 0.898039), #35d3e1) 0 0 no-repeat
-    padding-box;
-}
-a {
-  font-size: 12px;
-  text-decoration: none;
-}
-.btn1 {
-  float: left;
-}
 .form-element {
-  margin-bottom: 15px;
+  padding: 5px 0px 25px 2px;
+  width: 100%;
+}
+
+.button {
+  width: 100%;
+  color: #071e54;
+}
+:host {
+  padding-top: 100px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

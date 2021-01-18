@@ -16,15 +16,13 @@ export class AdmindashboardComponent implements OnInit {
   /** Based on the screen size, switch from standard to one column per row */
   // dashboard.component.js
 
-  adminName = sessionStorage.getItem("adminName");
-  adminId = sessionStorage.getItem("adminId");
-
-  usercount = sessionStorage.getItem("userscount");
-  policycount = sessionStorage.getItem("policycount");
-  approvedClaims = sessionStorage.getItem("claimNo");
-  pendingClaims = sessionStorage.getItem("pendingclaims");
-  rejectedClaims = sessionStorage.getItem("rejectedclaims");
-
+  adminName;
+  adminId;
+  usercount;
+  policycount;
+  approvedClaims;
+  pendingClaims;
+  rejectedClaims;
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
@@ -48,11 +46,12 @@ export class AdmindashboardComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
-    if (sessionStorage.getItem("policycount") === null) {
-      //window.location.reload()
-    }
-  }
-  ngDoCheck() {
+    this.adminName = sessionStorage.getItem("adminName");
+    this.adminId = sessionStorage.getItem("adminId");
+    this.usercount = sessionStorage.getItem("userscount");
+    this.policycount = sessionStorage.getItem("policycount");
+    this.approvedClaims = sessionStorage.getItem("claimNo");
     this.pendingClaims = sessionStorage.getItem("pendingclaims");
+    this.rejectedClaims = sessionStorage.getItem("rejectedclaims");
   }
 }

@@ -72,7 +72,7 @@
               </mat-radio-button>
             </div>
             <div class="right">
-              <h3>₹{{(odValue*2)*price.key}}</h3>
+              <h3>₹{{(odValue)*price.key}}</h3>
             </div>
             <mat-divider></mat-divider>
           </div>
@@ -87,8 +87,8 @@
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
         </mat-list>
-        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(odValue*2+addonsValue)*planYear*0.18}}</span></div>
-        <h3 class="premiumCss">Premium Amount :₹{{(odValue*2+addonsValue)*planYear+(odValue*2+addonsValue)*planYear*0.18}}</h3>
+        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(odValue+addonsValue)*planYear*0.18}}</span></div>
+        <h3 class="premiumCss">Premium Amount :₹{{(odValue+addonsValue)*planYear+(odValue+addonsValue)*planYear*0.18}}</h3>
         
         <button matRipple class="btn">Buy</button>
       </mat-card-content>
