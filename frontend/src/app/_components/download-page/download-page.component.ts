@@ -56,7 +56,7 @@ export class DownloadPageComponent {
       var doc = new jsPDF();
       var imgHeight = (canvas.height * 208) / canvas.width;
       doc.addImage(imgData, 0, 0, 208, imgHeight);
-      doc.save("image.pdf");
+      doc.save(`${sessionStorage.getItem("policyIdForDownload")}.pdf`);
       sessionStorage.removeItem("policyIdForDownload");
       this.router.navigate(["/home"]);
     });
