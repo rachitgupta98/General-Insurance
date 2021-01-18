@@ -37,7 +37,6 @@ export class DocUploadComponent implements OnInit {
     this.sampleService
       .picUpload(this.documentPic, this.claimId)
       .subscribe((response) => {
-        alert(JSON.stringify(response));
         this._snackBar.open("Document Uploaded", "Dismiss", {
           verticalPosition: "top",
         });

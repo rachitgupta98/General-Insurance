@@ -40,6 +40,10 @@ export class PaymentComponent implements OnInit {
       this.router.navigate(["/user_login"]);
       return;
     }
+    if(sessionStorage.getItem('downcheck')==="down")
+    {
+      this.router.navigate(['/home'])
+    }
   }
 
   payment() {
@@ -76,6 +80,7 @@ export class PaymentComponent implements OnInit {
 
   download() {
     console.log("download started...");
+    sessionStorage.setItem('downcheck',"down")
     this.router.navigate(["/downloads"]);
   }
 }
