@@ -49,6 +49,13 @@ export class AdmindashboardComponent implements OnInit {
   ngOnInit() {
     if (sessionStorage.getItem('adminId') == null) {
       this.router.navigate(['/admin_login'])
+      sessionStorage.removeItem('userscount');
+      sessionStorage.removeItem('policycount');
+      sessionStorage.removeItem('claimNo');
+      sessionStorage.removeItem('pendingclaims')
+      sessionStorage.removeItem("manufacturer");
+      sessionStorage.removeItem("registrationDate");
+      sessionStorage.removeItem("rejectedclaims");
     }
     else {
       this.adminName = sessionStorage.getItem("adminName");

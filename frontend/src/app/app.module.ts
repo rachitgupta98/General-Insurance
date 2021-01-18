@@ -46,13 +46,13 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
-import { ChartComponent } from './_components/chart/chart.component';
+import { ChartComponent } from './_components/PolicyClaimchart/chart.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { ClaimTableComponent } from './_components/claim-table/claim-table.component';
-import { LineChartComponent } from './_components/line-chart/line-chart.component';
+import { LineChartComponent } from './_components/UserPolicyChart/line-chart.component';
 import { MiniCardComponent } from './_components/mini-card/mini-card.component';
 import { ClaimPolicyService } from "./_services/claim-policy/claim-policy.service";
 import { ForgotpasswordComponent } from "./_components/forgotpassword/forgotpassword.component";
