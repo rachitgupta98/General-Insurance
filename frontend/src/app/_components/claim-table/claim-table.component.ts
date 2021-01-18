@@ -56,6 +56,7 @@ export class ClaimTableComponent implements OnInit {
     this.rejectedclaims=this.claim.filter((e)=>e.claimStatus==="rejected")
     sessionStorage.setItem('rejectedclaims',JSON.stringify(this.rejectedclaims.length))
     sessionStorage.setItem('pendingclaims',JSON.stringify(this.claims.length));
+    this.router.navigate(['/dashboard'])
       });
 
       console.log(this.claim,"claimsss")

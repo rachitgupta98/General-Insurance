@@ -51,7 +51,15 @@ export class AdmindashboardComponent implements OnInit {
     this.usercount = sessionStorage.getItem("userscount");
     this.policycount = sessionStorage.getItem("policycount");
     this.approvedClaims = sessionStorage.getItem("claimNo");
+    console.log("pending claimss",this.pendingClaims)
     this.pendingClaims = sessionStorage.getItem("pendingclaims");
+    if(this.pendingClaims==null)
+    {
+      window.location.reload()
+    }
+    
+    console.log("pending claimss2",this.pendingClaims)
+    
     this.rejectedClaims = sessionStorage.getItem("rejectedclaims");
   }
 }
