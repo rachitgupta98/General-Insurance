@@ -63,6 +63,7 @@ export class NavigationComponent implements OnInit {
     sessionStorage.removeItem('claimNo');
     sessionStorage.removeItem('pendingclaims')
     sessionStorage.removeItem("manufacturer");
+    sessionStorage.removeItem("registrationDate");
     this.userLogged = false;
     this.router.navigate(["/home"]).then(() => {
       location.reload();
