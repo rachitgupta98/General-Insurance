@@ -42,11 +42,16 @@ export class UserPolicesComponent implements OnInit {
     if (this.userId == null) {
       this.router.navigate(["/user_login"]);
     } else {
-      this.policyService.findPolicyData(this.userId).subscribe((data) => {
-        this.policy = data.result;
-        console.log(data.result);
-      });
+      this.findData()
+
     }
+  }
+
+  findData() {
+    this.policyService.findPolicyData(this.userId).subscribe((data) => {
+      this.policy = data.result;
+      console.log(data.result);
+    });
   }
   Open(index: number) {
     if (this.show[index] === true) {
@@ -55,8 +60,22 @@ export class UserPolicesComponent implements OnInit {
       this.show[index] = true;
     }
   }
-  renew(policyId) {
+  async renew(policyId) {
     sessionStorage.setItem("policyId", policyId);
-    this.router.navigate(["/policyForm"]);
+    await this.policyService.downloadPolicyByPolicyId(policyId).subscribe(data => {
+      console.log("data", data)
+      sessionStorage.setItem("vehicleId", data.result.vehicle.vehicleId);
+      sessionStorage.setItem("manufacturer", data.result.vehicle.manufacturer);
+      sessionStorage.setItem("model", data.result.vehicle.model);
+      sessionStorage.setItem(
+        "registrationDate",
+        data.result.vehicle.registrationDate
+      );
+      if (data.status == 200) {
+        this.router.navigate(["/policyForm"]);
+      }
+    })
+
+
   }
 }

@@ -67,6 +67,8 @@ export class NavigationComponent implements OnInit {
     sessionStorage.removeItem("policyIdForDownload");
     sessionStorage.removeItem("rejectedclaims");
     sessionStorage.removeItem("registrationDate");
+    sessionStorage.removeItem('downcheck')
+
     this.userLogged = false;
     this.router.navigate(["/home"]).then(() => {
       location.reload();

@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
 
 
-    
+    sessionStorage.removeItem('check')
+    sessionStorage.removeItem('pay')
+    sessionStorage.removeItem('downcheck')
 
 
   }

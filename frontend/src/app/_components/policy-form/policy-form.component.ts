@@ -199,6 +199,7 @@ export class PolicyFormComponent implements OnInit {
     if (sessionStorage.getItem("pay") == "onPay") {
       this.router.navigate(["/home"]);
     }
+    
     this.calculateIDV();
   }
 

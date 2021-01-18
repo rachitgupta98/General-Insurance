@@ -100,14 +100,14 @@ export class VehicleDetailsComponent implements OnInit {
     //   });
   }
 
-  handleOnSubmit(f: NgForm) {
+  async handleOnSubmit(f: NgForm) {
     if (!this.checkRegistraionNo) {
       if (sessionStorage.getItem("userId") == null) {
         this.router.navigate(["/user_login"]);
         return;
       }
       if (f.valid) {
-        this.vehicleService
+        await this.vehicleService
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
             console.log(data, "data....");
@@ -118,10 +118,12 @@ export class VehicleDetailsComponent implements OnInit {
               "registrationDate",
               data.result["registrationDate"]
             );
+            if (data.status == 200) {
+              this.router
+                .navigate(["/policyForm"])
+            }
           });
-        this.router
-          .navigate(["/policyForm"])
-          .then(() => window.location.reload());
+
       } else {
         alert("enter all details");
       }
