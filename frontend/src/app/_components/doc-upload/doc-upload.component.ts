@@ -18,7 +18,12 @@ export class DocUploadComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (sessionStorage.getItem("userId") == null) {
+      this.router.navigate(["/user_login"]);
+      return;
+    }
+  }
   onFileChange(event) {
     this.documentPic = event.target.files[0];
     this.isDocument = true;
@@ -36,7 +41,7 @@ export class DocUploadComponent implements OnInit {
         this._snackBar.open("Document Uploaded", "Dismiss", {
           verticalPosition: "top",
         });
-         this.router.navigate(["/home"]);
+        this.router.navigate(["/home"]);
       });
   }
 }

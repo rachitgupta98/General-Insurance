@@ -206,6 +206,7 @@ export class PolicyFormComponent implements OnInit {
       if (e.key == this.thirdplanYear) e.value = this.thirdPremiumAmount;
     });
     console.log(sessionStorage.getItem("policyId"));
+    this.policyInfo.premiumAmount = this.thirdPremiumAmount;
     if (this.policyInfo.premiumAmount == null) {
       alert("no plan is selected for payment");
       return;
@@ -239,8 +240,8 @@ export class PolicyFormComponent implements OnInit {
 
   onHandleSubmitComprehensive() {
     this.compPremium = (
-      (this.odValue * 2 + this.addonsValue) * this.planYear +
-      (this.odValue * 2 + this.addonsValue) * this.planYear * 0.18
+      (this.odValue + this.addonsValue) * this.planYear +
+      (this.odValue + this.addonsValue) * this.planYear * 0.18
     ).toFixed(2);
     console.log("premium amount", this.compPremium);
     this.comprehensivePlanPrice.forEach((e) => {

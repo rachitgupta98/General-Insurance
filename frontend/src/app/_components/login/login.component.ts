@@ -1,13 +1,18 @@
-import { OnInit } from '@angular/core';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { UserService } from '../../_services/user.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Login } from '../login';
-import { Auth } from 'src/app/_guards/authGuard';
+import { OnInit } from "@angular/core";
+import { Component } from "@angular/core";
+import {
+  FormBuilder,
+  FormGroup,
+  FormControl,
+  Validators,
+} from "@angular/forms";
+import { UserService } from "../../_services/user.service";
+import { ActivatedRoute, Router } from "@angular/router";
+import { Login } from "../login";
+import { Auth } from "src/app/_guards/authGuard";
 import { Session } from "src/app/_services/SessionValues";
-import adminDto from 'src/app/_models/adminDto';
-import { adminService } from 'src/app/_services/admin.service';
+import adminDto from "src/app/_models/adminDto";
+import { adminService } from "src/app/_services/admin.service";
 
 @Component({
   selector: "app-login",
@@ -19,36 +24,27 @@ export class LoginComponent implements OnInit {
   message: string;
   formGroup: FormGroup;
   admin: boolean = false;
-  admindto: adminDto=new adminDto();
-
-
-
-
-
+  admindto: adminDto = new adminDto();
 
   session: Session;
   hide = true;
   constructor(
     private formBuilder: FormBuilder,
     private userService: UserService,
-    private adminService:adminService,
+    private adminService: adminService,
     private router: Router,
     private route: ActivatedRoute
-  ) { this.admin = route.snapshot.data['admin'] }
-
-
-
-
+  ) {
+    this.admin = route.snapshot.data["admin"];
+  }
 
   ngOnInit() {
-
-    if (sessionStorage.getItem('userId') !== null) {
-      this.router.navigate(['/home'])
+    if (sessionStorage.getItem("userId") !== null) {
+      this.router.navigate(["/home"]);
     }
 
-    if(sessionStorage.getItem('adminId')!==null)
-    {
-      this.router.navigate(['/dashboard']).then(()=>window.location.reload())
+    if (sessionStorage.getItem("adminId") !== null) {
+      this.router.navigate(["/dashboard"]).then(() => window.location.reload());
     }
     this.createForm();
   }
@@ -95,21 +91,20 @@ export class LoginComponent implements OnInit {
   }
 
   loginCheck() {
-
     if (this.admin) {
       this.admindto.adminEmail = this.formGroup.value.useremail;
       this.admindto.adminPassword = this.formGroup.value.password;
 
-      console.log(this.admindto)
-      this.adminService.adminlogin(this.admindto).subscribe((response)=>{
-        console.log("Admin response",response);
-        sessionStorage.setItem('adminId',response.result.adminId)
-        sessionStorage.setItem('adminName',response.result.adminName)
-        this.router.navigate(['/dashboard']).then(()=>window.location.reload())
-      })
-    }
-
-    else {
+      console.log(this.admindto);
+      this.adminService.adminlogin(this.admindto).subscribe((response) => {
+        console.log("Admin response", response);
+        sessionStorage.setItem("adminId", response.result.adminId);
+        sessionStorage.setItem("adminName", response.result.adminName);
+        this.router
+          .navigate(["/dashboard"])
+          .then(() => window.location.reload());
+      });
+    } else {
       this.login.userEmail = this.formGroup.value.useremail;
       this.login.userPassword = this.formGroup.value.password;
       console.log(this.formGroup.value.useremail);
@@ -124,19 +119,14 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("userId", response.result.userId);
           sessionStorage.setItem("userName", response.result.userName);
 
-
-          this.router.navigate(['/home']).then(() => {
+          this.router.navigate(["/home"]).then(() => {
             window.location.reload();
-          });;
-        }
-        else {
+          });
+        } else {
           this.message = response.message;
         }
         // this.router.navigate(["/home"]);
-
-      })
-
+      });
     }
-
   }
 }
