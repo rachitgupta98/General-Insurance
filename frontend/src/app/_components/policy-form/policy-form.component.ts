@@ -111,8 +111,8 @@ export class PolicyFormComponent implements OnInit {
       this.odValue = Math.ceil((this.odValue = 0.0197 * this.idvValue));
     }
 
-    this.thirdpartyIdv = this.idvValue;
-    //this.thirdPartyodValue = this.thirdpartyIdv * 0.0197;
+    this.thirdpartyIdv = 0;
+    this.thirdPartyodValue = (this.idvValue * 0.0197) / 2;
     console.log(this.idvValue, "valuee");
     console.log(this.odValue);
   }
@@ -207,8 +207,8 @@ export class PolicyFormComponent implements OnInit {
     });
     console.log(sessionStorage.getItem("policyId"));
     this.policyInfo.premiumAmount = this.thirdPremiumAmount;
-    if (this.policyInfo.premiumAmount == null) {
-      alert("no plan is selected for payment");
+    if (this.thirdplanYear == 0) {
+      alert("no plan is selected for third party");
       return;
     } else {
       console.log(this.policyInfo.premiumAmount);
@@ -250,8 +250,8 @@ export class PolicyFormComponent implements OnInit {
     console.log(this.comprehensivePlanPrice, "valuee..comp");
     console.log(sessionStorage.getItem("policyId"));
     this.policyInfo.premiumAmount = this.compPremium;
-    if (this.compPremium == null) {
-      alert("no plan is selected for payment");
+    if (this.planYear == 0) {
+      alert("no plan is selected for comprehensive");
       return;
     } else {
       this.yearForComprehensive = this.comprehensivePlanPrice.find((e) => {
