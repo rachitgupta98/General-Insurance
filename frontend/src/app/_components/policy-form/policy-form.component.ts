@@ -193,6 +193,12 @@ export class PolicyFormComponent implements OnInit {
     console.log("addons", this.addonsValue);
   }
   ngOnInit() {
+    if (sessionStorage.getItem("check") == "true") {
+      this.router.navigate(["/home"]);
+    }
+    if (sessionStorage.getItem("pay") == "onPay") {
+      this.router.navigate(["/home"]);
+    }
     this.calculateIDV();
   }
 
@@ -222,6 +228,7 @@ export class PolicyFormComponent implements OnInit {
         }
       });
       this.policyInfo.policyId = sessionStorage.getItem("policyId");
+      console.log(sessionStorage.getItem("policyId"));
       if (sessionStorage.getItem("policyId") == null) {
         this.policyInfo.policyId = 0;
       }
