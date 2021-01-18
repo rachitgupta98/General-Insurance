@@ -5,6 +5,7 @@ import { Chart } from "angular-highcharts";
 import { Breakpoints, BreakpointObserver } from "@angular/cdk/layout";
 import { donutChartOptions } from "./donutChartOptions";
 import { ClaimPolicyService } from "src/app/_services/claim-policy/claim-policy.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-admindashboard",
@@ -43,15 +44,36 @@ export class AdmindashboardComponent implements OnInit {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) { }
 
   ngOnInit() {
-    this.adminName = sessionStorage.getItem("adminName");
-    this.adminId = sessionStorage.getItem("adminId");
-    this.usercount = sessionStorage.getItem("userscount");
-    this.policycount = sessionStorage.getItem("policycount");
-    this.approvedClaims = sessionStorage.getItem("claimNo");
-    this.pendingClaims = sessionStorage.getItem("pendingclaims");
-    this.rejectedClaims = sessionStorage.getItem("rejectedclaims");
+    if (sessionStorage.getItem('adminId') == null) {
+      this.router.navigate(['/admin_login'])
+      sessionStorage.removeItem('userscount');
+      sessionStorage.removeItem('policycount');
+      sessionStorage.removeItem('claimNo');
+      sessionStorage.removeItem('pendingclaims')
+      sessionStorage.removeItem("manufacturer");
+      sessionStorage.removeItem("registrationDate");
+      sessionStorage.removeItem("rejectedclaims");
+    }
+    else {
+      this.adminName = sessionStorage.getItem("adminName");
+      this.adminId = sessionStorage.getItem("adminId");
+      this.usercount = sessionStorage.getItem("userscount");
+      this.policycount = sessionStorage.getItem("policycount");
+      this.approvedClaims = sessionStorage.getItem("claimNo");
+      console.log("pending claimss", this.pendingClaims)
+      this.pendingClaims = sessionStorage.getItem("pendingclaims");
+      if (this.pendingClaims == null) {
+        window.location.reload()
+      }
+
+      console.log("pending claimss2", this.pendingClaims)
+
+      this.rejectedClaims = sessionStorage.getItem("rejectedclaims");
+
+    }
+
   }
 }

@@ -30,18 +30,18 @@ const routes: Routes = [
   { path: "updateprofile", component: UserRegistrationComponent },
   { path: "home", component: HomeComponent },
   { path: "user_login", component: LoginComponent },
-  { path: "admin_login", component: LoginComponent,data : {admin :true} },
+  { path: "admin_login", component: LoginComponent, data: { admin: true } },
   { path: "vehicleRegistration", component: VehicleDetailsComponent },
   { path: "claim", component: ClaimsComponent },
   { path: "policyForm", component: PolicyFormComponent },
   { path: "policies", component: UserPolicesComponent },
   { path: "profile", component: ProfileComponent },
   { path: "policyDisplay", component: PolicyDisplayComponent },
-  {path:"dashboard",component:AdmindashboardComponent},
+  { path: "dashboard", component: AdmindashboardComponent },
   { path: "renewPolicy", component: RenewComponent },
   { path: "docUpload", component: DocUploadComponent },
   { path: "claimPolicy", component: ClaimPolicyComponent },
- { path: "premiumcalulator",component:PremiumcalculatorComponent },
+  { path: "premiumcalulator", component: PremiumcalculatorComponent },
   { path: "paymentgateway", component: PaymentComponent },
   { path: "downloads", component: DownloadPageComponent },
   { path: "claimStatus", component: ClaimStatusComponent },
@@ -53,4 +53,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { onSameUrlNavigation: "reload" })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

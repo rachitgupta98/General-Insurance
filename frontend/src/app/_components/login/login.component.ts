@@ -24,6 +24,7 @@ export class LoginComponent implements OnInit {
   message: string;
   formGroup: FormGroup;
   admin: boolean = false;
+  invalid: boolean = false;
   admindto: adminDto = new adminDto();
 
   session: Session;
@@ -97,12 +98,17 @@ export class LoginComponent implements OnInit {
 
       console.log(this.admindto);
       this.adminService.adminlogin(this.admindto).subscribe((response) => {
-        console.log("Admin response", response);
-        sessionStorage.setItem("adminId", response.result.adminId);
-        sessionStorage.setItem("adminName", response.result.adminName);
-        this.router
-          .navigate(["/dashboard"])
-          .then(() => window.location.reload());
+        if (response.result == null) {
+          this.invalid = true;
+        }
+        else {
+          sessionStorage.setItem("adminId", response.result.adminId);
+          sessionStorage.setItem("adminName", response.result.adminName);
+          this.router
+            .navigate(["/dashboard"])
+            .then(() => window.location.reload());
+        }
+
       });
     } else {
       this.login.userEmail = this.formGroup.value.useremail;
@@ -111,10 +117,12 @@ export class LoginComponent implements OnInit {
       console.log(this.formGroup.value.password);
       this.userService.login(this.login).subscribe((response) => {
         // alert(JSON.stringify(response));
-        console.log(response);
 
+        if (response.result == null) {
+          this.invalid = true;
+        }
         if (response.status == 200) {
-          console.log("in success");
+
 
           sessionStorage.setItem("userId", response.result.userId);
           sessionStorage.setItem("userName", response.result.userName);
