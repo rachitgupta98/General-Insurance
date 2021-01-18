@@ -48,9 +48,17 @@ export class AdmindashboardComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit() {
-    if (sessionStorage.getItem("policycount") === null) {
-      //window.location.reload()
-    }
+    setTimeout(() => {
+      if (
+        sessionStorage.getItem("policycount") == null &&
+        sessionStorage.getItem("userscount") == null &&
+        sessionStorage.getItem("pendingclaims") == null &&
+        sessionStorage.getItem("rejectedclaims") == null &&
+        sessionStorage.getItem("claimNo") == null
+      ) {
+        window.location.reload();
+      }
+    }, 3000);
   }
   ngDoCheck() {
     this.pendingClaims = sessionStorage.getItem("pendingclaims");
