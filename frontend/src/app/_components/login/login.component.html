@@ -1,6 +1,7 @@
 <div class="container"> 
    
-  <h2 ><span>Login Form</span></h2>
+  <h2 *ngIf="!this.admin"><span>Login</span></h2>
+  <h2 *ngIf="this.admin"><span>Admin Login</span></h2>
 
 <form [formGroup]="formGroup" (ngSubmit)="loginCheck()" class="form">
 
@@ -23,7 +24,10 @@
  <div class="form-element">
    <button mat-raised-button color="primary" type="submit" class="button" [disabled]="!formGroup.valid" >Login</button><br><br>
    <button mat-stroked-button color="primary"  [routerLink]="['/forgotpassword']">Forgot password</button>
-   <button mat-stroked-button color="primary" [routerLink]="['/user_registration']">Sign up</button>
+   <button mat-stroked-button color="primary" [routerLink]="['/user_registration']" *ngIf="!admin">Sign up</button>
+ </div>
+ <div *ngIf="invalid">
+  <span style="color: red;">Invalid credentials..!</span>
  </div>
 
 </form>
