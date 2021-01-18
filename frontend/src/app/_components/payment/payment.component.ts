@@ -35,6 +35,7 @@ export class PaymentComponent implements OnInit {
   }
 
   ngOnInit() {
+    sessionStorage.setItem("pay", "onPay");
     if (sessionStorage.getItem("userId") == null) {
       this.router.navigate(["/user_login"]);
       return;
@@ -51,6 +52,7 @@ export class PaymentComponent implements OnInit {
           this.payInfo.userId = sessionStorage.getItem("userId");
           this.payInfo.policyId = data.result["policyId"];
           this.payInfo.paymentAmount = data.result["premiumAmount"];
+          // sessionStorage.setItem()
           sessionStorage.setItem(
             "policyIdForDownload",
             data.result["policyId"]
@@ -59,7 +61,8 @@ export class PaymentComponent implements OnInit {
             console.log(res);
             if (res.result != null) {
               this.btnDisable = true;
-              sessionStorage.removeItem("policyId");
+              //sessionStorage.removeItem("policyId");
+              sessionStorage.setItem("check", "true");
             }
           });
           this._snackBar.open("Policy Registered", "Dismiss", {

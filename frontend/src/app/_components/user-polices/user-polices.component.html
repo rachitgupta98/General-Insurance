@@ -5,7 +5,7 @@
     <!-- differentiating between expired and non expired policies -->
     
         <div *ngIf="!p.expired" style="text-align: center; font-size: 16px;font-weight: bold;">Policy for {{p.vehicle.manufacturer+" "+p.vehicle.model}}</div>
-        <div *ngIf="p.expired" style="text-align: center; font-size: 16px;font-weight: bold;">Insurance expired for {{p.vehicle.model}}</div>
+        <div *ngIf="p.expired" style="text-align: center; font-size: 16px;font-weight: bold;">Insurance expired for {{p.vehicle.manufacturer+" "+p.vehicle.model}}</div>
         <!-- <div *ngIf="Math.floor(( p.policyEndDate-p.policyStartDate ) / 86400000)<=30" style="text-align: center; font-size: 10px;font-weight: bold;">
             Policy is going to expire in {{Math.floor(( p.policyEndDate-p.policyStartDate ) / 86400000)}} days
         </div> -->

@@ -65,12 +65,15 @@ export class VehicleDetailsComponent implements OnInit {
           if (data.result != null) {
             console.log("200 Ok");
             this.checkRegistraionNo = true;
-            
+
             this.vehicleInfoModel = data.result;
             this.checkForDisable = true;
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
             sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
-            sessionStorage.setItem("registrationDate", data.result["registrationDate"]);
+            sessionStorage.setItem(
+              "registrationDate",
+              data.result["registrationDate"]
+            );
             sessionStorage.setItem("model", data.result["model"]);
           } else {
             this.checkRegistraionNo = false;
@@ -98,7 +101,6 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   handleOnSubmit(f: NgForm) {
-    
     if (!this.checkRegistraionNo) {
       if (sessionStorage.getItem("userId") == null) {
         this.router.navigate(["/user_login"]);
@@ -108,20 +110,22 @@ export class VehicleDetailsComponent implements OnInit {
         this.vehicleService
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
-            console.log(data,"data....")
+            console.log(data, "data....");
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
             sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
             sessionStorage.setItem("model", data.result["model"]);
-            sessionStorage.setItem("registrationDate", data.result["registrationDate"]);
-            
+            sessionStorage.setItem(
+              "registrationDate",
+              data.result["registrationDate"]
+            );
           });
-        this.router.navigate(["/policyForm"]).then(()=>window.location.reload());
-      }
-      else{
-        alert("enter all details")
+        this.router
+          .navigate(["/policyForm"])
+          .then(() => window.location.reload());
+      } else {
+        alert("enter all details");
       }
     } else {
-      
       this.router.navigate(["/policyDisplay"]);
     }
   }
