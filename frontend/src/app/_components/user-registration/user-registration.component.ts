@@ -66,12 +66,12 @@ export class UserRegistrationComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.userId, "Id...")
+    
 
     if (this.userId) {
       this.router.navigate(['/updateprofile'])
       this.userService.update(this.userId).subscribe(response => {
-        console.log(response, "updating response");
+        
         this.password = false;
         this.user.userName = response.result.userName;
         this.user.userEmail = response.result.userEmail;
@@ -93,12 +93,12 @@ export class UserRegistrationComponent implements OnInit {
 
 
 
-      console.log(this.user);
+      
 
       if (this.userId) {
         this.user.userId = this.userId;
         this.userService.registration(this.user).subscribe(response => {
-          console.log(response);
+          
           if (response.status == 200) {
             alert("details updated successfully");
             sessionStorage.setItem('userName', response.result.userName);
@@ -112,7 +112,7 @@ export class UserRegistrationComponent implements OnInit {
 
 
         this.userService.registration(this.user).subscribe(response => {
-          console.log(response);
+          
 
           if (response.status == 200) {
             alert("Registration Successfull");

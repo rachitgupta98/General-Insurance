@@ -9,7 +9,7 @@ import { Injectable } from "@angular/core";
 export class PolicyServiceService {
   policyData = {};
   constructor(private http: HttpClient) {
-    console.log(this.policyData);
+    
   }
 
   savePolicyData(policy): Observable<any> {
