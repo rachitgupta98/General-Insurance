@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-//import { Session } from "src/app/_services/SessionValues";
+
 
 import Policy from "src/app/_models/Policy";
 import { PolicyServiceService } from "src/app/_services/policyService/policy-service.service";
@@ -18,23 +18,11 @@ export class UserPolicesComponent implements OnInit {
   days: number[] = [];
 
   userId: any = sessionStorage.getItem("userId");
-  //session:Session;
+  
   constructor(
     private router: Router,
     private policyService: PolicyServiceService
   ) {
-    // console.log(sessionStorage.getItem('userId'))
-    // if(sessionStorage.getItem('userId')==null)
-    // {
-    //   this.router.navigate(['/user_login'])
-    // }
-    // else{
-    //   console.log("userID...",this.userId)
-    //   policies.findPolicyData(this.userId).subscribe(response=>{
-    //     console.log(response,"responseee....")
-    //      this.policy =response.result
-    //   })
-    // }
   }
 
   ngOnInit() {
@@ -50,7 +38,7 @@ export class UserPolicesComponent implements OnInit {
   findData() {
     this.policyService.findPolicyData(this.userId).subscribe((data) => {
       this.policy = data.result;
-      console.log(data.result);
+      
     });
   }
   Open(index: number) {
@@ -63,7 +51,7 @@ export class UserPolicesComponent implements OnInit {
   async renew(policyId) {
     sessionStorage.setItem("policyId", policyId);
     await this.policyService.downloadPolicyByPolicyId(policyId).subscribe(data => {
-      console.log("data", data)
+      
       sessionStorage.setItem("vehicleId", data.result.vehicle.vehicleId);
       sessionStorage.setItem("manufacturer", data.result.vehicle.manufacturer);
       sessionStorage.setItem("model", data.result.vehicle.model);

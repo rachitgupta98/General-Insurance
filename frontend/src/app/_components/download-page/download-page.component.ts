@@ -9,7 +9,6 @@ import {
   AfterContentInit,
   OnChanges,
 } from "@angular/core";
-// import { jsPDF } from "jspdf";
 import { jsPDF } from "jspdf";
 
 import html2canvas from "html2canvas";
@@ -23,7 +22,6 @@ export class DownloadPageComponent {
   userDataSource = {};
   policyDataSource = {};
   vehicleDataSource = {};
-  //@ViewChild("main", { static: false }) content: ElementRef;
   constructor(
     private policyService: PolicyServiceService,
     private router: Router
@@ -35,14 +33,11 @@ export class DownloadPageComponent {
       this.policyService
         .downloadPolicyByPolicyId(sessionStorage.getItem("policyIdForDownload"))
         .subscribe((data) => {
-          console.log(data.result);
+
           delete data.result.user["userId"];
           delete data.result.vehicle["vehicleId"];
           this.userDataSource = data.result.user;
           this.vehicleDataSource = data.result.vehicle;
-          // delete data.result.claims;
-          // delete data.result.user;
-          // delete data.result.vehicle;
           this.policyDataSource = data.result;
         });
     }

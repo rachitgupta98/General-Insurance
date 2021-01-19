@@ -31,7 +31,7 @@ export class PaymentComponent implements OnInit {
     this.planYear = policyService.policyData["planYear"];
     this.amount = policyService.policyData["premiumAmount"];
     this.regNo = sessionStorage.getItem("regNo");
-    console.log(policyService.policyData);
+
   }
 
   ngOnInit() {
@@ -40,8 +40,7 @@ export class PaymentComponent implements OnInit {
       this.router.navigate(["/user_login"]);
       return;
     }
-    if(sessionStorage.getItem('downcheck')==="down")
-    {
+    if (sessionStorage.getItem('downcheck') === "down") {
       this.router.navigate(['/home'])
     }
   }
@@ -50,22 +49,19 @@ export class PaymentComponent implements OnInit {
     this.policyService
       .savePolicyData(this.policyService.policyData)
       .subscribe((data) => {
-        console.log(data);
-        //alert("Policy is registered, go to payment for generating Policy Id");
+
         if (data.result != null) {
           this.payInfo.userId = sessionStorage.getItem("userId");
           this.payInfo.policyId = data.result["policyId"];
           this.payInfo.paymentAmount = data.result["premiumAmount"];
-          // sessionStorage.setItem()
           sessionStorage.setItem(
             "policyIdForDownload",
             data.result["policyId"]
           );
           this.paymentService.paymentGateway(this.payInfo).subscribe((res) => {
-            console.log(res);
+
             if (res.result != null) {
               this.btnDisable = true;
-              //sessionStorage.removeItem("policyId");
               sessionStorage.setItem("check", "true");
             }
           });
@@ -73,14 +69,13 @@ export class PaymentComponent implements OnInit {
             verticalPosition: "top",
             duration: 4000,
           });
-          //this.router.navigate(["/home"]);
+
         }
       });
   }
 
   download() {
-    console.log("download started...");
-    sessionStorage.setItem('downcheck',"down")
+    sessionStorage.setItem('downcheck', "down")
     this.router.navigate(["/downloads"]);
   }
 }

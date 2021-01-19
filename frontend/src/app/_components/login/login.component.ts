@@ -95,8 +95,6 @@ export class LoginComponent implements OnInit {
     if (this.admin) {
       this.admindto.adminEmail = this.formGroup.value.useremail;
       this.admindto.adminPassword = this.formGroup.value.password;
-
-      console.log(this.admindto);
       this.adminService.adminlogin(this.admindto).subscribe((response) => {
         if (response.result == null) {
           this.invalid = true;
@@ -113,8 +111,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.login.userEmail = this.formGroup.value.useremail;
       this.login.userPassword = this.formGroup.value.password;
-      console.log(this.formGroup.value.useremail);
-      console.log(this.formGroup.value.password);
       this.userService.login(this.login).subscribe((response) => {
         // alert(JSON.stringify(response));
 

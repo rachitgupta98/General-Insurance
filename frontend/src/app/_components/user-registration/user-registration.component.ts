@@ -61,43 +61,6 @@ export class UserRegistrationComponent implements OnInit {
     "Puducherry"]
 
 
-  onKey(e) {
-    if (e.length >= 8) {
-      this.islength = true;
-    }
-    else {
-      this.islength = false;
-    }
-
-    // this.isCapital == e.toUpperCase() && e!= e.toLowerCase();
-    var i = 0;
-    var caps = 0;
-    while (i < e.length) {
-      var character = e.charAt(i);
-      if (character != /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/) {
-        if (!isNaN(character * 1)) {
-          this.isCapital = false;
-        } else {
-          if (character == character.toUpperCase()) {
-            this.isCapital = true;
-            caps + 1;
-          }
-
-        }
-      }
-
-      i++;
-
-
-    }
-    if (caps > 1) {
-      this.isCapital = true;
-    }
-
-
-    this.isSpecial = /[\s~`!@#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?()\._]/g.test(e);
-  }
-
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -138,7 +101,7 @@ export class UserRegistrationComponent implements OnInit {
           console.log(response);
           if (response.status == 200) {
             alert("details updated successfully");
-            sessionStorage.setItem('userName',response.result.userName);
+            sessionStorage.setItem('userName', response.result.userName);
             this.router.navigate(['/home']).then(() => {
               window.location.reload();
             });;
@@ -164,7 +127,7 @@ export class UserRegistrationComponent implements OnInit {
     }
     else {
       alert("enter all details");
-      
+
     }
   }
 

@@ -14,7 +14,7 @@ export class ClaimsComponent implements OnInit {
   claim: ClaimDto[] = [];
   result: any[] = [];
   policyId: any = "";
-  Status="Pending from Admin";
+  Status = "Pending from Admin";
   show: { [key: number]: boolean } = {};
 
 
@@ -29,21 +29,20 @@ export class ClaimsComponent implements OnInit {
     }
     else {
 
-      console.log("userID...", this.userId)
+
       policies.findPolicyData(this.userId).subscribe(response => {
 
-        console.log(response, "responseee....")
+
         this.result = response.result
-        console.log(this.result, "errrr")
+
         for (var i = 0; i < this.result.length; i++) {
           this.policyId = this.result[i].policyId;
-          console.log(this.result[i], "items")
-          console.log("claims", i)
+
           this.claim.push(this.result[i].claims);
           this.claim[i].claimForPolicyId = this.result[i].policyId;
-          this.claim[i].manufacturer=this.result[i].vehicle.manufacturer;
-          this.claim[i].model=this.result[i].vehicle.model
-          console.log(this.claim, "lllll")
+          this.claim[i].manufacturer = this.result[i].vehicle.manufacturer;
+          this.claim[i].model = this.result[i].vehicle.model
+
 
 
         }
