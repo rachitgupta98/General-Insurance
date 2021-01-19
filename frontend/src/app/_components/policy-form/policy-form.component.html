@@ -33,7 +33,7 @@
         <div class="insuredValue"><b>Insured value :</b> <span><b>{{thirdpartyIdv}}</b></span></div>
         <br>
         <h3 class="premiumCss">AddOns</h3>
-        <mat-list *ngFor="let addon of thirdaddonsAmount;index as i">
+        <mat-list *ngFor="let addon of thirdaddons;index as i">
           <mat-checkbox (change)="thirdaddonsAmount(i)" value={{addons.amount}} >
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
@@ -83,7 +83,7 @@
         <br>
         <h3 class="premiumCss">AddOns</h3>
         <mat-list *ngFor="let addon of addons;index as i">
-          <mat-checkbox (change)="addonsAmount(i)" value={{addons.amount}}>
+          <mat-checkbox (change)="compaddonsAmount(i)" value={{addons.amount}}>
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
         </mat-list>
