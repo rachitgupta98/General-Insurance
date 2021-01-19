@@ -86,20 +86,6 @@ export class VehicleHomeComponent implements OnInit {
       this.router.navigate(["/user_login"]);
       return;
     }
-    console.log(this.vehicleRegForm.value.regNo);
-    // this.vehicleService
-    //   .fetchVehicleInfo(this.vehicleRegForm.value.regNo)
-    //   .subscribe((data) => {
-    //     this.vehicleInfo.ownerName = data.result["Owner Name"];
-    //     this.vehicleInfo.registrationNumber = this.vehicleRegForm.value.regNo;
-    //     this.vehicleInfo.registrationDate = data.result["Registration Date"];
-    //     this.vehicleInfo.vehicleNameModel = data.result["Maker / Model"];
-    //     this.vehicleInfo.chasisNumber = data.result["Chassis No"];
-    //     this.vehicleInfo.EngineNumber = data.result["Engine No"];
-    //     this.vehicleInfo.Fuel_type = data.result["Fuel Type"];
-    //     this.vehicleInfo.vehicleType = data.result["Vehicle Class"];
-    //     //console.log(data.result["Owner Name"]);
-    //   });
     this.router.navigate(["/vehicleRegistration"]);
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Resetpassword } from '../resetpassword';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatSnackBar } from "@angular/material";
 
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/_services/user.service';
@@ -17,7 +18,7 @@ export class ResetpasswordComponent implements OnInit {
   formGroup: FormGroup
   hide = true;
   hide1 = true;
-  constructor(private formBuilder:FormBuilder,private userService: UserService, private router: Router) { }
+  constructor(private formBuilder:FormBuilder,private userService: UserService, private router: Router,private _snackBar: MatSnackBar) { }
   ngOnInit() {
     this.createForm();
     if(localStorage.getItem('userEmail')==null){
@@ -48,23 +49,24 @@ export class ResetpasswordComponent implements OnInit {
   }
   
   resetPassword() {
-    console.log("in changepasssword"); 
-    console.log(localStorage.getItem('userEmail'));
+    
     if(this.formGroup.value.password===this.formGroup.value.confirmPassword){
    this.resetpassword.userEmail=localStorage.getItem('userEmail')
    this.resetpassword.userPassword=this.formGroup.value.password;
-  // this.resetpassword.confirmPassword=this.formGroup.value.confirmPassword;
- // console.log(this.formGroup.value.password); 
-    // if( this.resetpassword.password === this.changepassword.confirmPassword){
     this.userService.resetpassword(this.resetpassword).subscribe(response => {
-     alert(JSON.stringify(response));
-   //  console.log(response);
-        console.log("password resetted");
-        localStorage.removeItem('userEmail');
+      if(response.status===200)
+      { 
+        this._snackBar.open("Password Updated ", "Dismiss", {
+          verticalPosition: "top",
+        });
         this.router.navigate(['/login']);
+      }
+        
     })
   }else{
-    alert("Password does not match");
+    this._snackBar.open("Password didn't match", "Dismiss", {
+      verticalPosition: "top",
+    });
   }
 }
 }

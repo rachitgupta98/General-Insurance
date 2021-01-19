@@ -17,7 +17,5 @@ export class DashCardComponent implements OnInit {
 }
 
 
-// card.component.ts
-
 
 

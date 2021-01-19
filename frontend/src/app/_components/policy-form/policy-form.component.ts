@@ -27,12 +27,20 @@ export class PolicyFormComponent implements OnInit {
   numberOfYear;
   thirdpartyIdv;
   addonsValue = 0;
+  thirdaddOnsValue = 0;
   planYear: number = 0;
   thirdplanYear: number = 0;
   thirdPremiumAmount;
   compPremium;
 
   addons = [
+    { type: "Engine ProtectionCover", amount: 1000, checked: false },
+    { type: "Tyre ProtectionCover", amount: 2000, checked: false },
+    { type: "Passenger Cover", amount: 1500, checked: false },
+    { type: "Driver Cover", amount: 2500, checked: false },
+  ];
+
+  thirdaddons = [
     { type: "Engine ProtectionCover", amount: 1000, checked: false },
     { type: "Tyre ProtectionCover", amount: 2000, checked: false },
     { type: "Passenger Cover", amount: 1500, checked: false },
@@ -80,12 +88,12 @@ export class PolicyFormComponent implements OnInit {
       this.finalDate2[3]
     );
     this.numberOfYear = new Date().getFullYear() - parseInt(this.finalDate2[0]);
-    console.log(this.manufacturer);
+
     let vehicle = this.vehicleCarManufacturer.find((e) => {
       if (e.model === this.manufacturer) return e.price;
     });
     this.price = parseInt(vehicle.price);
-    console.log(this.price, "price...");
+
 
     if (this.numberOfYear <= 0) {
       this._snackBar.open("insurance not applicable", "Dismiss", {
@@ -113,8 +121,9 @@ export class PolicyFormComponent implements OnInit {
 
     this.thirdpartyIdv = 0;
     this.thirdPartyodValue = (this.idvValue * 0.0197) / 2;
-    console.log(this.idvValue, "valuee");
-    console.log(this.odValue);
+
+
+
   }
   thirdPartyPlanPrice = [
     {
@@ -162,14 +171,19 @@ export class PolicyFormComponent implements OnInit {
     } else {
       this.planYear = this.comprehensivePlanPrice[i].key;
       this.comprehensivePlanPrice[i].checked = true;
+      for (var j = 0; j < this.comprehensivePlanPrice.length; j++) {
+        if (j !== i) {
+          this.comprehensivePlanPrice[j].checked = false;
+        }
+      }
       this.thirdplanYear = 0;
     }
 
-    console.log(this.planYear, "sell");
+
   }
 
   thirdselected(i: number) {
-    console.log(this.thirdPartyPlanPrice[i].checked);
+
     if (this.thirdPartyPlanPrice[i].checked) {
       this.thirdplanYear = 0;
       this.thirdPartyPlanPrice[i].checked = false;
@@ -177,11 +191,16 @@ export class PolicyFormComponent implements OnInit {
     } else {
       this.thirdplanYear = this.thirdPartyPlanPrice[i].key;
       this.thirdPartyPlanPrice[i].checked = true;
+      for (var j = 0; j < this.thirdPartyPlanPrice.length; j++) {
+        if (j !== i) {
+          this.thirdPartyPlanPrice[j].checked = false;
+        }
+      }
       this.planYear = 0;
     }
   }
 
-  addonsAmount(i: number) {
+  compaddonsAmount(i: number) {
     if (this.addons[i].checked) {
       this.addonsValue = this.addonsValue - this.addons[i].amount;
       this.addons[i].checked = false;
@@ -189,8 +208,17 @@ export class PolicyFormComponent implements OnInit {
       this.addonsValue = this.addonsValue + this.addons[i].amount;
       this.addons[i].checked = true;
     }
+  }
+  thirdaddonsAmount(i: number) {
+    if (this.thirdaddons[i].checked) {
+      this.thirdaddOnsValue = this.thirdaddOnsValue - this.thirdaddons[i].amount;
+      this.thirdaddons[i].checked = false;
+    } else {
+      this.thirdaddOnsValue = this.thirdaddOnsValue + this.thirdaddons[i].amount;
+      this.thirdaddons[i].checked = true;
+    }
 
-    console.log("addons", this.addonsValue);
+
   }
   ngOnInit() {
     if (sessionStorage.getItem("check") == "true") {
@@ -199,48 +227,48 @@ export class PolicyFormComponent implements OnInit {
     if (sessionStorage.getItem("pay") == "onPay") {
       this.router.navigate(["/home"]);
     }
-    
+
     this.calculateIDV();
   }
 
   onHandleSubmit() {
     this.thirdPremiumAmount =
-      (this.thirdPartyodValue + 450 + this.addonsValue) * this.thirdplanYear +
-      (this.thirdPartyodValue + 450 + this.addonsValue) *
-        this.thirdplanYear *
-        0.18;
+      (this.thirdPartyodValue + 450 + this.thirdaddOnsValue) * this.thirdplanYear +
+      (this.thirdPartyodValue + 450 + this.thirdaddOnsValue) *
+      this.thirdplanYear *
+      0.18;
     this.thirdPartyPlanPrice.forEach((e) => {
       if (e.key == this.thirdplanYear) e.value = this.thirdPremiumAmount;
     });
-    console.log(sessionStorage.getItem("policyId"));
+
     this.policyInfo.premiumAmount = this.thirdPremiumAmount;
     if (this.thirdplanYear == 0) {
       alert("no plan is selected for third party");
       return;
     } else {
-      console.log(this.policyInfo.premiumAmount);
+
       this.year = this.thirdPartyPlanPrice.find((e) => {
-        // console.log(this.compPremium + "   " + e.key + "  " + e.value);
+
         if (e.value === this.policyInfo.premiumAmount) {
-          console.log("done");
+
           return e.key;
         } else {
-          console.log("not found");
+
         }
       });
       this.policyInfo.policyId = sessionStorage.getItem("policyId");
-      console.log(sessionStorage.getItem("policyId"));
+
       if (sessionStorage.getItem("policyId") == null) {
         this.policyInfo.policyId = 0;
       }
-      console.log(this.policyInfo.policyId);
+
       this.policyInfo.insuranceAmount = 0;
       this.policyInfo.isExpired = false;
       this.policyInfo.planType = "Third Party";
       this.policyInfo.vehicleId = sessionStorage.getItem("vehicleId");
       this.policyInfo.userId = sessionStorage.getItem("userId");
       this.policyInfo.planYear = parseInt(this.year.key);
-      console.log(this.year);
+
       this.policyService.policyData = this.policyInfo;
       this.router.navigate(["/paymentgateway"]);
     }
@@ -251,38 +279,37 @@ export class PolicyFormComponent implements OnInit {
       (this.odValue + this.addonsValue) * this.planYear +
       (this.odValue + this.addonsValue) * this.planYear * 0.18
     ).toFixed(2);
-    console.log("premium amount", this.compPremium);
+
     this.comprehensivePlanPrice.forEach((e) => {
       if (e.key == this.planYear) e.value = this.compPremium;
     });
-    console.log(this.comprehensivePlanPrice, "valuee..comp");
-    console.log(sessionStorage.getItem("policyId"));
+
     this.policyInfo.premiumAmount = this.compPremium;
     if (this.planYear == 0) {
       alert("no plan is selected for comprehensive");
       return;
     } else {
       this.yearForComprehensive = this.comprehensivePlanPrice.find((e) => {
-        // console.log(this.compPremium + "   " + e.key + "  " + e.value);
+
         if (e.value === this.compPremium) {
-          console.log("done");
+
           return e.key;
         } else {
-          console.log("not found");
+
         }
       });
       this.policyInfo.policyId = sessionStorage.getItem("policyId");
       if (sessionStorage.getItem("policyId") == null) {
         this.policyInfo.policyId = 0;
       }
-      console.log(this.policyInfo.policyId);
+
       this.policyInfo.insuranceAmount = this.idvValue;
       this.policyInfo.isExpired = false;
       this.policyInfo.planType = "Comprehensive";
       this.policyInfo.vehicleId = sessionStorage.getItem("vehicleId");
       this.policyInfo.userId = sessionStorage.getItem("userId");
       this.policyInfo.planYear = parseInt(this.yearForComprehensive.key);
-      console.log(this.policyInfo.premiumAmount);
+
       this.policyService.policyData = this.policyInfo;
       this.router.navigate(["/paymentgateway"]);
     }

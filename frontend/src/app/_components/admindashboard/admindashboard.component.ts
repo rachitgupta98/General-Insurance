@@ -29,8 +29,8 @@ export class AdmindashboardComponent implements OnInit {
       if (matches) {
         return {
           columns: 2,
-          miniCard: { cols: 1, rows: 1 },
-          chart: { cols: 1, rows: 2 },
+          miniCard: { cols: 2, rows: 1 },
+          chart: { cols: 2, rows: 2 },
           tables: { cols: 2, rows: 4 },
         };
       }
@@ -63,13 +63,11 @@ export class AdmindashboardComponent implements OnInit {
       this.usercount = sessionStorage.getItem("userscount");
       this.policycount = sessionStorage.getItem("policycount");
       this.approvedClaims = sessionStorage.getItem("claimNo");
-      console.log("pending claimss", this.pendingClaims)
+
       this.pendingClaims = sessionStorage.getItem("pendingclaims");
       if (this.pendingClaims == null) {
         window.location.reload()
       }
-
-      console.log("pending claimss2", this.pendingClaims)
 
       this.rejectedClaims = sessionStorage.getItem("rejectedclaims");
 

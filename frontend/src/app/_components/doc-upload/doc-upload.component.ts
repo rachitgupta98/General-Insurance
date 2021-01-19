@@ -16,7 +16,7 @@ export class DocUploadComponent implements OnInit {
     private sampleService: SampeService,
     private router: Router,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (sessionStorage.getItem("userId") == null) {
@@ -29,11 +29,8 @@ export class DocUploadComponent implements OnInit {
     this.isDocument = true;
   }
   upload() {
-    // console.log(this.sampleService.claimId);
+
     this.claimId = this.sampleService.claimId;
-    // let formData: FormData = new FormData();
-    // formData.append('claimId', this.claimId);
-    // formData.append('profilePic', this.documentPic);
     this.sampleService
       .picUpload(this.documentPic, this.claimId)
       .subscribe((response) => {

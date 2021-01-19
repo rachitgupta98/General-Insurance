@@ -24,7 +24,7 @@
               </mat-radio-button>
             </div>
             <div class="right">
-              <h3>₹{{(thirdPartyodValue+450)*price.key}}</h3>
+              <h3>₹{{((thirdPartyodValue+450)*price.key).toFixed(2)}}</h3>
             </div>
             <mat-divider></mat-divider>
           </div>
@@ -33,13 +33,13 @@
         <div class="insuredValue"><b>Insured value :</b> <span><b>{{thirdpartyIdv}}</b></span></div>
         <br>
         <h3 class="premiumCss">AddOns</h3>
-        <mat-list *ngFor="let addon of addons;index as i">
-          <mat-checkbox (change)="addonsAmount(i)" value={{addons.amount}} >
+        <mat-list *ngFor="let addon of thirdaddonsAmount;index as i">
+          <mat-checkbox (change)="thirdaddonsAmount(i)" value={{addons.amount}} >
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
         </mat-list>
-        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{((thirdPartyodValue+450)+addonsValue)*thirdplanYear*0.18}}</span></div>
-        <h3 class="premiumCss">Premium Amount :{{((thirdPartyodValue+450)+addonsValue)*thirdplanYear+((thirdPartyodValue+450)+addonsValue)*thirdplanYear*0.18}}</h3>
+        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(((thirdPartyodValue+450)+addonsValue)*thirdplanYear*0.18).toFixed(2)}}</span></div>
+        <h3 class="premiumCss">Premium Amount :{{(((thirdPartyodValue+450)+addonsValue)*thirdplanYear+((thirdPartyodValue+450)+addonsValue)*thirdplanYear*0.18).toFixed(2)}}</h3>
         <button class="btn">Buy</button>
       </mat-card-content>
 
@@ -72,7 +72,7 @@
               </mat-radio-button>
             </div>
             <div class="right">
-              <h3>₹{{(odValue)*price.key}}</h3>
+              <h3>₹{{((odValue)*price.key).toFixed(2)}}</h3>
             </div>
             <mat-divider></mat-divider>
           </div>
@@ -87,8 +87,8 @@
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
         </mat-list>
-        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(odValue+addonsValue)*planYear*0.18}}</span></div>
-        <h3 class="premiumCss">Premium Amount :₹{{(odValue+addonsValue)*planYear+(odValue+addonsValue)*planYear*0.18}}</h3>
+        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{((odValue+addonsValue)*planYear*0.18).toFixed(2)}}</span></div>
+        <h3 class="premiumCss">Premium Amount :₹{{((odValue+addonsValue)*planYear+(odValue+addonsValue)*planYear*0.18).toFixed(2)}}</h3>
         
         <button matRipple class="btn">Buy</button>
       </mat-card-content>

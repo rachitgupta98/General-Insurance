@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
   refreshed: boolean = false;
 
   constructor(private router: Router) {
-    console.log("session Check", sessionStorage.getItem('userId'))
     this.userName = sessionStorage.getItem('userName')
     this.userId=sessionStorage.getItem('userId')
     this.session.userId = sessionStorage.getItem('userId')

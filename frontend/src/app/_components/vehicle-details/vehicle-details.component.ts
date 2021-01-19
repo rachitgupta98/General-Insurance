@@ -55,15 +55,15 @@ export class VehicleDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    //console.log(sessionStorage.getItem("regNo"));
+
     this.vehicleInfoModel.registrationNo = sessionStorage.getItem("regNo");
     this.vehicleService
       .fetchExistedVehicleData(sessionStorage.getItem("regNo"))
       .subscribe(
         (data) => {
-          console.log(data);
+
           if (data.result != null) {
-            console.log("200 Ok");
+
             this.checkRegistraionNo = true;
 
             this.vehicleInfoModel = data.result;
@@ -80,24 +80,11 @@ export class VehicleDetailsComponent implements OnInit {
           }
         },
         (err) => {
-          console.log("error2231eee" + err.status);
+
           this.checkRegistraionNo = false;
           sessionStorage.removeItem("vehicleId");
         }
       );
-
-    // this.vehicleService
-    //   .fetchVehicleInfo(sessionStorage.getItem("regNo"))
-    //   .subscribe((data) => {
-    //     this.vehicleInfoModel.registrationNo = sessionStorage.getItem("regNo");
-
-    //     // delete this.vdData["Fitness Upto"];
-    //     // delete this.vdData["Fuel Type"];
-    //     // delete this.vdData["Fuel Norms"];
-    //     // delete this.vdData["Road Tax Paid Upto"];
-    //     // delete this.vdData["Insurance Upto"];
-    //     console.log(data);
-    //   });
   }
 
   async handleOnSubmit(f: NgForm) {
@@ -110,7 +97,7 @@ export class VehicleDetailsComponent implements OnInit {
         await this.vehicleService
           .saveVehicleInfo(this.vehicleInfoModel)
           .subscribe((data) => {
-            console.log(data, "data....");
+
             sessionStorage.setItem("vehicleId", data.result["vehicleId"]);
             sessionStorage.setItem("manufacturer", data.result["manufacturer"]);
             sessionStorage.setItem("model", data.result["model"]);

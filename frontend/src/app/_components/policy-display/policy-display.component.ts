@@ -21,7 +21,7 @@ export class PolicyDisplayComponent implements OnInit {
   constructor(
     private vehicleService: VehicleDetailsService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     if (sessionStorage.getItem("userId") == null) {
@@ -31,15 +31,15 @@ export class PolicyDisplayComponent implements OnInit {
         .fetchPolicyByVehcileId(sessionStorage.getItem("vehicleId"))
         .subscribe(
           (data) => {
-            console.log(data);
+
             if (data.result != null) {
-              console.log("Bro");
+
               delete data.result.claims;
               delete data.result.user;
               delete data.result.vehicle;
               this.policData = data.result;
-              console.log(data);
-              //this.policyId = this.policData["policyId"];
+
+
 
               this.endDate = data.result["policyEndDate"];
               this.date2 = this.endDate.split("-");
@@ -51,13 +51,11 @@ export class PolicyDisplayComponent implements OnInit {
               this.numberOfYearLeft = this.date2[0] - new Date().getFullYear();
               this.numberOfMonthLeft = this.date2[1] - new Date().getMonth();
               this.numberOfDaysLeft = this.date2[2] - new Date().getDate();
-              console.log(this.policData);
-              console.log(this.date2[0]);
-              console.log(this.numberOfYearLeft);
+
             } else {
               this.router.navigate(["/policyForm"]);
             }
-          }, //}
+          },
           (err) => {
             this.router.navigate(["/policyForm"]);
           }

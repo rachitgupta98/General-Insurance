@@ -22,11 +22,6 @@ export class NavigationComponent implements OnInit {
   ref = 0;
   admin: boolean = false;
   ngOnInit() {
-    //
-    // if(this.auth.userId!==null)
-    // {
-    //   this.userLogged=true;
-    // }
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver

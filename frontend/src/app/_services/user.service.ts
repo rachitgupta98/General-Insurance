@@ -29,14 +29,14 @@ export class UserService {
   }
  
   forgotpassword(forgotpassword: Forgotpassword) : Observable<any> {
-    console.log(this.forgotpassword);
+    
     let url = "http://localhost:8080/forgotPassword";
    
    return this.http.post(url, forgotpassword); 
   }
 
   resetpassword(resetpassword) : Observable<any> {
-    console.log(this.resetpassword);
+    
     let url = "http://localhost:8080/resetPassword";
    
    return this.http.post(url,resetpassword); 

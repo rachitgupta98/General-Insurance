@@ -21,7 +21,6 @@ export class PremiumcalculatorComponent implements OnInit {
   maxDate: Date;
   odValue;
   addonsValue: number = 0;
-  //show:boolean=false;
   vehicleClass = ["2 Wheeler", "4 Wheeler"];
   addons = [
     { type: "Engine ProtectionCover", amount: 1000, checked: false },
@@ -62,7 +61,7 @@ export class PremiumcalculatorComponent implements OnInit {
     this.maxDate = new Date(currentYear, currentMonth, currentDay);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   addonsAmount(i: number) {
     if (this.addons[i].checked) {
@@ -73,12 +72,10 @@ export class PremiumcalculatorComponent implements OnInit {
       this.addons[i].checked = true;
     }
 
-    console.log("addons", this.addonsValue);
   }
 
   calculateIDV(f: NgForm) {
     if (f.valid) {
-      // this.flag = true;
       this.finalDate = this.registrationDate;
       this.finalDate2 = this.finalDate.toString().split(" ");
       this.finalDate3 = new Date(
@@ -95,19 +92,8 @@ export class PremiumcalculatorComponent implements OnInit {
             "Please Enter valid year, minimum age of vehicle should be 1 year"
           );
         }
-        // if (this.numberOfYear == 0) {
-        //   for (var i = 0; i < this.vehicleCarManufacturer.length; i++) {
-        //     console.log(this.vehicleCarManufacturer[i]);
-        //     if (this.vehicleCarManufacturer[i].model == this.premium.manufacturer) {
-        //       this.idvValue = parseInt(this.vehicleCarManufacturer[i].price);
-        //       this.odValue = 0.0197 * this.idvValue;
-
-        //     }
-        //   }
-        // }
         if (this.numberOfYear == 1) {
           for (var i = 0; i < this.vehicleCarManufacturer.length; i++) {
-            console.log(this.vehicleCarManufacturer[i]);
             if (
               this.vehicleCarManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -121,7 +107,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
         if (this.numberOfYear > 1 && this.numberOfYear < 3) {
           for (var i = 0; i < this.vehicleCarManufacturer.length; i++) {
-            console.log(this.vehicleCarManufacturer[i]);
+
             if (
               this.vehicleCarManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -135,7 +121,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
         if (this.numberOfYear > 2 && this.numberOfYear < 10) {
           for (var i = 0; i < this.vehicleCarManufacturer.length; i++) {
-            console.log(this.vehicleCarManufacturer[i]);
+
             if (
               this.vehicleCarManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -149,7 +135,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
         if (this.numberOfYear >= 10) {
           for (var i = 0; i < this.vehicleCarManufacturer.length; i++) {
-            console.log(this.vehicleCarManufacturer[i]);
+
             if (
               this.vehicleCarManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -163,25 +149,14 @@ export class PremiumcalculatorComponent implements OnInit {
         }
       } else {
         if (this.numberOfYear <= 0) {
-          //this.flag = !this.flag;
           alert(
             "Please Enter valid year, minimum age of vehicle should be 1 year"
           );
         }
-        // if (this.numberOfYear == 0) {
-        //   for (var i = 0; i < this.vehicleBikeManufacturer.length; i++) {
-        //     console.log(this.vehicleBikeManufacturer[i]);
-        //     if (
-        //       this.vehicleBikeManufacturer[i].model == this.premium.manufacturer
-        //     ) {
-        //       this.idvValue = parseInt(this.vehicleBikeManufacturer[i].price);
-        //       this.odValue = 0.0197 * this.idvValue;
-        //     }
-        //   }
-        // }
+
         if (this.numberOfYear == 1) {
           for (var i = 0; i < this.vehicleBikeManufacturer.length; i++) {
-            console.log(this.vehicleBikeManufacturer[i]);
+
             if (
               this.vehicleBikeManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -195,7 +170,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
         if (this.numberOfYear > 1 && this.numberOfYear < 3) {
           for (var i = 0; i < this.vehicleBikeManufacturer.length; i++) {
-            console.log(this.vehicleBikeManufacturer[i]);
+
             if (
               this.vehicleBikeManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -209,7 +184,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
         if (this.numberOfYear > 2 && this.numberOfYear < 10) {
           for (var i = 0; i < this.vehicleBikeManufacturer.length; i++) {
-            console.log(this.vehicleBikeManufacturer[i]);
+
             if (
               this.vehicleBikeManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -223,7 +198,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
         if (this.numberOfYear >= 10) {
           for (var i = 0; i < this.vehicleBikeManufacturer.length; i++) {
-            console.log(this.vehicleBikeManufacturer[i]);
+
             if (
               this.vehicleBikeManufacturer[i].model == this.premium.manufacturer
             ) {
@@ -237,11 +212,7 @@ export class PremiumcalculatorComponent implements OnInit {
         }
       }
 
-      console.log(this.premium.manufacturer);
-      console.log(this.idvValue);
 
-      console.log(this.registrationDate.toString().split(" "));
-      console.log(this.numberOfYear);
     } else {
       alert("enter all details");
     }

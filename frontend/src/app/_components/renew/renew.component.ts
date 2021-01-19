@@ -14,7 +14,7 @@ export class RenewComponent implements OnInit {
   constructor(
     private router: Router,
     private policyService: PolicyServiceService
-  ) {}
+  ) { }
 
   ngOnInit() {
     sessionStorage.removeItem("policyId");
@@ -33,7 +33,6 @@ export class RenewComponent implements OnInit {
       this.userId = sessionStorage.getItem("userId");
       this.policyService.policyToRenew(this.policyId, this.userId).subscribe(
         (data) => {
-          console.log(data);
           if (data.status != 200) {
             alert(data.message);
           } else {
@@ -43,10 +42,10 @@ export class RenewComponent implements OnInit {
           }
         },
         (err) => {
-          console.log(err);
+
         }
       );
     }
-    //this.policyService.policyToRenew(this.)
+
   }
 }

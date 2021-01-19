@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ChartComponent implements OnInit {
 
-  claims=parseInt(sessionStorage.getItem('claimNo'));
-  policies=parseInt(sessionStorage.getItem('policycount'));
+  claims = parseInt(sessionStorage.getItem('claimNo'));
+  policies = parseInt(sessionStorage.getItem('policycount'));
 
   donutChartOptions: Options = {
     chart: {
@@ -30,12 +30,12 @@ export class ChartComponent implements OnInit {
         borderColor: null,
         slicedOffset: 20,
         dataLabels: {
-          enabled:true,
+          enabled: true,
           format: '<b>{point.name}</b>: {point.percentage:.1f} %'
 
         },
       },
-      
+
     },
     tooltip: {
       pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -51,45 +51,38 @@ export class ChartComponent implements OnInit {
     series: [
       {
         type: 'pie',
-        
+
         data: [
-          // { name: 'a', y: 1, color: '#eeeeee' },
-          // { name: 'b', y: 2, color: '' },
-          { name: 'ClaimsApproved', y:this.claims, color: '#393e46' },
-          { name: 'PoliciesGiven', y:this.policies, color: '#eeeeee' },
-          // { name: 'e', y: 5, color: '#506ef9' },
+          { name: 'ClaimsApproved', y: this.claims, color: '#393e46' },
+          { name: 'PoliciesGiven', y: this.policies, color: '#eeeeee' },
         ],
       },
     ],
-    
+
   };
-  
-  
-chart=new Chart(this.donutChartOptions)
-  constructor(private admin:ClaimPolicyService,private router: Router) { 
-    admin.fetchapprovedclaims().subscribe(response=>{
-      console.log(response,"resssponse");
-      this.claims=response.result
-      sessionStorage.setItem('claimNo',response.result)
+
+
+  chart = new Chart(this.donutChartOptions)
+  constructor(private admin: ClaimPolicyService, private router: Router) {
+    admin.fetchapprovedclaims().subscribe(response => {
+      this.claims = response.result
+      sessionStorage.setItem('claimNo', response.result)
     })
-    admin.fetchpolicies().subscribe(response=>{
-      console.log(response,"policy..ka");
-      this.policies=response.result;
-      sessionStorage.setItem('policycount',response.result)
-      
+    admin.fetchpolicies().subscribe(response => {
+
+      this.policies = response.result;
+      sessionStorage.setItem('policycount', response.result)
+
     })
-    
-    
+
+
   }
 
 
   ngOnInit() {
-    // if(sessionStorage.getItem('policycount')==null)
-    // {
-    //   window.location.reload();
-    // }
-    
+
+
   }
 
-  
+
 }
