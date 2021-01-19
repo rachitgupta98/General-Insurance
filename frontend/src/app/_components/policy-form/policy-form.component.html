@@ -38,8 +38,8 @@
             {{addon.type}} : {{addon.amount}}
           </mat-checkbox>
         </mat-list>
-        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(((thirdPartyodValue+450)+addonsValue)*thirdplanYear*0.18).toFixed(2)}}</span></div>
-        <h3 class="premiumCss">Premium Amount :{{(((thirdPartyodValue+450)+addonsValue)*thirdplanYear+((thirdPartyodValue+450)+addonsValue)*thirdplanYear*0.18).toFixed(2)}}</h3>
+        <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{(((thirdPartyodValue+450)+thirdaddOnsValue)*thirdplanYear*0.18).toFixed(2)}}</span></div>
+        <h3 class="premiumCss">Premium Amount :{{(((thirdPartyodValue+450)*thirdplanYear+thirdaddOnsValue)+((thirdPartyodValue+450)+thirdaddOnsValue)*thirdplanYear*0.18).toFixed(2)}}</h3>
         <button class="btn">Buy</button>
       </mat-card-content>
 
@@ -88,7 +88,7 @@
           </mat-checkbox>
         </mat-list>
         <div class="insuredValue"><b>GST :</b> <span style="opacity: 0.5;font-weight: bold;">₹{{((odValue+addonsValue)*planYear*0.18).toFixed(2)}}</span></div>
-        <h3 class="premiumCss">Premium Amount :₹{{((odValue+addonsValue)*planYear+(odValue+addonsValue)*planYear*0.18).toFixed(2)}}</h3>
+        <h3 class="premiumCss">Premium Amount :₹{{((odValue*planYear)+addonsValue+(odValue+addonsValue)*planYear*0.18).toFixed(2)}}</h3>
         
         <button matRipple class="btn">Buy</button>
       </mat-card-content>

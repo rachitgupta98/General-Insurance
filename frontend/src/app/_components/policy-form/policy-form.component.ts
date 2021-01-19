@@ -217,7 +217,7 @@ export class PolicyFormComponent implements OnInit {
       this.thirdaddOnsValue = this.thirdaddOnsValue + this.thirdaddons[i].amount;
       this.thirdaddons[i].checked = true;
     }
-
+    
 
   }
   ngOnInit() {
@@ -232,11 +232,11 @@ export class PolicyFormComponent implements OnInit {
   }
 
   onHandleSubmit() {
+
     this.thirdPremiumAmount =
       (this.thirdPartyodValue + 450 + this.thirdaddOnsValue) * this.thirdplanYear +
       (this.thirdPartyodValue + 450 + this.thirdaddOnsValue) *
-      this.thirdplanYear *
-      0.18;
+      this.thirdplanYear *0.18;
     this.thirdPartyPlanPrice.forEach((e) => {
       if (e.key == this.thirdplanYear) e.value = this.thirdPremiumAmount;
     });
@@ -279,7 +279,6 @@ export class PolicyFormComponent implements OnInit {
       (this.odValue + this.addonsValue) * this.planYear +
       (this.odValue + this.addonsValue) * this.planYear * 0.18
     ).toFixed(2);
-
     this.comprehensivePlanPrice.forEach((e) => {
       if (e.key == this.planYear) e.value = this.compPremium;
     });
